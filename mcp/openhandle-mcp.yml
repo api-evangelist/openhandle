@@ -1,0 +1,53 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/mcp
+status: live
+server:
+  name: dev.openhandle/social-data
+  title: Openhandle
+  description: Read public Instagram, TikTok, X, and Reddit data through MCP. Connect with OAuth or an
+    Openhandle API key. Every public REST endpoint is exposed as one tool; tool names, inputs, and responses
+    match the REST API.
+  registry_manifest: https://openhandle.dev/mcp
+  manifest_format: MCP Registry server.json (2025-12-11 schema)
+  transport: streamable-http
+deployment:
+  mode: remote
+  endpoint: https://api.openhandle.dev/mcp
+  auth: oauth
+  verified: probed
+auth:
+  methods:
+  - oauth
+  - api-key
+  oauth:
+    protected_resource_metadata: https://api.openhandle.dev/.well-known/oauth-protected-resource/mcp
+    authorization_server_metadata: https://api.openhandle.dev/.well-known/oauth-authorization-server
+    registration_endpoint: https://api.openhandle.dev/oauth/register
+    grant_types:
+    - authorization_code
+    - refresh_token
+    pkce: S256
+    scopes_supported:
+    - mcp
+    - read:instagram
+    - read:tiktok
+    - read:twitter
+  api_key:
+    header: 'Authorization: Bearer <oh_test_ | oh_live_ key>'
+    note: The key prefix selects the Test or Live environment; no environment argument.
+tools:
+- name: find_test_data
+  metered: false
+  note: 'Discovery tool: find stable synthetic inputs.'
+- name: get_test_data
+  metered: false
+  note: 'Discovery tool: fetch a synthetic record.'
+- note: Endpoint tools such as instagram_get_profile call the public API, are metered like REST calls,
+    and appear in request history with channel `mcp`. The live tools/list is auth-gated (anonymous POST
+    returns 401 UNAUTHENTICATED); the full tool inventory is the 109 REST operations. Discovery tools
+    and synthetic catalog resources are unmetered and available to every connection.
+note: 'Probed 2026-09-21: GET https://openhandle.dev/mcp returns the server.json manifest (200); anonymous
+  JSON-RPC tools/list to https://api.openhandle.dev/mcp returns 401 with a WWW-Authenticate pointing at
+  the protected-resource metadata, exactly as documented. This is a real hosted remote MCP server, callable
+  by an agent after OAuth or with an API key.'

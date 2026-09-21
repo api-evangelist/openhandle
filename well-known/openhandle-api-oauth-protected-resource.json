@@ -1,0 +1,1 @@
+{"resource":"https://api.openhandle.dev/mcp","authorization_servers":["https://api.openhandle.dev"],"scopes_supported":["mcp","read:instagram","read:tiktok","read:twitter"],"bearer_methods_supported":["header"],"resource_name":"Openhandle MCP server","resource_documentation":"https://openhandle.dev/docs/mcp"}

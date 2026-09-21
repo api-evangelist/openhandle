@@ -1,0 +1,1712 @@
+{
+  "@context": {
+    "@vocab": "https://openhandle.dev/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "openhandle": "https://openhandle.dev/schema#",
+    "ErrorEnvelope": "openhandle:ErrorEnvelope",
+    "error": {
+      "@id": "openhandle:error"
+    },
+    "InstagramAudio": "openhandle:InstagramAudio",
+    "artist": {
+      "@id": "openhandle:artist"
+    },
+    "artistId": {
+      "@id": "openhandle:artistId",
+      "@type": "xsd:string"
+    },
+    "artistName": {
+      "@id": "openhandle:artistName",
+      "@type": "xsd:string"
+    },
+    "artwork": {
+      "@id": "openhandle:artwork"
+    },
+    "clusterId": {
+      "@id": "openhandle:clusterId",
+      "@type": "xsd:string"
+    },
+    "compositionStartTime": {
+      "@id": "openhandle:compositionStartTime",
+      "@type": "xsd:decimal"
+    },
+    "createdAt": {
+      "@id": "openhandle:createdAt",
+      "@type": "xsd:dateTime"
+    },
+    "duration": {
+      "@id": "openhandle:duration",
+      "@type": "xsd:decimal"
+    },
+    "fastStartUrl": {
+      "@id": "openhandle:fastStartUrl",
+      "@type": "@id"
+    },
+    "filters": {
+      "@id": "openhandle:filters",
+      "@container": "@list"
+    },
+    "hasLyrics": {
+      "@id": "openhandle:hasLyrics",
+      "@type": "xsd:boolean"
+    },
+    "highlightStartTimes": {
+      "@id": "openhandle:highlightStartTimes",
+      "@container": "@list"
+    },
+    "id": {
+      "@id": "openhandle:id",
+      "@type": "xsd:string"
+    },
+    "isAutomaticallyAttributed": {
+      "@id": "openhandle:isAutomaticallyAttributed",
+      "@type": "xsd:boolean"
+    },
+    "isCrosspostedFromFacebook": {
+      "@id": "openhandle:isCrosspostedFromFacebook",
+      "@type": "xsd:boolean"
+    },
+    "isExplicit": {
+      "@id": "openhandle:isExplicit",
+      "@type": "xsd:boolean"
+    },
+    "isTrending": {
+      "@id": "openhandle:isTrending",
+      "@type": "xsd:boolean"
+    },
+    "metrics": {
+      "@id": "openhandle:metrics",
+      "@type": "@id"
+    },
+    "monetizationType": {
+      "@id": "openhandle:monetizationType",
+      "@type": "xsd:string"
+    },
+    "musicId": {
+      "@id": "openhandle:musicId",
+      "@type": "xsd:string"
+    },
+    "originalPostId": {
+      "@id": "openhandle:originalPostId",
+      "@type": "xsd:string"
+    },
+    "overlapDuration": {
+      "@id": "openhandle:overlapDuration",
+      "@type": "xsd:decimal"
+    },
+    "parts": {
+      "@id": "openhandle:parts",
+      "@container": "@list"
+    },
+    "previewUrl": {
+      "@id": "openhandle:previewUrl",
+      "@type": "@id"
+    },
+    "spotify": {
+      "@id": "openhandle:spotify"
+    },
+    "startTime": {
+      "@id": "openhandle:startTime",
+      "@type": "xsd:decimal"
+    },
+    "streaming": {
+      "@id": "openhandle:streaming"
+    },
+    "subtype": {
+      "@id": "openhandle:subtype",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "openhandle:title",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "openhandle:type",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "openhandle:url",
+      "@type": "@id"
+    },
+    "InstagramAudioMetrics": "openhandle:InstagramAudioMetrics",
+    "photos": {
+      "@id": "openhandle:photos",
+      "@type": "xsd:integer"
+    },
+    "previousTrendRank": {
+      "@id": "openhandle:previousTrendRank",
+      "@type": "xsd:integer"
+    },
+    "reels": {
+      "@id": "openhandle:reels",
+      "@type": "xsd:integer"
+    },
+    "trendRank": {
+      "@id": "openhandle:trendRank",
+      "@type": "xsd:integer"
+    },
+    "InstagramAudioPart": "openhandle:InstagramAudioPart",
+    "parentStartTime": {
+      "@id": "openhandle:parentStartTime",
+      "@type": "xsd:decimal"
+    },
+    "InstagramAudioReference": "openhandle:InstagramAudioReference",
+    "InstagramBioLink": "openhandle:InstagramBioLink",
+    "icon": {
+      "@id": "openhandle:icon"
+    },
+    "image": {
+      "@id": "openhandle:image"
+    },
+    "isPinned": {
+      "@id": "openhandle:isPinned",
+      "@type": "xsd:boolean"
+    },
+    "isVerified": {
+      "@id": "openhandle:isVerified",
+      "@type": "xsd:boolean"
+    },
+    "InstagramClipMetadata": "openhandle:InstagramClipMetadata",
+    "audio": {
+      "@id": "openhandle:audio"
+    },
+    "partial": {
+      "@id": "openhandle:partial"
+    },
+    "postId": {
+      "@id": "openhandle:postId",
+      "@type": "xsd:string"
+    },
+    "InstagramComment": "openhandle:InstagramComment",
+    "ai": {
+      "@id": "openhandle:ai"
+    },
+    "author": {
+      "@id": "openhandle:author"
+    },
+    "isByPostAuthor": {
+      "@id": "openhandle:isByPostAuthor",
+      "@type": "xsd:boolean"
+    },
+    "isCovered": {
+      "@id": "openhandle:isCovered",
+      "@type": "xsd:boolean"
+    },
+    "isEdited": {
+      "@id": "openhandle:isEdited",
+      "@type": "xsd:boolean"
+    },
+    "isLikedByPostAuthor": {
+      "@id": "openhandle:isLikedByPostAuthor",
+      "@type": "xsd:boolean"
+    },
+    "keywords": {
+      "@id": "openhandle:keywords",
+      "@container": "@list"
+    },
+    "likedByCoauthors": {
+      "@id": "openhandle:likedByCoauthors",
+      "@container": "@list"
+    },
+    "media": {
+      "@id": "openhandle:media",
+      "@container": "@list"
+    },
+    "parentId": {
+      "@id": "openhandle:parentId",
+      "@type": "xsd:string"
+    },
+    "pinnedPosition": {
+      "@id": "openhandle:pinnedPosition",
+      "@type": "xsd:integer"
+    },
+    "previewUsers": {
+      "@id": "openhandle:previewUsers",
+      "@container": "@list"
+    },
+    "ranking": {
+      "@id": "openhandle:ranking"
+    },
+    "replies": {
+      "@id": "openhandle:replies",
+      "@container": "@list"
+    },
+    "replyToId": {
+      "@id": "openhandle:replyToId",
+      "@type": "xsd:string"
+    },
+    "sharingEnabled": {
+      "@id": "openhandle:sharingEnabled",
+      "@type": "xsd:boolean"
+    },
+    "status": {
+      "@id": "openhandle:status",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "openhandle:text",
+      "@type": "xsd:string"
+    },
+    "translation": {
+      "@id": "openhandle:translation"
+    },
+    "InstagramCommentMetadata": "openhandle:InstagramCommentMetadata",
+    "comments": {
+      "@id": "openhandle:comments",
+      "@type": "@id"
+    },
+    "InstagramCommentMetrics": "openhandle:InstagramCommentMetrics",
+    "likes": {
+      "@id": "openhandle:likes",
+      "@type": "xsd:integer"
+    },
+    "InstagramCommentModeration": "openhandle:InstagramCommentModeration",
+    "isOffensive": {
+      "@id": "openhandle:isOffensive",
+      "@type": "xsd:boolean"
+    },
+    "InstagramCommentReference": "openhandle:InstagramCommentReference",
+    "InstagramCommentSettings": "openhandle:InstagramCommentSettings",
+    "enabled": {
+      "@id": "openhandle:enabled",
+      "@type": "xsd:boolean"
+    },
+    "hasMore": {
+      "@id": "openhandle:hasMore",
+      "@type": "xsd:boolean"
+    },
+    "likesEnabled": {
+      "@id": "openhandle:likesEnabled",
+      "@type": "xsd:boolean"
+    },
+    "maxVisiblePreviewComments": {
+      "@id": "openhandle:maxVisiblePreviewComments",
+      "@type": "xsd:integer"
+    },
+    "preview": {
+      "@id": "openhandle:preview",
+      "@container": "@list"
+    },
+    "threadingEnabled": {
+      "@id": "openhandle:threadingEnabled",
+      "@type": "xsd:boolean"
+    },
+    "InstagramCoordinates": "openhandle:InstagramCoordinates",
+    "latitude": {
+      "@id": "openhandle:latitude",
+      "@type": "xsd:decimal"
+    },
+    "longitude": {
+      "@id": "openhandle:longitude",
+      "@type": "xsd:decimal"
+    },
+    "InstagramCrop": "openhandle:InstagramCrop",
+    "bottom": {
+      "@id": "openhandle:bottom",
+      "@type": "xsd:decimal"
+    },
+    "left": {
+      "@id": "openhandle:left",
+      "@type": "xsd:decimal"
+    },
+    "right": {
+      "@id": "openhandle:right",
+      "@type": "xsd:decimal"
+    },
+    "top": {
+      "@id": "openhandle:top",
+      "@type": "xsd:decimal"
+    },
+    "InstagramDASH": "openhandle:InstagramDASH",
+    "manifest": {
+      "@id": "openhandle:manifest",
+      "@type": "xsd:string"
+    },
+    "qualityCount": {
+      "@id": "openhandle:qualityCount",
+      "@type": "xsd:integer"
+    },
+    "variants": {
+      "@id": "openhandle:variants",
+      "@container": "@list"
+    },
+    "InstagramHashtag": "openhandle:InstagramHashtag",
+    "avatar": {
+      "@id": "openhandle:avatar"
+    },
+    "bio": {
+      "@id": "openhandle:bio",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "openhandle:name",
+      "@type": "xsd:string"
+    },
+    "InstagramHashtagReference": "openhandle:InstagramHashtagReference",
+    "InstagramHighlight": "openhandle:InstagramHighlight",
+    "cover": {
+      "@id": "openhandle:cover"
+    },
+    "isArchived": {
+      "@id": "openhandle:isArchived",
+      "@type": "xsd:boolean"
+    },
+    "isConvertedToReel": {
+      "@id": "openhandle:isConvertedToReel",
+      "@type": "xsd:boolean"
+    },
+    "isInProfileGrid": {
+      "@id": "openhandle:isInProfileGrid",
+      "@type": "xsd:boolean"
+    },
+    "lastStoryAt": {
+      "@id": "openhandle:lastStoryAt",
+      "@type": "xsd:dateTime"
+    },
+    "stories": {
+      "@id": "openhandle:stories",
+      "@container": "@list"
+    },
+    "updatedAt": {
+      "@id": "openhandle:updatedAt",
+      "@type": "xsd:dateTime"
+    },
+    "InstagramHighlightReference": "openhandle:InstagramHighlightReference",
+    "InstagramImage": "openhandle:InstagramImage",
+    "height": {
+      "@id": "openhandle:height",
+      "@type": "xsd:integer"
+    },
+    "isDefault": {
+      "@id": "openhandle:isDefault",
+      "@type": "xsd:boolean"
+    },
+    "isSpatial": {
+      "@id": "openhandle:isSpatial",
+      "@type": "xsd:boolean"
+    },
+    "thumbnail": {
+      "@id": "openhandle:thumbnail"
+    },
+    "width": {
+      "@id": "openhandle:width",
+      "@type": "xsd:integer"
+    },
+    "InstagramLocation": "openhandle:InstagramLocation",
+    "address": {
+      "@id": "openhandle:address",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "openhandle:category",
+      "@type": "xsd:string"
+    },
+    "coordinates": {
+      "@id": "openhandle:coordinates",
+      "@type": "@id"
+    },
+    "external": {
+      "@id": "openhandle:external"
+    },
+    "hours": {
+      "@id": "openhandle:hours"
+    },
+    "phone": {
+      "@id": "openhandle:phone",
+      "@type": "xsd:string"
+    },
+    "searchContext": {
+      "@id": "openhandle:searchContext"
+    },
+    "shortName": {
+      "@id": "openhandle:shortName",
+      "@type": "xsd:string"
+    },
+    "website": {
+      "@id": "openhandle:website",
+      "@type": "xsd:string"
+    },
+    "InstagramLocationAddress": "openhandle:InstagramLocationAddress",
+    "city": {
+      "@id": "openhandle:city",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "openhandle:countryCode",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "openhandle:postalCode",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "openhandle:region",
+      "@type": "xsd:string"
+    },
+    "street": {
+      "@id": "openhandle:street",
+      "@type": "xsd:string"
+    },
+    "InstagramLocationHours": "openhandle:InstagramLocationHours",
+    "currentStatus": {
+      "@id": "openhandle:currentStatus",
+      "@type": "xsd:string"
+    },
+    "isOpen": {
+      "@id": "openhandle:isOpen",
+      "@type": "xsd:boolean"
+    },
+    "schedule": {
+      "@id": "openhandle:schedule",
+      "@container": "@list"
+    },
+    "today": {
+      "@id": "openhandle:today",
+      "@type": "xsd:string"
+    },
+    "InstagramLocationReference": "openhandle:InstagramLocationReference",
+    "InstagramMedia": "openhandle:InstagramMedia",
+    "altText": {
+      "@id": "openhandle:altText",
+      "@type": "xsd:string"
+    },
+    "bitrate": {
+      "@id": "openhandle:bitrate",
+      "@type": "xsd:integer"
+    },
+    "commercialityStatus": {
+      "@id": "openhandle:commercialityStatus",
+      "@type": "xsd:string"
+    },
+    "crops": {
+      "@id": "openhandle:crops"
+    },
+    "firstFrame": {
+      "@id": "openhandle:firstFrame"
+    },
+    "hasAudio": {
+      "@id": "openhandle:hasAudio",
+      "@type": "xsd:boolean"
+    },
+    "originalHeight": {
+      "@id": "openhandle:originalHeight",
+      "@type": "xsd:integer"
+    },
+    "originalWidth": {
+      "@id": "openhandle:originalWidth",
+      "@type": "xsd:integer"
+    },
+    "productTags": {
+      "@id": "openhandle:productTags",
+      "@container": "@list"
+    },
+    "scrubber": {
+      "@id": "openhandle:scrubber"
+    },
+    "subtitles": {
+      "@id": "openhandle:subtitles"
+    },
+    "taggedUsers": {
+      "@id": "openhandle:taggedUsers",
+      "@container": "@list"
+    },
+    "InstagramMediaPreview": "openhandle:InstagramMediaPreview",
+    "fbid": {
+      "@id": "openhandle:fbid",
+      "@type": "xsd:string"
+    },
+    "InstagramMediaVariant": "openhandle:InstagramMediaVariant",
+    "InstagramMusic": "openhandle:InstagramMusic",
+    "posts": {
+      "@id": "openhandle:posts",
+      "@container": "@list"
+    },
+    "usageLabel": {
+      "@id": "openhandle:usageLabel",
+      "@type": "xsd:string"
+    },
+    "InstagramMusicStream": "openhandle:InstagramMusicStream",
+    "InstagramMusicStreamMetrics": "openhandle:InstagramMusicStreamMetrics",
+    "plays": {
+      "@id": "openhandle:plays",
+      "@type": "xsd:integer"
+    },
+    "InstagramNote": "openhandle:InstagramNote",
+    "InstagramOEmbed": "openhandle:InstagramOEmbed",
+    "html": {
+      "@id": "openhandle:html",
+      "@type": "xsd:string"
+    },
+    "provider": {
+      "@id": "openhandle:provider"
+    },
+    "InstagramPageMetadata": "openhandle:InstagramPageMetadata",
+    "collection": {
+      "@id": "openhandle:collection"
+    },
+    "hasMoreAfter": {
+      "@id": "openhandle:hasMoreAfter",
+      "@type": "xsd:boolean"
+    },
+    "hasMoreBefore": {
+      "@id": "openhandle:hasMoreBefore",
+      "@type": "xsd:boolean"
+    },
+    "parent": {
+      "@id": "openhandle:parent"
+    },
+    "track": {
+      "@id": "openhandle:track"
+    },
+    "InstagramPartialData": "openhandle:InstagramPartialData",
+    "errors": {
+      "@id": "openhandle:errors",
+      "@container": "@list"
+    },
+    "InstagramPartialError": "openhandle:InstagramPartialError",
+    "message": {
+      "@id": "openhandle:message",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "openhandle:path",
+      "@container": "@list"
+    },
+    "InstagramPosition": "openhandle:InstagramPosition",
+    "x": {
+      "@id": "openhandle:x",
+      "@type": "xsd:decimal"
+    },
+    "y": {
+      "@id": "openhandle:y",
+      "@type": "xsd:decimal"
+    },
+    "InstagramPost": "openhandle:InstagramPost",
+    "attribution": {
+      "@id": "openhandle:attribution"
+    },
+    "caption": {
+      "@id": "openhandle:caption"
+    },
+    "carousel": {
+      "@id": "openhandle:carousel"
+    },
+    "code": {
+      "@id": "openhandle:code",
+      "@type": "xsd:string"
+    },
+    "collaborators": {
+      "@id": "openhandle:collaborators",
+      "@container": "@list"
+    },
+    "crossposting": {
+      "@id": "openhandle:crossposting"
+    },
+    "hasDelayedMetadata": {
+      "@id": "openhandle:hasDelayedMetadata",
+      "@type": "xsd:boolean"
+    },
+    "hasTaggedUsers": {
+      "@id": "openhandle:hasTaggedUsers",
+      "@type": "xsd:boolean"
+    },
+    "hasVisualReplies": {
+      "@id": "openhandle:hasVisualReplies",
+      "@type": "xsd:boolean"
+    },
+    "invitedCollaborators": {
+      "@id": "openhandle:invitedCollaborators",
+      "@container": "@list"
+    },
+    "isEarlyAccess": {
+      "@id": "openhandle:isEarlyAccess",
+      "@type": "xsd:boolean"
+    },
+    "isFanClubPromo": {
+      "@id": "openhandle:isFanClubPromo",
+      "@type": "xsd:boolean"
+    },
+    "isOpenToPublicSubmission": {
+      "@id": "openhandle:isOpenToPublicSubmission",
+      "@type": "xsd:boolean"
+    },
+    "isPaidPartnership": {
+      "@id": "openhandle:isPaidPartnership",
+      "@type": "xsd:boolean"
+    },
+    "isPublicChatWelcomeVideo": {
+      "@id": "openhandle:isPublicChatWelcomeVideo",
+      "@type": "xsd:boolean"
+    },
+    "language": {
+      "@id": "openhandle:language",
+      "@type": "xsd:string"
+    },
+    "likeAndViewCountsHidden": {
+      "@id": "openhandle:likeAndViewCountsHidden",
+      "@type": "xsd:boolean"
+    },
+    "location": {
+      "@id": "openhandle:location"
+    },
+    "notes": {
+      "@id": "openhandle:notes",
+      "@container": "@list"
+    },
+    "pinning": {
+      "@id": "openhandle:pinning"
+    },
+    "remix": {
+      "@id": "openhandle:remix"
+    },
+    "reuse": {
+      "@id": "openhandle:reuse"
+    },
+    "shareCountHidden": {
+      "@id": "openhandle:shareCountHidden",
+      "@type": "xsd:boolean"
+    },
+    "template": {
+      "@id": "openhandle:template"
+    },
+    "InstagramPostInsight": "openhandle:InstagramPostInsight",
+    "authorId": {
+      "@id": "openhandle:authorId",
+      "@type": "xsd:string"
+    },
+    "facebook": {
+      "@id": "openhandle:facebook"
+    },
+    "hasProductTags": {
+      "@id": "openhandle:hasProductTags",
+      "@type": "xsd:boolean"
+    },
+    "organicPostId": {
+      "@id": "openhandle:organicPostId",
+      "@type": "xsd:string"
+    },
+    "InstagramPostMetrics": "openhandle:InstagramPostMetrics",
+    "instagram": {
+      "@id": "openhandle:instagram"
+    },
+    "premiumReactions": {
+      "@id": "openhandle:premiumReactions",
+      "@type": "xsd:integer"
+    },
+    "reposts": {
+      "@id": "openhandle:reposts",
+      "@type": "xsd:integer"
+    },
+    "reshares": {
+      "@id": "openhandle:reshares",
+      "@type": "xsd:integer"
+    },
+    "saves": {
+      "@id": "openhandle:saves",
+      "@type": "xsd:integer"
+    },
+    "views": {
+      "@id": "openhandle:views",
+      "@type": "xsd:integer"
+    },
+    "InstagramPostReference": "openhandle:InstagramPostReference",
+    "InstagramPrice": "openhandle:InstagramPrice",
+    "amount": {
+      "@id": "openhandle:amount",
+      "@type": "xsd:string"
+    },
+    "formatted": {
+      "@id": "openhandle:formatted",
+      "@type": "xsd:string"
+    },
+    "strippedFormatted": {
+      "@id": "openhandle:strippedFormatted",
+      "@type": "xsd:string"
+    },
+    "InstagramProduct": "openhandle:InstagramProduct",
+    "checkout": {
+      "@id": "openhandle:checkout"
+    },
+    "compoundId": {
+      "@id": "openhandle:compoundId",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "openhandle:description",
+      "@type": "xsd:string"
+    },
+    "hasVariants": {
+      "@id": "openhandle:hasVariants",
+      "@type": "xsd:boolean"
+    },
+    "isAffiliate": {
+      "@id": "openhandle:isAffiliate",
+      "@type": "xsd:boolean"
+    },
+    "isInStock": {
+      "@id": "openhandle:isInStock",
+      "@type": "xsd:boolean"
+    },
+    "merchant": {
+      "@id": "openhandle:merchant"
+    },
+    "pricing": {
+      "@id": "openhandle:pricing"
+    },
+    "retailerId": {
+      "@id": "openhandle:retailerId",
+      "@type": "xsd:string"
+    },
+    "reviewStatus": {
+      "@id": "openhandle:reviewStatus",
+      "@type": "xsd:string"
+    },
+    "InstagramProductTag": "openhandle:InstagramProductTag",
+    "position": {
+      "@id": "openhandle:position",
+      "@type": "@id"
+    },
+    "product": {
+      "@id": "openhandle:product",
+      "@type": "@id"
+    },
+    "InstagramProfile": "openhandle:InstagramProfile",
+    "accountBadges": {
+      "@id": "openhandle:accountBadges",
+      "@container": "@list"
+    },
+    "accountType": {
+      "@id": "openhandle:accountType"
+    },
+    "bioEntities": {
+      "@id": "openhandle:bioEntities",
+      "@container": "@list"
+    },
+    "bioLinks": {
+      "@id": "openhandle:bioLinks",
+      "@container": "@list"
+    },
+    "broadcastChannels": {
+      "@id": "openhandle:broadcastChannels",
+      "@type": "@id"
+    },
+    "categoryId": {
+      "@id": "openhandle:categoryId",
+      "@type": "xsd:string"
+    },
+    "contact": {
+      "@id": "openhandle:contact",
+      "@type": "@id"
+    },
+    "content": {
+      "@id": "openhandle:content",
+      "@type": "@id"
+    },
+    "contentSettings": {
+      "@id": "openhandle:contentSettings",
+      "@type": "@id"
+    },
+    "displayName": {
+      "@id": "openhandle:displayName",
+      "@type": "xsd:string"
+    },
+    "displaySettings": {
+      "@id": "openhandle:displaySettings",
+      "@type": "@id"
+    },
+    "externalUrl": {
+      "@id": "openhandle:externalUrl",
+      "@type": "@id"
+    },
+    "fanClub": {
+      "@id": "openhandle:fanClub",
+      "@type": "@id"
+    },
+    "fundraisers": {
+      "@id": "openhandle:fundraisers",
+      "@type": "@id"
+    },
+    "handle": {
+      "@id": "openhandle:handle",
+      "@type": "xsd:string"
+    },
+    "hasDigitalAvatar": {
+      "@id": "openhandle:hasDigitalAvatar",
+      "@type": "xsd:boolean"
+    },
+    "isAccountTransparencyVisible": {
+      "@id": "openhandle:isAccountTransparencyVisible",
+      "@type": "xsd:boolean"
+    },
+    "isBusiness": {
+      "@id": "openhandle:isBusiness",
+      "@type": "xsd:boolean"
+    },
+    "isFacebookOnboardedCharity": {
+      "@id": "openhandle:isFacebookOnboardedCharity",
+      "@type": "xsd:boolean"
+    },
+    "isMemorialized": {
+      "@id": "openhandle:isMemorialized",
+      "@type": "xsd:boolean"
+    },
+    "isNew": {
+      "@id": "openhandle:isNew",
+      "@type": "xsd:boolean"
+    },
+    "isOpenToCollaboration": {
+      "@id": "openhandle:isOpenToCollaboration",
+      "@type": "xsd:boolean"
+    },
+    "isPotentialBusiness": {
+      "@id": "openhandle:isPotentialBusiness",
+      "@type": "xsd:boolean"
+    },
+    "isPrivate": {
+      "@id": "openhandle:isPrivate",
+      "@type": "xsd:boolean"
+    },
+    "isUnpublished": {
+      "@id": "openhandle:isUnpublished",
+      "@type": "xsd:boolean"
+    },
+    "mediaPreviews": {
+      "@id": "openhandle:mediaPreviews",
+      "@container": "@list"
+    },
+    "messagingFbid": {
+      "@id": "openhandle:messagingFbid",
+      "@type": "xsd:string"
+    },
+    "pronouns": {
+      "@id": "openhandle:pronouns",
+      "@container": "@list"
+    },
+    "socialContext": {
+      "@id": "openhandle:socialContext",
+      "@type": "xsd:string"
+    },
+    "suggestion": {
+      "@id": "openhandle:suggestion"
+    },
+    "threads": {
+      "@id": "openhandle:threads",
+      "@type": "@id"
+    },
+    "upcomingEvents": {
+      "@id": "openhandle:upcomingEvents",
+      "@container": "@list"
+    },
+    "InstagramProfileAbout": "openhandle:InstagramProfileAbout",
+    "country": {
+      "@id": "openhandle:country",
+      "@type": "xsd:string"
+    },
+    "joinedAt": {
+      "@id": "openhandle:joinedAt",
+      "@type": "xsd:string"
+    },
+    "InstagramProfileAddress": "openhandle:InstagramProfileAddress",
+    "cityId": {
+      "@id": "openhandle:cityId",
+      "@type": "xsd:string"
+    },
+    "InstagramProfileBroadcastChannel": "openhandle:InstagramProfileBroadcastChannel",
+    "creator": {
+      "@id": "openhandle:creator"
+    },
+    "InstagramProfileBroadcastChannels": "openhandle:InstagramProfileBroadcastChannels",
+    "hasPublicChannels": {
+      "@id": "openhandle:hasPublicChannels",
+      "@type": "xsd:boolean"
+    },
+    "isCreator": {
+      "@id": "openhandle:isCreator",
+      "@type": "xsd:boolean"
+    },
+    "pinned": {
+      "@id": "openhandle:pinned",
+      "@container": "@list"
+    },
+    "InstagramProfileContact": "openhandle:InstagramProfileContact",
+    "contactPhone": {
+      "@id": "openhandle:contactPhone",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "openhandle:email",
+      "@type": "xsd:string"
+    },
+    "method": {
+      "@id": "openhandle:method",
+      "@type": "xsd:string"
+    },
+    "phoneCountryCode": {
+      "@id": "openhandle:phoneCountryCode",
+      "@type": "xsd:string"
+    },
+    "InstagramProfileContent": "openhandle:InstagramProfileContent",
+    "hasGuides": {
+      "@id": "openhandle:hasGuides",
+      "@type": "xsd:boolean"
+    },
+    "hasHighlights": {
+      "@id": "openhandle:hasHighlights",
+      "@type": "xsd:boolean"
+    },
+    "hasLongformMedia": {
+      "@id": "openhandle:hasLongformMedia",
+      "@type": "xsd:boolean"
+    },
+    "hasMusic": {
+      "@id": "openhandle:hasMusic",
+      "@type": "xsd:boolean"
+    },
+    "hasVideos": {
+      "@id": "openhandle:hasVideos",
+      "@type": "xsd:boolean"
+    },
+    "hasVisibleNotes": {
+      "@id": "openhandle:hasVisibleNotes",
+      "@type": "xsd:boolean"
+    },
+    "InstagramProfileContentSettings": "openhandle:InstagramProfileContentSettings",
+    "highlightResharingEnabled": {
+      "@id": "openhandle:highlightResharingEnabled",
+      "@type": "xsd:boolean"
+    },
+    "postRemixingEnabled": {
+      "@id": "openhandle:postRemixingEnabled",
+      "@type": "xsd:boolean"
+    },
+    "postResharingEnabled": {
+      "@id": "openhandle:postResharingEnabled",
+      "@type": "xsd:boolean"
+    },
+    "reelRemixingEnabled": {
+      "@id": "openhandle:reelRemixingEnabled",
+      "@type": "xsd:boolean"
+    },
+    "InstagramProfileDisplaySettings": "openhandle:InstagramProfileDisplaySettings",
+    "showCategory": {
+      "@id": "openhandle:showCategory",
+      "@type": "xsd:boolean"
+    },
+    "showPublicContacts": {
+      "@id": "openhandle:showPublicContacts",
+      "@type": "xsd:boolean"
+    },
+    "InstagramProfileFanClub": "openhandle:InstagramProfileFanClub",
+    "hasExclusiveFeedContent": {
+      "@id": "openhandle:hasExclusiveFeedContent",
+      "@type": "xsd:boolean"
+    },
+    "largestPublicBroadcastChannelId": {
+      "@id": "openhandle:largestPublicBroadcastChannelId",
+      "@type": "xsd:string"
+    },
+    "InstagramProfileFundraisers": "openhandle:InstagramProfileFundraisers",
+    "items": {
+      "@id": "openhandle:items",
+      "@container": "@list"
+    },
+    "InstagramProfileLocation": "openhandle:InstagramProfileLocation",
+    "InstagramProfileMetrics": "openhandle:InstagramProfileMetrics",
+    "arEffects": {
+      "@id": "openhandle:arEffects",
+      "@type": "xsd:integer"
+    },
+    "followers": {
+      "@id": "openhandle:followers",
+      "@type": "xsd:integer"
+    },
+    "following": {
+      "@id": "openhandle:following",
+      "@type": "xsd:integer"
+    },
+    "InstagramProfileReference": "openhandle:InstagramProfileReference",
+    "InstagramProfileThreads": "openhandle:InstagramProfileThreads",
+    "isActive": {
+      "@id": "openhandle:isActive",
+      "@type": "xsd:boolean"
+    },
+    "joinerLabel": {
+      "@id": "openhandle:joinerLabel",
+      "@type": "xsd:string"
+    },
+    "InstagramScrubber": "openhandle:InstagramScrubber",
+    "maxThumbnailsPerSprite": {
+      "@id": "openhandle:maxThumbnailsPerSprite",
+      "@type": "xsd:integer"
+    },
+    "thumbnailDuration": {
+      "@id": "openhandle:thumbnailDuration",
+      "@type": "xsd:decimal"
+    },
+    "thumbnailHeight": {
+      "@id": "openhandle:thumbnailHeight",
+      "@type": "xsd:integer"
+    },
+    "thumbnailWidth": {
+      "@id": "openhandle:thumbnailWidth",
+      "@type": "xsd:integer"
+    },
+    "thumbnailsPerRow": {
+      "@id": "openhandle:thumbnailsPerRow",
+      "@type": "xsd:integer"
+    },
+    "thumbnailsPerSprite": {
+      "@id": "openhandle:thumbnailsPerSprite",
+      "@type": "xsd:integer"
+    },
+    "urls": {
+      "@id": "openhandle:urls",
+      "@container": "@list"
+    },
+    "InstagramSticker": "openhandle:InstagramSticker",
+    "endTime": {
+      "@id": "openhandle:endTime",
+      "@type": "xsd:decimal"
+    },
+    "hashtag": {
+      "@id": "openhandle:hashtag"
+    },
+    "isHidden": {
+      "@id": "openhandle:isHidden",
+      "@type": "xsd:boolean"
+    },
+    "post": {
+      "@id": "openhandle:post"
+    },
+    "targetMediaId": {
+      "@id": "openhandle:targetMediaId",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "openhandle:user"
+    },
+    "InstagramStickerPost": "openhandle:InstagramStickerPost",
+    "mediaType": {
+      "@id": "openhandle:mediaType",
+      "@type": "xsd:string"
+    },
+    "productType": {
+      "@id": "openhandle:productType",
+      "@type": "xsd:string"
+    },
+    "InstagramStory": "openhandle:InstagramStory",
+    "expiresAt": {
+      "@id": "openhandle:expiresAt",
+      "@type": "xsd:dateTime"
+    },
+    "highlights": {
+      "@id": "openhandle:highlights",
+      "@container": "@list"
+    },
+    "isLastVideoSegment": {
+      "@id": "openhandle:isLastVideoSegment",
+      "@type": "xsd:boolean"
+    },
+    "stickers": {
+      "@id": "openhandle:stickers",
+      "@container": "@list"
+    },
+    "InstagramStoryCollection": "openhandle:InstagramStoryCollection",
+    "audience": {
+      "@id": "openhandle:audience"
+    },
+    "InstagramStoryReference": "openhandle:InstagramStoryReference",
+    "InstagramStreamVariant": "openhandle:InstagramStreamVariant",
+    "codec": {
+      "@id": "openhandle:codec",
+      "@type": "xsd:string"
+    },
+    "frameRate": {
+      "@id": "openhandle:frameRate",
+      "@type": "xsd:decimal"
+    },
+    "mimeType": {
+      "@id": "openhandle:mimeType",
+      "@type": "xsd:string"
+    },
+    "qualityLabel": {
+      "@id": "openhandle:qualityLabel",
+      "@type": "xsd:string"
+    },
+    "sampleRate": {
+      "@id": "openhandle:sampleRate",
+      "@type": "xsd:integer"
+    },
+    "sizeBytes": {
+      "@id": "openhandle:sizeBytes",
+      "@type": "xsd:integer"
+    },
+    "InstagramStreaming": "openhandle:InstagramStreaming",
+    "dash": {
+      "@id": "openhandle:dash"
+    },
+    "InstagramSubtitles": "openhandle:InstagramSubtitles",
+    "confidence": {
+      "@id": "openhandle:confidence",
+      "@type": "xsd:decimal"
+    },
+    "generated": {
+      "@id": "openhandle:generated",
+      "@type": "xsd:boolean"
+    },
+    "locale": {
+      "@id": "openhandle:locale",
+      "@type": "xsd:string"
+    },
+    "InstagramSuggestion": "openhandle:InstagramSuggestion",
+    "hasStoryRing": {
+      "@id": "openhandle:hasStoryRing",
+      "@type": "xsd:boolean"
+    },
+    "largeImages": {
+      "@id": "openhandle:largeImages",
+      "@container": "@list"
+    },
+    "thumbnails": {
+      "@id": "openhandle:thumbnails",
+      "@container": "@list"
+    },
+    "InstagramTemplate": "openhandle:InstagramTemplate",
+    "audioTitle": {
+      "@id": "openhandle:audioTitle",
+      "@type": "xsd:string"
+    },
+    "effectId": {
+      "@id": "openhandle:effectId",
+      "@type": "xsd:string"
+    },
+    "effects": {
+      "@id": "openhandle:effects"
+    },
+    "minimumSegments": {
+      "@id": "openhandle:minimumSegments",
+      "@type": "xsd:integer"
+    },
+    "segments": {
+      "@id": "openhandle:segments",
+      "@container": "@list"
+    },
+    "InstagramTemplateInfo": "openhandle:InstagramTemplateInfo",
+    "InstagramTemplateSegment": "openhandle:InstagramTemplateSegment",
+    "assetEndTime": {
+      "@id": "openhandle:assetEndTime",
+      "@type": "xsd:decimal"
+    },
+    "assetStartTime": {
+      "@id": "openhandle:assetStartTime",
+      "@type": "xsd:decimal"
+    },
+    "InstagramUserTag": "openhandle:InstagramUserTag",
+    "MessageEnvelope": "openhandle:MessageEnvelope",
+    "RedditAuthor": "openhandle:RedditAuthor",
+    "flair": {
+      "@id": "openhandle:flair"
+    },
+    "isPremium": {
+      "@id": "openhandle:isPremium",
+      "@type": "xsd:boolean"
+    },
+    "placeholder": {
+      "@id": "openhandle:placeholder",
+      "@type": "xsd:string"
+    },
+    "RedditComment": "openhandle:RedditComment",
+    "community": {
+      "@id": "openhandle:community"
+    },
+    "depth": {
+      "@id": "openhandle:depth",
+      "@type": "xsd:integer"
+    },
+    "display": {
+      "@id": "openhandle:display",
+      "@type": "@id"
+    },
+    "distinguishedBy": {
+      "@id": "openhandle:distinguishedBy",
+      "@type": "xsd:string"
+    },
+    "editedAt": {
+      "@id": "openhandle:editedAt",
+      "@type": "xsd:dateTime"
+    },
+    "isControversial": {
+      "@id": "openhandle:isControversial",
+      "@type": "xsd:boolean"
+    },
+    "isLocked": {
+      "@id": "openhandle:isLocked",
+      "@type": "xsd:boolean"
+    },
+    "isStickied": {
+      "@id": "openhandle:isStickied",
+      "@type": "xsd:boolean"
+    },
+    "textHtml": {
+      "@id": "openhandle:textHtml",
+      "@type": "xsd:string"
+    },
+    "visibility": {
+      "@id": "openhandle:visibility",
+      "@type": "@id"
+    },
+    "RedditCommentDisplay": "openhandle:RedditCommentDisplay",
+    "collapsedReason": {
+      "@id": "openhandle:collapsedReason",
+      "@type": "xsd:string"
+    },
+    "isCollapsed": {
+      "@id": "openhandle:isCollapsed",
+      "@type": "xsd:boolean"
+    },
+    "RedditCommentMetrics": "openhandle:RedditCommentMetrics",
+    "awards": {
+      "@id": "openhandle:awards",
+      "@type": "xsd:integer"
+    },
+    "gilded": {
+      "@id": "openhandle:gilded",
+      "@type": "xsd:integer"
+    },
+    "score": {
+      "@id": "openhandle:score",
+      "@type": "xsd:integer"
+    },
+    "RedditCommentReference": "openhandle:RedditCommentReference",
+    "RedditCommentSettings": "openhandle:RedditCommentSettings",
+    "restrictCommenting": {
+      "@id": "openhandle:restrictCommenting",
+      "@type": "xsd:boolean"
+    },
+    "scoreHideDuration": {
+      "@id": "openhandle:scoreHideDuration",
+      "@type": "xsd:integer"
+    },
+    "suggestedSort": {
+      "@id": "openhandle:suggestedSort",
+      "@type": "xsd:string"
+    },
+    "RedditCommentVisibility": "openhandle:RedditCommentVisibility",
+    "isScoreHidden": {
+      "@id": "openhandle:isScoreHidden",
+      "@type": "xsd:boolean"
+    },
+    "RedditCommentsSetting": "openhandle:RedditCommentsSetting",
+    "allowLiveComments": {
+      "@id": "openhandle:allowLiveComments",
+      "@type": "xsd:boolean"
+    },
+    "discussionType": {
+      "@id": "openhandle:discussionType",
+      "@type": "xsd:string"
+    },
+    "isContestMode": {
+      "@id": "openhandle:isContestMode",
+      "@type": "xsd:boolean"
+    },
+    "RedditCommunity": "openhandle:RedditCommunity",
+    "displayHandle": {
+      "@id": "openhandle:displayHandle",
+      "@type": "xsd:string"
+    },
+    "isQuarantined": {
+      "@id": "openhandle:isQuarantined",
+      "@type": "xsd:boolean"
+    },
+    "RedditCommunityHandle": "openhandle:RedditCommunityHandle",
+    "RedditDisplaySettings": "openhandle:RedditDisplaySettings",
+    "showMedia": {
+      "@id": "openhandle:showMedia",
+      "@type": "xsd:boolean"
+    },
+    "RedditEmbed": "openhandle:RedditEmbed",
+    "domain": {
+      "@id": "openhandle:domain",
+      "@type": "xsd:string"
+    },
+    "mediaDomainUrl": {
+      "@id": "openhandle:mediaDomainUrl",
+      "@type": "@id"
+    },
+    "scrolling": {
+      "@id": "openhandle:scrolling",
+      "@type": "xsd:boolean"
+    },
+    "version": {
+      "@id": "openhandle:version",
+      "@type": "xsd:string"
+    },
+    "RedditEmbedAuthor": "openhandle:RedditEmbedAuthor",
+    "RedditEmbedSource": "openhandle:RedditEmbedSource",
+    "RedditFlair": "openhandle:RedditFlair",
+    "backgroundColor": {
+      "@id": "openhandle:backgroundColor",
+      "@type": "xsd:string"
+    },
+    "cssClass": {
+      "@id": "openhandle:cssClass",
+      "@type": "xsd:string"
+    },
+    "hasPatreonFlair": {
+      "@id": "openhandle:hasPatreonFlair",
+      "@type": "xsd:boolean"
+    },
+    "templateId": {
+      "@id": "openhandle:templateId",
+      "@type": "xsd:string"
+    },
+    "textColor": {
+      "@id": "openhandle:textColor",
+      "@type": "xsd:string"
+    },
+    "RedditImage": "openhandle:RedditImage",
+    "label": {
+      "@id": "openhandle:label",
+      "@type": "xsd:string"
+    },
+    "RedditKarma": "openhandle:RedditKarma",
+    "awardee": {
+      "@id": "openhandle:awardee",
+      "@type": "xsd:integer"
+    },
+    "awarder": {
+      "@id": "openhandle:awarder",
+      "@type": "xsd:integer"
+    },
+    "total": {
+      "@id": "openhandle:total",
+      "@type": "xsd:integer"
+    },
+    "RedditListingContext": "openhandle:RedditListingContext",
+    "originalPost": {
+      "@id": "openhandle:originalPost"
+    },
+    "RedditMedia": "openhandle:RedditMedia",
+    "bitrateKbps": {
+      "@id": "openhandle:bitrateKbps",
+      "@type": "xsd:integer"
+    },
+    "isAnimated": {
+      "@id": "openhandle:isAnimated",
+      "@type": "xsd:boolean"
+    },
+    "transcodingStatus": {
+      "@id": "openhandle:transcodingStatus",
+      "@type": "xsd:string"
+    },
+    "RedditMediaVariant": "openhandle:RedditMediaVariant",
+    "format": {
+      "@id": "openhandle:format",
+      "@type": "xsd:string"
+    },
+    "RedditPageMetadata": "openhandle:RedditPageMetadata",
+    "context": {
+      "@id": "openhandle:context"
+    },
+    "count": {
+      "@id": "openhandle:count",
+      "@type": "xsd:integer"
+    },
+    "limit": {
+      "@id": "openhandle:limit",
+      "@type": "xsd:integer"
+    },
+    "previousCursor": {
+      "@id": "openhandle:previousCursor",
+      "@type": "xsd:string"
+    },
+    "query": {
+      "@id": "openhandle:query",
+      "@type": "xsd:string"
+    },
+    "siteRules": {
+      "@id": "openhandle:siteRules",
+      "@container": "@list"
+    },
+    "sort": {
+      "@id": "openhandle:sort",
+      "@type": "xsd:string"
+    },
+    "RedditPost": "openhandle:RedditPost",
+    "embed": {
+      "@id": "openhandle:embed"
+    },
+    "isCrosspostable": {
+      "@id": "openhandle:isCrosspostable",
+      "@type": "xsd:boolean"
+    },
+    "isGallery": {
+      "@id": "openhandle:isGallery",
+      "@type": "xsd:boolean"
+    },
+    "isMediaOnly": {
+      "@id": "openhandle:isMediaOnly",
+      "@type": "xsd:boolean"
+    },
+    "isMeta": {
+      "@id": "openhandle:isMeta",
+      "@type": "xsd:boolean"
+    },
+    "isOriginalContent": {
+      "@id": "openhandle:isOriginalContent",
+      "@type": "xsd:boolean"
+    },
+    "isRedditMediaDomain": {
+      "@id": "openhandle:isRedditMediaDomain",
+      "@type": "xsd:boolean"
+    },
+    "isSelf": {
+      "@id": "openhandle:isSelf",
+      "@type": "xsd:boolean"
+    },
+    "isSensitive": {
+      "@id": "openhandle:isSensitive",
+      "@type": "xsd:boolean"
+    },
+    "isSpoiler": {
+      "@id": "openhandle:isSpoiler",
+      "@type": "xsd:boolean"
+    },
+    "isVideo": {
+      "@id": "openhandle:isVideo",
+      "@type": "xsd:boolean"
+    },
+    "linkUrl": {
+      "@id": "openhandle:linkUrl",
+      "@type": "@id"
+    },
+    "removedByCategory": {
+      "@id": "openhandle:removedByCategory",
+      "@type": "xsd:string"
+    },
+    "topAwardedType": {
+      "@id": "openhandle:topAwardedType",
+      "@type": "xsd:string"
+    },
+    "RedditPostFlairSettings": "openhandle:RedditPostFlairSettings",
+    "RedditPostMetrics": "openhandle:RedditPostMetrics",
+    "crossposts": {
+      "@id": "openhandle:crossposts",
+      "@type": "xsd:integer"
+    },
+    "upvoteRatio": {
+      "@id": "openhandle:upvoteRatio",
+      "@type": "xsd:decimal"
+    },
+    "RedditPostReference": "openhandle:RedditPostReference",
+    "RedditPostVisibility": "openhandle:RedditPostVisibility",
+    "isRobotIndexable": {
+      "@id": "openhandle:isRobotIndexable",
+      "@type": "xsd:boolean"
+    },
+    "RedditPostingLabels": "openhandle:RedditPostingLabels",
+    "link": {
+      "@id": "openhandle:link",
+      "@type": "xsd:string"
+    },
+    "RedditPostingSettings": "openhandle:RedditPostingSettings",
+    "allOriginalContent": {
+      "@id": "openhandle:allOriginalContent",
+      "@type": "xsd:boolean"
+    },
+    "allowGalleries": {
+      "@id": "openhandle:allowGalleries",
+      "@type": "xsd:boolean"
+    },
+    "allowImages": {
+      "@id": "openhandle:allowImages",
+      "@type": "xsd:boolean"
+    },
+    "allowPolls": {
+      "@id": "openhandle:allowPolls",
+      "@type": "xsd:boolean"
+    },
+    "allowVideos": {
+      "@id": "openhandle:allowVideos",
+      "@type": "xsd:boolean"
+    },
+    "instructions": {
+      "@id": "openhandle:instructions"
+    },
+    "labels": {
+      "@id": "openhandle:labels"
+    },
+    "originalContentTagEnabled": {
+      "@id": "openhandle:originalContentTagEnabled",
+      "@type": "xsd:boolean"
+    },
+    "restrictPosting": {
+      "@id": "openhandle:restrictPosting",
+      "@type": "xsd:boolean"
+    },
+    "spoilersEnabled": {
+      "@id": "openhandle:spoilersEnabled",
+      "@type": "xsd:boolean"
+    },
+    "RedditProfile": "openhandle:RedditProfile",
+    "acceptsFollowers": {
+      "@id": "openhandle:acceptsFollowers",
+      "@type": "xsd:boolean"
+    },
+    "banner": {
+      "@id": "openhandle:banner"
+    },
+    "isEmployee": {
+      "@id": "openhandle:isEmployee",
+      "@type": "xsd:boolean"
+    },
+    "isModerator": {
+      "@id": "openhandle:isModerator",
+      "@type": "xsd:boolean"
+    },
+    "profileCommunity": {
+      "@id": "openhandle:profileCommunity"
+    },
+    "snoovatar": {
+      "@id": "openhandle:snoovatar"
+    },
+    "verification": {
+      "@id": "openhandle:verification",
+      "@type": "@id"
+    },
+    "RedditProfileCommunity": "openhandle:RedditProfileCommunity",
+    "communityIcon": {
+      "@id": "openhandle:communityIcon"
+    },
+    "primaryColor": {
+      "@id": "openhandle:primaryColor",
+      "@type": "xsd:string"
+    },
+    "RedditProfileMetrics": "openhandle:RedditProfileMetrics",
+    "karma": {
+      "@id": "openhandle:karma",
+      "@type": "@id"
+    },
+    "RedditProfileVisibility": "openhandle:RedditProfileVisibility",
+    "hideFromRobots": {
+      "@id": "openhandle:hideFromRobots",
+      "@type": "xsd:boolean"
+    },
+    "RedditReportSettings": "openhandle:RedditReportSettings",
+    "allowCustomReasons": {
+      "@id": "openhandle:allowCustomReasons",
+      "@type": "xsd:boolean"
+    },
+    "RedditRule": "openhandle:RedditRule",
+    "kind": {
+      "@id": "openhandle:kind",
+      "@type": "xsd:string"
+    },
+    "priority": {
+      "@id": "openhandle:priority",
+      "@type": "xsd:integer"
+    },
+    "violationReason": {
+      "@id": "openhandle:violationReason",
+      "@type": "xsd:string"
+    },
+    "RedditSubreddit": "openhandle:RedditSubreddit",
+    "branding": {
+      "@id": "openhandle:branding",
+      "@type": "@id"
+    },
+    "settings": {
+      "@id": "openhandle:settings",
+      "@type": "@id"
+    },
+    "summary": {
+      "@id": "openhandle:summary"
+    },
+    "RedditSubredditBranding": "openhandle:RedditSubredditBranding",
+    "colors": {
+      "@id": "openhandle:colors",
+      "@type": "@id"
+    },
+    "header": {
+      "@id": "openhandle:header"
+    },
+    "headerTitle": {
+      "@id": "openhandle:headerTitle",
+      "@type": "xsd:string"
+    },
+    "RedditSubredditColors": "openhandle:RedditSubredditColors",
+    "bannerBackground": {
+      "@id": "openhandle:bannerBackground",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "openhandle:key",
+      "@type": "xsd:string"
+    },
+    "primary": {
+      "@id": "openhandle:primary",
+      "@type": "xsd:string"
+    },
+    "RedditSubredditMetrics": "openhandle:RedditSubredditMetrics",
+    "subscribers": {
+      "@id": "openhandle:subscribers",
+      "@type": "xsd:integer"
+    },
+    "RedditSubredditSettings": "openhandle:RedditSubredditSettings",
+    "postFlair": {
+      "@id": "openhandle:postFlair",
+      "@type": "@id"
+    },
+    "posting": {
+      "@id": "openhandle:posting",
+      "@type": "@id"
+    },
+    "reports": {
+      "@id": "openhandle:reports",
+      "@type": "@id"
+    },
+    "RedditText": "openhandle:RedditText",
+    "RedditThumbnail": "openhandle:RedditThumbnail",
+    "state": {
+      "@id": "openhandle:state",
+      "@type": "xsd:string"
+    },
+    "RedditTrophy": "openhandle:RedditTrophy",
+    "awardId": {
+      "@id": "openhandle:awardId",
+      "@type": "xsd:string"
+    },
+    "grantedAt": {
+      "@id": "openhandle:grantedAt",
+      "@type": "xsd:dateTime"
+    },
+    "RedditVerification": "openhandle:RedditVerification",
+    "hasVerifiedEmail": {
+      "@id": "openhandle:hasVerifiedEmail",
+      "@type": "xsd:boolean"
+    },
+    "reportedVerified": {
+      "@id": "openhandle:reportedVerified",
+      "@type": "xsd:boolean"
+    },
+    "RedditWikiAuthor": "openhandle:RedditWikiAuthor",
+    "RedditWikiContent": "openhandle:RedditWikiContent",
+    "markdown": {
+      "@id": "openhandle:markdown",
+      "@type": "xsd:string"
+    },
+    "RedditWikiPage": "openhandle:RedditWikiPage",
+    "revision": {
+      "@id": "openhandle:revision"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Openhandle API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Openhandle's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-09-21) from openapi/openhandle-openapi.yml.",
+  "dcterms:created": "2026-09-21",
+  "dcterms:source": [
+    "openapi/openhandle-openapi.yml"
+  ]
+}

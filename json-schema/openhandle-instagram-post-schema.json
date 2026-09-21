@@ -1,0 +1,4206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/openhandle/main/json-schema/openhandle-instagram-post-schema.json",
+  "title": "InstagramPost",
+  "x-generated": "2026-09-21",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/openhandle-openapi.yml#/components/schemas/InstagramPost",
+  "additionalProperties": false,
+  "properties": {
+    "ai": {
+      "additionalProperties": false,
+      "properties": {
+        "detectionMethod": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "label": {
+          "additionalProperties": false,
+          "properties": {
+            "detectionMethod": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "isSelfDisclosed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "subtitle": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "text": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "text",
+            "subtitle",
+            "detectionMethod",
+            "isSelfDisclosed"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "detectionMethod",
+        "label"
+      ],
+      "type": "object"
+    },
+    "attribution": {
+      "additionalProperties": false,
+      "properties": {
+        "originalPost": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramPostReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "originalPost"
+      ],
+      "type": "object"
+    },
+    "author": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/InstagramProfileReference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "caption": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/InstagramCommentReference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "carousel": {
+      "additionalProperties": false,
+      "properties": {
+        "itemCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "pendingItemCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "previousSubmitters": {
+          "items": {
+            "$ref": "#/$defs/InstagramProfileReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "submissionState": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "itemCount",
+        "pendingItemCount",
+        "submissionState",
+        "previousSubmitters"
+      ],
+      "type": "object"
+    },
+    "code": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "collaborators": {
+      "items": {
+        "$ref": "#/$defs/InstagramProfileReference"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "comments": {
+      "$ref": "#/$defs/InstagramCommentSettings"
+    },
+    "createdAt": {
+      "format": "date-time",
+      "minLength": 1,
+      "type": "string"
+    },
+    "crossposting": {
+      "additionalProperties": false,
+      "properties": {
+        "isFeedbackAggregated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isSharedToFacebook": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isSharedToFacebook",
+        "isFeedbackAggregated"
+      ],
+      "type": "object"
+    },
+    "fbid": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hasDelayedMetadata": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "hasTaggedUsers": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "hasVisualReplies": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "invitedCollaborators": {
+      "items": {
+        "$ref": "#/$defs/InstagramProfileReference"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "isEarlyAccess": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isFanClubPromo": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isOpenToPublicSubmission": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isPaidPartnership": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isPublicChatWelcomeVideo": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "language": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "likeAndViewCountsHidden": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "location": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/InstagramLocationReference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "media": {
+      "items": {
+        "$ref": "#/$defs/InstagramMedia"
+      },
+      "type": "array"
+    },
+    "metrics": {
+      "$ref": "#/$defs/InstagramPostMetrics"
+    },
+    "notes": {
+      "items": {
+        "$ref": "#/$defs/InstagramNote"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "pinning": {
+      "additionalProperties": false,
+      "properties": {
+        "profileUserIds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "reelsUserIds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "profileUserIds",
+        "reelsUserIds"
+      ],
+      "type": "object"
+    },
+    "productTags": {
+      "items": {
+        "$ref": "#/$defs/InstagramProductTag"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "remix": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "carouselRemixesAllowed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "crosspostingAllowed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasBeenRemixed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isRequestingRemixes": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "allowed",
+        "carouselRemixesAllowed",
+        "hasBeenRemixed",
+        "isRequestingRemixes",
+        "crosspostingAllowed"
+      ],
+      "type": "object"
+    },
+    "reuse": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "cutoutStickersAllowed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "allowed",
+        "cutoutStickersAllowed"
+      ],
+      "type": "object"
+    },
+    "shareCountHidden": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "sharingEnabled": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "taggedUsers": {
+      "items": {
+        "$ref": "#/$defs/InstagramUserTag"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "template": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/InstagramTemplateInfo"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "text": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "title": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "format": "uri",
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "code",
+    "fbid",
+    "type",
+    "url",
+    "title",
+    "text",
+    "createdAt",
+    "author",
+    "caption",
+    "media",
+    "metrics",
+    "comments",
+    "taggedUsers",
+    "productTags",
+    "collaborators",
+    "invitedCollaborators",
+    "location",
+    "isPaidPartnership",
+    "isEarlyAccess",
+    "likeAndViewCountsHidden",
+    "shareCountHidden",
+    "hasVisualReplies",
+    "hasDelayedMetadata",
+    "language",
+    "hasTaggedUsers",
+    "isOpenToPublicSubmission",
+    "sharingEnabled",
+    "isFanClubPromo",
+    "isPublicChatWelcomeVideo",
+    "reuse",
+    "remix",
+    "pinning",
+    "carousel",
+    "ai",
+    "notes",
+    "crossposting",
+    "attribution",
+    "template"
+  ],
+  "type": "object",
+  "$defs": {
+    "InstagramAudioMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "photos": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "previousTrendRank": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "reels": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "trendRank": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "trendRank",
+        "previousTrendRank",
+        "reels",
+        "photos"
+      ],
+      "type": "object"
+    },
+    "InstagramAudioPart": {
+      "additionalProperties": false,
+      "properties": {
+        "artist": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "artistName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artwork": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isExplicit": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "musicId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentStartTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "startTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "title": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "title",
+        "artistName",
+        "isExplicit",
+        "musicId",
+        "artist",
+        "startTime",
+        "parentStartTime",
+        "artwork"
+      ],
+      "type": "object"
+    },
+    "InstagramAudioReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artist": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "artistId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artistName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artwork": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "clusterId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "compositionStartTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "createdAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fastStartUrl": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "filters": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "hasLyrics": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "highlightStartTimes": {
+          "items": {
+            "type": "number"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAutomaticallyAttributed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isCrosspostedFromFacebook": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isExplicit": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isTrending": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/InstagramAudioMetrics"
+        },
+        "monetizationType": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "musicId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "originalPostId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "overlapDuration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "parts": {
+          "items": {
+            "$ref": "#/$defs/InstagramAudioPart"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "previewUrl": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "spotify": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "url": {
+              "format": "uri",
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "url"
+          ],
+          "type": "object"
+        },
+        "startTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "streaming": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramStreaming"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subtype": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "musicId",
+        "artistId",
+        "clusterId",
+        "title",
+        "artistName",
+        "artist",
+        "isExplicit",
+        "hasLyrics",
+        "isTrending",
+        "subtype",
+        "isAutomaticallyAttributed",
+        "isCrosspostedFromFacebook",
+        "monetizationType",
+        "duration",
+        "startTime",
+        "overlapDuration",
+        "compositionStartTime",
+        "createdAt",
+        "originalPostId",
+        "url",
+        "fastStartUrl",
+        "previewUrl",
+        "artwork",
+        "streaming",
+        "highlightStartTimes",
+        "filters",
+        "metrics",
+        "spotify",
+        "parts"
+      ],
+      "type": "object"
+    },
+    "InstagramBioLink": {
+      "additionalProperties": false,
+      "properties": {
+        "icon": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isPinned": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isVerified": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "title": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "url",
+        "type",
+        "isPinned",
+        "isVerified",
+        "icon",
+        "image"
+      ],
+      "type": "object"
+    },
+    "InstagramCommentMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "likes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "replies": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "likes",
+        "replies"
+      ],
+      "type": "object"
+    },
+    "InstagramCommentReference": {
+      "additionalProperties": false,
+      "properties": {
+        "ai": {
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isByPostAuthor": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isCovered": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isEdited": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isLikedByPostAuthor": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPinned": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "keywords": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "likedByCoauthors": {
+          "items": {
+            "$ref": "#/$defs/InstagramProfileReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "media": {
+          "items": {
+            "$ref": "#/$defs/InstagramImage"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/InstagramCommentMetrics"
+        },
+        "parentId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pinnedPosition": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "postId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "previewUsers": {
+          "items": {
+            "$ref": "#/$defs/InstagramProfileReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "ranking": {
+          "additionalProperties": false,
+          "properties": {
+            "index": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "isRanked": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "replyIndex": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "index",
+            "replyIndex",
+            "isRanked"
+          ],
+          "type": "object"
+        },
+        "replies": {
+          "items": {
+            "$ref": "#/$defs/InstagramCommentReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "replyToId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sharingEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "status": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "translation": {
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "postId",
+        "parentId",
+        "replyToId",
+        "createdAt",
+        "author",
+        "status",
+        "isCovered",
+        "isEdited",
+        "sharingEnabled",
+        "isByPostAuthor",
+        "isPinned",
+        "pinnedPosition",
+        "isLikedByPostAuthor",
+        "ai",
+        "ranking",
+        "keywords",
+        "previewUsers",
+        "metrics",
+        "replies",
+        "translation",
+        "likedByCoauthors",
+        "media"
+      ],
+      "type": "object"
+    },
+    "InstagramCommentSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasMore": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "likesEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "maxVisiblePreviewComments": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "preview": {
+          "items": {
+            "$ref": "#/$defs/InstagramCommentReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "threadingEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "hasMore",
+        "maxVisiblePreviewComments",
+        "likesEnabled",
+        "threadingEnabled",
+        "enabled",
+        "preview"
+      ],
+      "type": "object"
+    },
+    "InstagramCoordinates": {
+      "additionalProperties": false,
+      "properties": {
+        "latitude": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "longitude": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude"
+      ],
+      "type": "object"
+    },
+    "InstagramCrop": {
+      "additionalProperties": false,
+      "properties": {
+        "bottom": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "left": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "right": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "top": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "type": "object"
+    },
+    "InstagramDASH": {
+      "additionalProperties": false,
+      "properties": {
+        "manifest": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "qualityCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/InstagramStreamVariant"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "manifest",
+        "variants",
+        "qualityCount"
+      ],
+      "type": "object"
+    },
+    "InstagramImage": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isDefault": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isSpatial": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "thumbnail": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/InstagramImage"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "thumbnail",
+        "id",
+        "type",
+        "url",
+        "width",
+        "height",
+        "isDefault",
+        "isSpatial",
+        "variants"
+      ],
+      "type": "object"
+    },
+    "InstagramLocationAddress": {
+      "additionalProperties": false,
+      "properties": {
+        "city": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "countryCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "postalCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "region": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "street": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "street",
+        "city",
+        "postalCode",
+        "region",
+        "countryCode"
+      ],
+      "type": "object"
+    },
+    "InstagramLocationHours": {
+      "additionalProperties": false,
+      "properties": {
+        "currentStatus": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isOpen": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "schedule": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "status": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "today": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "currentStatus",
+        "today",
+        "isOpen",
+        "schedule"
+      ],
+      "type": "object"
+    },
+    "InstagramLocationReference": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/InstagramLocationAddress"
+        },
+        "category": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "coordinates": {
+          "$ref": "#/$defs/InstagramCoordinates"
+        },
+        "external": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "source"
+          ],
+          "type": "object"
+        },
+        "hours": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramLocationHours"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "searchContext": {
+          "additionalProperties": false,
+          "properties": {
+            "subtitle": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "title": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "title",
+            "subtitle"
+          ],
+          "type": "object"
+        },
+        "shortName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "shortName",
+        "category",
+        "url",
+        "phone",
+        "website",
+        "address",
+        "coordinates",
+        "external",
+        "searchContext",
+        "hours"
+      ],
+      "type": "object"
+    },
+    "InstagramMedia": {
+      "additionalProperties": false,
+      "properties": {
+        "altText": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "audio": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramAudioReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bitrate": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "commercialityStatus": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "createdAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "crops": {
+          "additionalProperties": false,
+          "properties": {
+            "feedPreview": {
+              "$ref": "#/$defs/InstagramCrop"
+            },
+            "fourByThree": {
+              "$ref": "#/$defs/InstagramCrop"
+            },
+            "square": {
+              "$ref": "#/$defs/InstagramCrop"
+            }
+          },
+          "required": [
+            "fourByThree",
+            "square",
+            "feedPreview"
+          ],
+          "type": "object"
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "firstFrame": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hasAudio": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "originalHeight": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "originalWidth": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "parentId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "productTags": {
+          "items": {
+            "$ref": "#/$defs/InstagramProductTag"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "scrubber": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramScrubber"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "streaming": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramStreaming"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subtitles": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramSubtitles"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "taggedUsers": {
+          "items": {
+            "$ref": "#/$defs/InstagramUserTag"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "thumbnail": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/InstagramMediaVariant"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "parentId",
+        "createdAt",
+        "url",
+        "width",
+        "height",
+        "originalWidth",
+        "originalHeight",
+        "bitrate",
+        "hasAudio",
+        "altText",
+        "commercialityStatus",
+        "duration",
+        "variants",
+        "thumbnail",
+        "firstFrame",
+        "scrubber",
+        "streaming",
+        "subtitles",
+        "audio",
+        "taggedUsers",
+        "productTags",
+        "crops"
+      ],
+      "type": "object"
+    },
+    "InstagramMediaPreview": {
+      "additionalProperties": false,
+      "properties": {
+        "fbid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thumbnail": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "fbid",
+        "thumbnail"
+      ],
+      "type": "object"
+    },
+    "InstagramMediaVariant": {
+      "additionalProperties": false,
+      "properties": {
+        "bitrate": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isSpatial": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "url",
+        "width",
+        "height",
+        "bitrate",
+        "isSpatial"
+      ],
+      "type": "object"
+    },
+    "InstagramNote": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "createdAt",
+        "author"
+      ],
+      "type": "object"
+    },
+    "InstagramPosition": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "y": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "type": "object"
+    },
+    "InstagramPostMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "comments": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "facebook": {
+          "additionalProperties": false,
+          "properties": {
+            "comments": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "likes": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "plays": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "likes",
+            "plays",
+            "comments"
+          ],
+          "type": "object"
+        },
+        "instagram": {
+          "additionalProperties": false,
+          "properties": {
+            "plays": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "plays"
+          ],
+          "type": "object"
+        },
+        "likes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "plays": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "premiumReactions": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "reposts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "reshares": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "saves": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "views": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "likes",
+        "comments",
+        "saves",
+        "reshares",
+        "reposts",
+        "premiumReactions",
+        "plays",
+        "views",
+        "instagram",
+        "facebook"
+      ],
+      "type": "object"
+    },
+    "InstagramPostReference": {
+      "additionalProperties": false,
+      "properties": {
+        "ai": {
+          "additionalProperties": false,
+          "properties": {
+            "detectionMethod": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "label": {
+              "additionalProperties": false,
+              "properties": {
+                "detectionMethod": {
+                  "minLength": 1,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "isSelfDisclosed": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "subtitle": {
+                  "minLength": 1,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "text": {
+                  "minLength": 1,
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "text",
+                "subtitle",
+                "detectionMethod",
+                "isSelfDisclosed"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "detectionMethod",
+            "label"
+          ],
+          "type": "object"
+        },
+        "attribution": {
+          "additionalProperties": false,
+          "properties": {
+            "originalPost": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/InstagramPostReference"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "originalPost"
+          ],
+          "type": "object"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "caption": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramCommentReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "carousel": {
+          "additionalProperties": false,
+          "properties": {
+            "itemCount": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "pendingItemCount": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "previousSubmitters": {
+              "items": {
+                "$ref": "#/$defs/InstagramProfileReference"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "submissionState": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "itemCount",
+            "pendingItemCount",
+            "submissionState",
+            "previousSubmitters"
+          ],
+          "type": "object"
+        },
+        "code": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collaborators": {
+          "items": {
+            "$ref": "#/$defs/InstagramProfileReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "comments": {
+          "$ref": "#/$defs/InstagramCommentSettings"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "crossposting": {
+          "additionalProperties": false,
+          "properties": {
+            "isFeedbackAggregated": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "isSharedToFacebook": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "isSharedToFacebook",
+            "isFeedbackAggregated"
+          ],
+          "type": "object"
+        },
+        "fbid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hasDelayedMetadata": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasTaggedUsers": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasVisualReplies": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "invitedCollaborators": {
+          "items": {
+            "$ref": "#/$defs/InstagramProfileReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "isEarlyAccess": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isFanClubPromo": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isOpenToPublicSubmission": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPaidPartnership": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPublicChatWelcomeVideo": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "language": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "likeAndViewCountsHidden": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "location": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramLocationReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "media": {
+          "items": {
+            "$ref": "#/$defs/InstagramMedia"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/InstagramPostMetrics"
+        },
+        "notes": {
+          "items": {
+            "$ref": "#/$defs/InstagramNote"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "pinning": {
+          "additionalProperties": false,
+          "properties": {
+            "profileUserIds": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "reelsUserIds": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "profileUserIds",
+            "reelsUserIds"
+          ],
+          "type": "object"
+        },
+        "productTags": {
+          "items": {
+            "$ref": "#/$defs/InstagramProductTag"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "remix": {
+          "additionalProperties": false,
+          "properties": {
+            "allowed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "carouselRemixesAllowed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "crosspostingAllowed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "hasBeenRemixed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "isRequestingRemixes": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "allowed",
+            "carouselRemixesAllowed",
+            "hasBeenRemixed",
+            "isRequestingRemixes",
+            "crosspostingAllowed"
+          ],
+          "type": "object"
+        },
+        "reuse": {
+          "additionalProperties": false,
+          "properties": {
+            "allowed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "cutoutStickersAllowed": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "allowed",
+            "cutoutStickersAllowed"
+          ],
+          "type": "object"
+        },
+        "shareCountHidden": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "sharingEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "taggedUsers": {
+          "items": {
+            "$ref": "#/$defs/InstagramUserTag"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "template": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramTemplateInfo"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "text": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "code",
+        "fbid",
+        "type",
+        "url",
+        "title",
+        "text",
+        "createdAt",
+        "author",
+        "caption",
+        "media",
+        "metrics",
+        "comments",
+        "taggedUsers",
+        "productTags",
+        "collaborators",
+        "invitedCollaborators",
+        "location",
+        "isPaidPartnership",
+        "isEarlyAccess",
+        "likeAndViewCountsHidden",
+        "shareCountHidden",
+        "hasVisualReplies",
+        "hasDelayedMetadata",
+        "language",
+        "hasTaggedUsers",
+        "isOpenToPublicSubmission",
+        "sharingEnabled",
+        "isFanClubPromo",
+        "isPublicChatWelcomeVideo",
+        "reuse",
+        "remix",
+        "pinning",
+        "carousel",
+        "ai",
+        "notes",
+        "crossposting",
+        "attribution",
+        "template"
+      ],
+      "type": "object"
+    },
+    "InstagramPrice": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "formatted": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "strippedFormatted": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "amount",
+        "formatted",
+        "strippedFormatted"
+      ],
+      "type": "object"
+    },
+    "InstagramProduct": {
+      "additionalProperties": false,
+      "properties": {
+        "checkout": {
+          "additionalProperties": false,
+          "properties": {
+            "style": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "style"
+          ],
+          "type": "object"
+        },
+        "compoundId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hasVariants": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isAffiliate": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isInStock": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "merchant": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pricing": {
+          "additionalProperties": false,
+          "properties": {
+            "current": {
+              "$ref": "#/$defs/InstagramPrice"
+            },
+            "formatted": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "full": {
+              "$ref": "#/$defs/InstagramPrice"
+            },
+            "isUkEuCompliant": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "current",
+            "full",
+            "formatted",
+            "isUkEuCompliant"
+          ],
+          "type": "object"
+        },
+        "retailerId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewStatus": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thumbnail": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "compoundId",
+        "retailerId",
+        "name",
+        "description",
+        "url",
+        "hasVariants",
+        "isInStock",
+        "isAffiliate",
+        "reviewStatus",
+        "merchant",
+        "image",
+        "thumbnail",
+        "pricing",
+        "checkout"
+      ],
+      "type": "object"
+    },
+    "InstagramProductTag": {
+      "additionalProperties": false,
+      "properties": {
+        "position": {
+          "$ref": "#/$defs/InstagramPosition"
+        },
+        "product": {
+          "$ref": "#/$defs/InstagramProduct"
+        }
+      },
+      "required": [
+        "product",
+        "position"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileAccountType": {
+      "oneOf": [
+        {
+          "enum": [
+            "personal",
+            "business",
+            "creator"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    },
+    "InstagramProfileAddress": {
+      "additionalProperties": false,
+      "properties": {
+        "city": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cityId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "postalCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "street": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "street",
+        "city",
+        "cityId",
+        "postalCode"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileBroadcastChannel": {
+      "additionalProperties": false,
+      "properties": {
+        "avatar": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cover": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "creator": {
+          "additionalProperties": false,
+          "properties": {
+            "handle": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "id": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "isVerified": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "handle",
+            "isVerified"
+          ],
+          "type": "object"
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics": {
+          "additionalProperties": false,
+          "properties": {
+            "members": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "members"
+          ],
+          "type": "object"
+        },
+        "title": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "url",
+        "avatar",
+        "cover",
+        "creator",
+        "metrics"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileBroadcastChannels": {
+      "additionalProperties": false,
+      "properties": {
+        "hasPublicChannels": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isCreator": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "pinned": {
+          "items": {
+            "$ref": "#/$defs/InstagramProfileBroadcastChannel"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isCreator",
+        "hasPublicChannels",
+        "pinned"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileContact": {
+      "additionalProperties": false,
+      "properties": {
+        "contactPhone": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "method": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phoneCountryCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "email",
+        "phone",
+        "phoneCountryCode",
+        "contactPhone",
+        "method"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileContent": {
+      "additionalProperties": false,
+      "properties": {
+        "hasGuides": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasHighlights": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasLongformMedia": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasMusic": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasVideos": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasVisibleNotes": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "hasHighlights",
+        "hasLongformMedia",
+        "hasVideos",
+        "hasMusic",
+        "hasGuides",
+        "hasVisibleNotes"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileContentSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "highlightResharingEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "postRemixingEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "postResharingEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "reelRemixingEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "postResharingEnabled",
+        "highlightResharingEnabled",
+        "postRemixingEnabled",
+        "reelRemixingEnabled"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileDisplaySettings": {
+      "additionalProperties": false,
+      "properties": {
+        "showCategory": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "showPublicContacts": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "showCategory",
+        "showPublicContacts"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileFanClub": {
+      "additionalProperties": false,
+      "properties": {
+        "hasExclusiveFeedContent": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "largestPublicBroadcastChannelId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics": {
+          "additionalProperties": false,
+          "properties": {
+            "subscribers": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "subscribers"
+          ],
+          "type": "object"
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "largestPublicBroadcastChannelId",
+        "hasExclusiveFeedContent",
+        "metrics"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileFundraisers": {
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "metrics": {
+          "additionalProperties": false,
+          "properties": {
+            "active": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "active"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "metrics",
+        "items"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileLocation": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/InstagramProfileAddress"
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "address"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "arEffects": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "followers": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "following": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "posts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "followers",
+        "following",
+        "posts",
+        "arEffects"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileReference": {
+      "additionalProperties": false,
+      "properties": {
+        "accountBadges": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "accountType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileAccountType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "avatar": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramImage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bio": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bioEntities": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "bioLinks": {
+          "items": {
+            "$ref": "#/$defs/InstagramBioLink"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "broadcastChannels": {
+          "$ref": "#/$defs/InstagramProfileBroadcastChannels"
+        },
+        "category": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "categoryId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contact": {
+          "$ref": "#/$defs/InstagramProfileContact"
+        },
+        "content": {
+          "$ref": "#/$defs/InstagramProfileContent"
+        },
+        "contentSettings": {
+          "$ref": "#/$defs/InstagramProfileContentSettings"
+        },
+        "displayName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "displaySettings": {
+          "$ref": "#/$defs/InstagramProfileDisplaySettings"
+        },
+        "externalUrl": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fanClub": {
+          "$ref": "#/$defs/InstagramProfileFanClub"
+        },
+        "fbid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fundraisers": {
+          "$ref": "#/$defs/InstagramProfileFundraisers"
+        },
+        "handle": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hasDigitalAvatar": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAccountTransparencyVisible": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isBusiness": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isFacebookOnboardedCharity": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isMemorialized": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isNew": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isOpenToCollaboration": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPotentialBusiness": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPrivate": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isUnpublished": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isVerified": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "lastStoryAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location": {
+          "$ref": "#/$defs/InstagramProfileLocation"
+        },
+        "mediaPreviews": {
+          "items": {
+            "$ref": "#/$defs/InstagramMediaPreview"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "messagingFbid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/InstagramProfileMetrics"
+        },
+        "pronouns": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "socialContext": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "suggestion": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramSuggestion"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "threads": {
+          "$ref": "#/$defs/InstagramProfileThreads"
+        },
+        "upcomingEvents": {
+          "items": {},
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "suggestion",
+        "mediaPreviews",
+        "id",
+        "handle",
+        "displayName",
+        "bio",
+        "url",
+        "externalUrl",
+        "avatar",
+        "fbid",
+        "messagingFbid",
+        "isPrivate",
+        "isVerified",
+        "isBusiness",
+        "isPotentialBusiness",
+        "isUnpublished",
+        "isMemorialized",
+        "isNew",
+        "isOpenToCollaboration",
+        "isFacebookOnboardedCharity",
+        "hasDigitalAvatar",
+        "isAccountTransparencyVisible",
+        "category",
+        "categoryId",
+        "accountType",
+        "socialContext",
+        "lastStoryAt",
+        "pronouns",
+        "accountBadges",
+        "bioEntities",
+        "bioLinks",
+        "upcomingEvents",
+        "metrics",
+        "contact",
+        "location",
+        "fanClub",
+        "content",
+        "contentSettings",
+        "displaySettings",
+        "threads",
+        "broadcastChannels",
+        "fundraisers"
+      ],
+      "type": "object"
+    },
+    "InstagramProfileThreads": {
+      "additionalProperties": false,
+      "properties": {
+        "handle": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isActive": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "joinerLabel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isActive",
+        "handle",
+        "url",
+        "joinerLabel"
+      ],
+      "type": "object"
+    },
+    "InstagramScrubber": {
+      "additionalProperties": false,
+      "properties": {
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "maxThumbnailsPerSprite": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "thumbnailDuration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "thumbnailHeight": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "thumbnailWidth": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "thumbnailsPerRow": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "thumbnailsPerSprite": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "urls": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "urls",
+        "width",
+        "height",
+        "thumbnailWidth",
+        "thumbnailHeight",
+        "thumbnailsPerRow",
+        "thumbnailsPerSprite",
+        "maxThumbnailsPerSprite",
+        "thumbnailDuration",
+        "duration"
+      ],
+      "type": "object"
+    },
+    "InstagramStreamVariant": {
+      "additionalProperties": false,
+      "properties": {
+        "bitrate": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "codec": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "frameRate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mimeType": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "qualityLabel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sampleRate": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "sizeBytes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "codec",
+        "mimeType",
+        "qualityLabel",
+        "width",
+        "height",
+        "bitrate",
+        "sizeBytes",
+        "sampleRate",
+        "frameRate"
+      ],
+      "type": "object"
+    },
+    "InstagramStreaming": {
+      "additionalProperties": false,
+      "properties": {
+        "dash": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramDASH"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "dash"
+      ],
+      "type": "object"
+    },
+    "InstagramSubtitles": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "enabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "generated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "locale": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "enabled",
+        "generated",
+        "status",
+        "locale",
+        "confidence",
+        "url"
+      ],
+      "type": "object"
+    },
+    "InstagramSuggestion": {
+      "additionalProperties": false,
+      "properties": {
+        "caption": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hasStoryRing": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "icon": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isNew": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "largeImages": {
+          "items": {
+            "$ref": "#/$defs/InstagramImage"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "posts": {
+          "items": {
+            "$ref": "#/$defs/InstagramPostReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "socialContext": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thumbnails": {
+          "items": {
+            "$ref": "#/$defs/InstagramImage"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "socialContext",
+        "hasStoryRing",
+        "isNew",
+        "icon",
+        "caption",
+        "thumbnails",
+        "largeImages",
+        "posts"
+      ],
+      "type": "object"
+    },
+    "InstagramTemplateInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InstagramProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effectId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "effects": {
+          "additionalProperties": false,
+          "properties": {
+            "segments": {
+              "items": {},
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "segments"
+          ],
+          "type": "object"
+        },
+        "minimumSegments": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "postId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "segments": {
+          "items": {
+            "$ref": "#/$defs/InstagramTemplateSegment"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "postId",
+        "author",
+        "minimumSegments",
+        "segments",
+        "effectId",
+        "effects"
+      ],
+      "type": "object"
+    },
+    "InstagramTemplateSegment": {
+      "additionalProperties": false,
+      "properties": {
+        "assetEndTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "assetStartTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "duration",
+        "assetStartTime",
+        "assetEndTime"
+      ],
+      "type": "object"
+    },
+    "InstagramUserTag": {
+      "additionalProperties": false,
+      "properties": {
+        "position": {
+          "$ref": "#/$defs/InstagramPosition"
+        },
+        "user": {
+          "$ref": "#/$defs/InstagramProfileReference"
+        }
+      },
+      "required": [
+        "user",
+        "position"
+      ],
+      "type": "object"
+    }
+  }
+}

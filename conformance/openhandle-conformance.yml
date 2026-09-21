@@ -1,0 +1,72 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/mcp
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 authorization_code + refresh_token with PKCE (S256) for the MCP endpoint. Authorization server metadata at https://api.openhandle.dev/.well-known/oauth-authorization-server.
+- id: oauth2-pkce
+  conforms: true
+  evidence: 'code_challenge_methods_supported: ["S256"] in the authorization server metadata; docs/mcp states authorization_code with PKCE (S256).'
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: https://api.openhandle.dev/.well-known/oauth-authorization-server returns a valid RFC 8414 document (issuer, authorization_endpoint,
+    token_endpoint, registration_endpoint, revocation_endpoint).
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: https://api.openhandle.dev/.well-known/oauth-protected-resource/mcp returns resource, authorization_servers, scopes_supported, bearer_methods_supported.
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint https://api.openhandle.dev/oauth/register advertised in authorization server metadata; docs/mcp documents Dynamic
+    Client Registration.
+- id: rfc6750-bearer-token
+  conforms: true
+  evidence: 'bearer_methods_supported: ["header"]; 403 out-of-scope responses carry a WWW-Authenticate challenge with error="insufficient_scope"
+    per RFC 6750.'
+- id: rfc8707-resource-indicators
+  conforms: true
+  evidence: 'docs/mcp: send resource=https://api.openhandle.dev/mcp when the client supports resource indicators; authorization_response_iss_parameter_supported
+    is true.'
+- id: mcp-authorization
+  conforms: true
+  evidence: 'docs/mcp: "The server follows the MCP authorization specification." Remote Streamable HTTP MCP server with OAuth-protected resource
+    metadata.'
+- id: rfc3339-timestamps
+  conforms: true
+  evidence: Response envelope capturedAt and the `since` parameter are RFC 3339 timestamps (docs/concepts/envelope-and-errors, docs/concepts/pagination).
+- id: cursor-pagination
+  conforms: true
+  evidence: Opaque forward cursors in meta.cursors.next, passed back as the `cursor` query parameter (docs/concepts/pagination).
+- id: ietf-ratelimit-headers-draft-11
+  conforms: true
+  evidence: Returns RateLimit-Policy and RateLimit headers per draft-ietf-httpapi-ratelimit-headers-11 (an Internet-Draft, not a published RFC),
+    plus Retry-After on 429 (docs/rate-limits).
+- id: rfc9745-deprecation-header
+  conforms: partial
+  evidence: docs/versioning states Deprecation is emitted as a Structured Field date per RFC 9745 only when a resource has an actual deprecation;
+    active v1 operations emit no artificial dates, so the mechanism is documented but not currently in effect.
+- id: rfc8594-sunset-header
+  conforms: partial
+  evidence: docs/versioning states Sunset is emitted as an HTTP date per RFC 8594 with a Link rel="deprecation"; only present when an operation
+    is actually retiring.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Openhandle uses its own uniform error envelope ({error:{code,message, requestId,retryable}}), not application/problem+json. No problem+json
+    media type is served.
+- id: openapi-3.1
+  conforms: true
+  evidence: the document declares 3.1.0
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+- id: pagination
+  conforms: true
+  evidence: list operations take cursor, limit, page
+- id: ratelimit-headers
+  conforms: true
+  evidence: responses declare RateLimit, RateLimit-Policy, Retry-After
+note: OAuth/MCP metadata verified live by fetching the two well-known documents on 2026-09-21. No industry domain standard (SCIM, OData, OpenRTB,
+  FHIR, etc.) applies to a public-social-data read API; none is claimed and none is invented.

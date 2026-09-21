@@ -1,0 +1,37 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/mcp
+schemes:
+- name: OpenhandleMCPOAuth
+  source: openapi/openhandle-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openhandle.dev/oauth/authorize
+    tokenUrl: https://api.openhandle.dev/oauth/token
+  description: OAuth grants for the MCP endpoint only. REST operations require OpenhandleKey.
+scopes:
+- scope: mcp
+  description: Read public social data through all MCP tools (legacy default).
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openhandle-openapi.yml
+- scope: read:instagram
+  description: Read public Instagram data through MCP tools.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openhandle-openapi.yml
+- scope: read:tiktok
+  description: Read public TikTok data through MCP tools.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openhandle-openapi.yml
+- scope: read:twitter
+  description: Read public X (Twitter) data through MCP tools.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/openhandle-openapi.yml
+docs: https://openhandle.dev/docs/mcp

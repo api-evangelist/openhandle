@@ -1,0 +1,113 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/concepts/envelope-and-errors
+format: custom-envelope
+envelope: >-
+  Every error returns {"error":{"code","message","requestId","retryable"}}.
+  Branch on `code`, never on `message`. When `retryable` is true, retry with
+  backoff; when false, retrying will not help. Not RFC 9457 problem+json.
+problems:
+- code: UNAUTHENTICATED
+  status: 401
+  retryable: false
+  title: A valid API key is required
+  remediation: Send a valid oh_test_ or oh_live_ key in the Authorization Bearer header.
+- code: EMAIL_VERIFICATION_REQUIRED
+  status: 403
+  retryable: false
+  title: Verify the workspace-owner email before using Live
+  remediation: Verify the workspace-owner email; Test keys work without verification.
+- code: BALANCE_EMPTY
+  status: 402
+  retryable: false
+  title: Add balance to continue
+  remediation: Add balance by card, or enable auto top-up.
+- code: BILLING_SUSPENDED
+  status: 402
+  retryable: false
+  title: Billing for this workspace is suspended
+  remediation: Contact hello@openhandle.dev to restore billing.
+- code: SECURITY_SUSPENDED
+  status: 403
+  retryable: false
+  title: API access for this workspace is suspended
+  remediation: Contact support; access was suspended for security.
+- code: PROFILE_NOT_FOUND
+  status: 404
+  retryable: false
+  title: The profile does not exist
+  remediation: Definitive answer and billable. Check the identifier.
+- code: PROFILE_PRIVATE
+  status: 403
+  retryable: false
+  title: The profile is private
+  remediation: Definitive answer and billable. No data is returned for private accounts.
+- code: POST_NOT_FOUND
+  status: 404
+  retryable: false
+  title: The post does not exist
+  remediation: Check the post identifier.
+- code: COMMENT_NOT_FOUND
+  status: 404
+  retryable: false
+  title: The comment does not exist
+  remediation: Check the comment identifier.
+- code: INVALID_IDENTIFIER
+  status: 400
+  retryable: false
+  title: The identifier is invalid
+  remediation: Pass a valid handle, ID, or URL for the platform.
+- code: INVALID_FRESHNESS
+  status: 400
+  retryable: false
+  title: Freshness must be live, 24h, 7d, or 30d
+  remediation: Use one of the four documented freshness tiers.
+- code: INVALID_SINCE
+  status: 400
+  retryable: false
+  title: since must be an RFC 3339 timestamp
+  remediation: Pass an RFC 3339 timestamp for the `since` parameter.
+- code: CURSOR_MISMATCH
+  status: 400
+  retryable: false
+  title: The cursor does not belong to this request
+  remediation: Use a cursor only with the endpoint, target, and freshness tier it came from.
+- code: UPSTREAM_SWITCHED
+  status: 409
+  retryable: true
+  title: The upstream source changed. Restart pagination
+  remediation: Restart pagination from the first page.
+- code: RATE_LIMITED
+  status: 429
+  retryable: true
+  title: Rate limit exceeded. Honor the Retry-After header
+  remediation: Wait at least Retry-After seconds; reduce concurrency and add jitter.
+- code: SERVICE_UNAVAILABLE
+  status: 503
+  retryable: true
+  title: The service is temporarily unavailable
+  remediation: Retry with backoff.
+- code: UPSTREAM_DEGRADED
+  status: 503
+  retryable: true
+  title: The upstream platform is temporarily unavailable
+  remediation: Retry with backoff.
+- code: INTERNAL_ERROR
+  status: 500
+  retryable: true
+  title: The request could not be completed
+  remediation: Retry with backoff; include requestId when contacting support.
+- code: ROUTE_NOT_FOUND
+  status: 404
+  retryable: false
+  title: The API route does not exist
+  remediation: Check the path against the OpenAPI document.
+- code: METHOD_NOT_ALLOWED
+  status: 405
+  retryable: false
+  title: The HTTP method is not allowed on this route
+  remediation: Use the documented method (all data operations are GET).
+note: >-
+  Billing note: definitive answers (PROFILE_NOT_FOUND, PROFILE_PRIVATE) are
+  billable; provider failures and internal errors (5xx, RATE_LIMITED, invalid
+  input) are free.

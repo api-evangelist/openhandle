@@ -1,0 +1,31 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/authentication
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  note: REST operations use a Bearer API key (OpenhandleKey); the key prefix oh_test_/oh_live_ selects
+    the Test or Live environment and is immutable. OAuth 2.0 (PKCE) applies only to the MCP endpoint.
+    Keys are shown once at creation; call from a backend only.
+schemes:
+- name: OpenhandleKey
+  type: http
+  scheme: bearer
+  description: Use an oh_test_ key for synthetic data and $0.000 actual charges, or an oh_live_ key for
+    real public data and normal billing. Legacy oh_ keys remain Live.
+  sources:
+  - openapi/openhandle-openapi.yml
+- name: OpenhandleMCPOAuth
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openhandle.dev/oauth/authorize
+    tokenUrl: https://api.openhandle.dev/oauth/token
+    scopes: 4
+  description: OAuth grants for the MCP endpoint only. REST operations require OpenhandleKey.
+  sources:
+  - openapi/openhandle-openapi.yml
+docs: https://openhandle.dev/docs/authentication

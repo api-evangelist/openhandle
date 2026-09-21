@@ -1,0 +1,21 @@
+generated: '2026-09-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: openhandle.dev
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  1 17:41:09 2026 GMT
+  hsts: false
+- host: api.openhandle.dev
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 26 13:26:52 2026 GMT
+  hsts: null
+domains:
+- domain: openhandle.dev
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

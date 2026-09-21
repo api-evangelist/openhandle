@@ -1,0 +1,30 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/sdks
+packages:
+- name: '@openhandle/sdk'
+  registry: npm
+  url: https://www.npmjs.com/package/@openhandle/sdk
+  language: TypeScript
+  official: true
+  version: 1.1.0
+  published: '2026-09-17'
+- name: openhandle
+  registry: PyPI
+  url: https://pypi.org/project/openhandle/
+  language: Python
+  official: true
+  version: 1.1.0
+  published: '2026-09-17'
+- name: github.com/openhandlehq/openhandle-go
+  registry: pkg.go.dev
+  url: https://pkg.go.dev/github.com/openhandlehq/openhandle-go
+  language: Go
+  official: true
+  version: v1.1.0
+  published: '2026-09-17'
+note: >-
+  Three first-party SDKs, all published 2026-09-17 at v1.1.0, matching the
+  OpenAPI info.version (1.1.0). Source repos live in the openhandlehq GitHub
+  org (openhandle-typescript, openhandle-python, openhandle-go). No first-party
+  CLI is published; the org also hosts openhandle-examples.

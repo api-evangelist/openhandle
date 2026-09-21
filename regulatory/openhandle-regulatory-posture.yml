@@ -1,0 +1,38 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/legal/privacy-policy
+signals:
+  data_subject_request:
+    present: true
+    type: DataSubjectRequest
+    channel: mailto:hello@openhandle.dev
+    rights:
+    - access
+    - correction
+    - deletion
+    - restriction
+    - portability
+    - objection to legitimate-interest processing
+    profile_block_process: >-
+      Account owners can email a block request (public-data-notice provides a
+      pre-filled mailto). The profile goes on a block list; new requests return a
+      clear error and are not billed; cached answers are removed (expire within 31
+      days at most, sooner when processed); logs mentioning it age out within 90
+      days.
+    supervisory_authority: Autoriteit Persoonsgegevens (Netherlands)
+    evidence: >-
+      Privacy policy §6 "Your rights" enumerates the GDPR rights and the
+      hello@openhandle.dev contact; the public data notice
+      (https://openhandle.dev/legal/public-data-notice) documents the profile
+      block-request process. Probed 2026-09-21 (privacy-policy 200,
+      public-data-notice 200).
+note: >-
+  Openhandle is a Netherlands sole proprietorship (KvK 89247647) processing public
+  social data on a legitimate-interest basis under the GDPR. The only substantive
+  horizontal regulatory signal published is the GDPR data-subject / profile-block
+  process above. No dated subprocessor table (legal/subprocessors 404), DPA
+  (legal/dpa 404), data-residency page (legal/data-residency 404), accessibility
+  conformance report (accessibility 404), transparency report (transparency 404),
+  SBOM, or Global Privacy Control statement was found; the privacy policy names
+  Stripe as a payment processor in prose but publishes no formal subprocessor
+  list. Absence here is the measurement, not a gap left unchecked.

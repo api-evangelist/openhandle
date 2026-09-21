@@ -1,0 +1,41 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/pricing.md
+name: Openhandle rate limits
+limits:
+- name: Free key throughput
+  limit_text: 2 requests per second per key
+  max: 2
+  window: '1 second'
+  scope: per-key
+  plan: Free
+- name: Pay-as-you-go key throughput
+  limit_text: 10 requests per second per key
+  max: 10
+  window: '1 second'
+  scope: per-key
+  plan: Pay as you go
+headers:
+  policy: RateLimit-Policy
+  runtime: RateLimit
+  retry: Retry-After
+  standard: draft-ietf-httpapi-ratelimit-headers-11 (Internet-Draft)
+  exhaustion_status: 429
+  exhaustion_code: RATE_LIMITED
+scopes_enforced:
+- key
+- organization (workspace)
+note: >-
+  Openhandle enforces separate API key and workspace (organization) limits; Test
+  and Live use separate limits, and Live trial limits can differ from paid. Every
+  response carries RateLimit-Policy and RateLimit headers
+  (draft-ietf-httpapi-ratelimit-headers-11, an Internet-Draft) whose values are
+  snapshots, not reserved capacity — read them rather than assume a fixed
+  allowance; the documented example policy is
+  'RateLimit-Policy: "key";q=10;w=1, "organization";q=50;w=1' (q=allowance,
+  w=window seconds, r=remaining, t=seconds to reset). On a limit, the API returns
+  429 RATE_LIMITED with Retry-After; a limiter outage returns 503. The concrete
+  per-second caps (2 rps Free, 10 rps paid, per key) are published on the pricing
+  page; the quota-header shape is documented at
+  https://openhandle.dev/docs/rate-limits. Volume customers get higher limits by
+  negotiation. Failed requests are not billed.

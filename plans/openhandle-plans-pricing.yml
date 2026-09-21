@@ -1,0 +1,48 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/pricing.md
+name: Openhandle pricing
+audience: developer-api
+pricing_basis: per-call
+published: true
+delivery:
+  delivery: managed
+plan_count: 3
+currency: USD
+billing_period: usage
+rates_updated: '2026-09-16'
+plans:
+- name: Free
+  description: Try the real API on real accounts. No card needed.
+  price: 0
+  price_text: $0 to start
+  features:
+  - Unlimited test requests on synthetic data
+  - Every endpoint and platform
+  limits:
+  - 100 requests, once
+  - 2 requests per second per key
+- name: Pay as you go
+  description: The more you use, the cheaper each request gets. Older cached answers cost less. 30-day
+    cached answers are free; failed requests are free.
+  price: 0.0025
+  price_text: $0.0025 per request
+  features:
+  - First 100,000 in a month at $0.0025, above 100,000 at $0.002 per request
+  - Data up to 24 hours old $0.0005, up to 7 days old $0.0001, up to 30 days old $0
+  - Add balance from $10, by card; an invoice for every top-up; auto top-up optional
+  limits:
+  - 10 requests per second per key
+  - Caps per account and per key
+- name: Volume
+  description: A better rate from a million requests a month. Pay after use on a monthly invoice.
+  price_text: Custom from a million a month
+  features:
+  - A lower rate, pay after use on a monthly invoice
+  - Higher rate limits
+  - Direct support from the team
+  limits:
+  - Higher rate limits (negotiated)
+note: 'One price per answered request, same for every endpoint and platform. Billable: a successful answer,
+  a private profile, a confirmed not-found, and 24h/7d cache hits. Free: 30-day cache hits, provider errors,
+  our errors, invalid input, rate limited, over balance/key cap. Volume tier priced by negotiation (hello@openhandle.dev).'

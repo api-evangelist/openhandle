@@ -1,0 +1,436 @@
+generated: '2026-09-21'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/openhandle-openapi.yml
+vocabulary:
+  name: Openhandle Domain Vocabulary
+  description: 'Terms declared by Openhandle''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-09-21'
+  terms:
+  - term: ErrorEnvelope
+    definition: 'Object declared by the contract with fields: error.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/ErrorEnvelope
+  - term: InstagramAudio
+    definition: 'Object declared by the contract with fields: artist, artistId, artistName, artwork, clusterId, compositionStartTime, createdAt,
+      duration, fastStartUrl, filters, hasLyrics, highlightStartTimes. (19 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramAudio
+  - term: InstagramAudioMetrics
+    definition: 'Object declared by the contract with fields: photos, previousTrendRank, reels, trendRank.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramAudioMetrics
+  - term: InstagramAudioPart
+    definition: 'Object declared by the contract with fields: artist, artistName, artwork, isExplicit, musicId, parentStartTime, startTime, title,
+      type.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramAudioPart
+  - term: InstagramAudioReference
+    definition: 'Object declared by the contract with fields: artist, artistId, artistName, artwork, clusterId, compositionStartTime, createdAt,
+      duration, fastStartUrl, filters, hasLyrics, highlightStartTimes. (19 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramAudioReference
+  - term: InstagramBioLink
+    definition: 'Object declared by the contract with fields: icon, id, image, isPinned, isVerified, title, type, url.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramBioLink
+  - term: InstagramClipMetadata
+    definition: 'Object declared by the contract with fields: audio, partial, postId.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramClipMetadata
+  - term: InstagramComment
+    definition: 'Object declared by the contract with fields: ai, author, createdAt, id, isByPostAuthor, isCovered, isEdited, isLikedByPostAuthor,
+      isPinned, keywords, likedByCoauthors, media. (12 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramComment
+  - term: InstagramCommentMetadata
+    definition: 'Object declared by the contract with fields: comments, metrics, postId.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramCommentMetadata
+  - term: InstagramCommentMetrics
+    definition: 'Object declared by the contract with fields: likes, replies.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramCommentMetrics
+  - term: InstagramCommentModeration
+    definition: 'Object declared by the contract with fields: isOffensive.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramCommentModeration
+  - term: InstagramCommentReference
+    definition: 'Object declared by the contract with fields: ai, author, createdAt, id, isByPostAuthor, isCovered, isEdited, isLikedByPostAuthor,
+      isPinned, keywords, likedByCoauthors, media. (12 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramCommentReference
+  - term: InstagramCommentSettings
+    definition: 'Object declared by the contract with fields: enabled, hasMore, likesEnabled, maxVisiblePreviewComments, preview, threadingEnabled.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramCommentSettings
+  - term: InstagramCoordinates
+    definition: 'Object declared by the contract with fields: latitude, longitude.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramCoordinates
+  - term: InstagramCrop
+    definition: 'Object declared by the contract with fields: bottom, left, right, top.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramCrop
+  - term: InstagramDASH
+    definition: 'Object declared by the contract with fields: manifest, qualityCount, variants.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramDASH
+  - term: InstagramHashtag
+    definition: 'Object declared by the contract with fields: avatar, bio, id, isTrending, metrics, name, url.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramHashtag
+  - term: InstagramHashtagReference
+    definition: 'Object declared by the contract with fields: avatar, bio, id, isTrending, metrics, name, url.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramHashtagReference
+  - term: InstagramHighlight
+    definition: 'Object declared by the contract with fields: author, cover, createdAt, id, isArchived, isConvertedToReel, isInProfileGrid, isPinned,
+      lastStoryAt, metrics, stories, title. (2 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramHighlight
+  - term: InstagramHighlightReference
+    definition: 'Object declared by the contract with fields: id, title.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramHighlightReference
+  - term: InstagramImage
+    definition: 'Object declared by the contract with fields: height, id, isDefault, isSpatial, thumbnail, type, url, variants, width.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramImage
+  - term: InstagramLocation
+    definition: 'Object declared by the contract with fields: address, category, coordinates, external, hours, id, name, phone, searchContext,
+      shortName, url, website.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramLocation
+  - term: InstagramLocationAddress
+    definition: 'Object declared by the contract with fields: city, countryCode, postalCode, region, street.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramLocationAddress
+  - term: InstagramLocationHours
+    definition: 'Object declared by the contract with fields: currentStatus, isOpen, schedule, status, today.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramLocationHours
+  - term: InstagramLocationReference
+    definition: 'Object declared by the contract with fields: address, category, coordinates, external, hours, id, name, phone, searchContext,
+      shortName, url, website.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramLocationReference
+  - term: InstagramMedia
+    definition: 'Object declared by the contract with fields: altText, audio, bitrate, commercialityStatus, createdAt, crops, duration, firstFrame,
+      hasAudio, height, id, originalHeight. (12 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramMedia
+  - term: InstagramMediaPreview
+    definition: 'Object declared by the contract with fields: fbid, id, thumbnail.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramMediaPreview
+  - term: InstagramMediaVariant
+    definition: 'Object declared by the contract with fields: bitrate, height, id, isSpatial, type, url, width.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramMediaVariant
+  - term: InstagramMusic
+    definition: 'Object declared by the contract with fields: artist, artistId, artistName, artwork, clusterId, compositionStartTime, createdAt,
+      duration, fastStartUrl, filters, hasLyrics, highlightStartTimes. (21 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramMusic
+  - term: InstagramMusicStream
+    definition: 'Object declared by the contract with fields: id, media, metrics, type.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramMusicStream
+  - term: InstagramMusicStreamMetrics
+    definition: 'Object declared by the contract with fields: plays.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramMusicStreamMetrics
+  - term: InstagramNote
+    definition: 'Object declared by the contract with fields: author, createdAt, id, text.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramNote
+  - term: InstagramOEmbed
+    definition: 'Object declared by the contract with fields: author, height, html, postId, provider, thumbnail, title, type, width.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramOEmbed
+  - term: InstagramPageMetadata
+    definition: 'Object declared by the contract with fields: collection, hasMore, hasMoreAfter, hasMoreBefore, likesEnabled, metrics, parent,
+      threadingEnabled, track.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPageMetadata
+  - term: InstagramPartialData
+    definition: 'Object declared by the contract with fields: errors.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPartialData
+  - term: InstagramPartialError
+    definition: 'Object declared by the contract with fields: message, path.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPartialError
+  - term: InstagramPosition
+    definition: 'Object declared by the contract with fields: x, y.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPosition
+  - term: InstagramPost
+    definition: 'Object declared by the contract with fields: ai, attribution, author, caption, carousel, code, collaborators, comments, createdAt,
+      crossposting, fbid, hasDelayedMetadata. (27 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPost
+  - term: InstagramPostInsight
+    definition: 'Object declared by the contract with fields: authorId, createdAt, facebook, fbid, hasProductTags, image, metrics, organicPostId,
+      postId, thumbnail, type.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPostInsight
+  - term: InstagramPostMetrics
+    definition: 'Object declared by the contract with fields: comments, facebook, instagram, likes, plays, premiumReactions, reposts, reshares,
+      saves, views.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPostMetrics
+  - term: InstagramPostReference
+    definition: 'Object declared by the contract with fields: ai, attribution, author, caption, carousel, code, collaborators, comments, createdAt,
+      crossposting, fbid, hasDelayedMetadata. (27 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPostReference
+  - term: InstagramPrice
+    definition: 'Object declared by the contract with fields: amount, formatted, strippedFormatted.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramPrice
+  - term: InstagramProduct
+    definition: 'Object declared by the contract with fields: checkout, compoundId, description, hasVariants, id, image, isAffiliate, isInStock,
+      merchant, name, pricing, retailerId. (3 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProduct
+  - term: InstagramProductTag
+    definition: 'Object declared by the contract with fields: position, product.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProductTag
+  - term: InstagramProfile
+    definition: 'Object declared by the contract with fields: accountBadges, accountType, avatar, bio, bioEntities, bioLinks, broadcastChannels,
+      category, categoryId, contact, content, contentSettings. (30 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfile
+  - term: InstagramProfileAbout
+    definition: 'Object declared by the contract with fields: country, handle, isVerified, joinedAt, metrics.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileAbout
+  - term: InstagramProfileAddress
+    definition: 'Object declared by the contract with fields: city, cityId, postalCode, street.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileAddress
+  - term: InstagramProfileBroadcastChannel
+    definition: 'Object declared by the contract with fields: avatar, cover, creator, id, metrics, title, url.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileBroadcastChannel
+  - term: InstagramProfileBroadcastChannels
+    definition: 'Object declared by the contract with fields: hasPublicChannels, isCreator, pinned.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileBroadcastChannels
+  - term: InstagramProfileContact
+    definition: 'Object declared by the contract with fields: contactPhone, email, method, phone, phoneCountryCode.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileContact
+  - term: InstagramProfileContent
+    definition: 'Object declared by the contract with fields: hasGuides, hasHighlights, hasLongformMedia, hasMusic, hasVideos, hasVisibleNotes.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileContent
+  - term: InstagramProfileContentSettings
+    definition: 'Object declared by the contract with fields: highlightResharingEnabled, postRemixingEnabled, postResharingEnabled, reelRemixingEnabled.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileContentSettings
+  - term: InstagramProfileDisplaySettings
+    definition: 'Object declared by the contract with fields: showCategory, showPublicContacts.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileDisplaySettings
+  - term: InstagramProfileFanClub
+    definition: 'Object declared by the contract with fields: hasExclusiveFeedContent, id, largestPublicBroadcastChannelId, metrics, name.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileFanClub
+  - term: InstagramProfileFundraisers
+    definition: 'Object declared by the contract with fields: items, metrics.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileFundraisers
+  - term: InstagramProfileLocation
+    definition: 'Object declared by the contract with fields: address, id.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileLocation
+  - term: InstagramProfileMetrics
+    definition: 'Object declared by the contract with fields: arEffects, followers, following, posts.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileMetrics
+  - term: InstagramProfileReference
+    definition: 'Object declared by the contract with fields: accountBadges, accountType, avatar, bio, bioEntities, bioLinks, broadcastChannels,
+      category, categoryId, contact, content, contentSettings. (30 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileReference
+  - term: InstagramProfileThreads
+    definition: 'Object declared by the contract with fields: handle, isActive, joinerLabel, url.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramProfileThreads
+  - term: InstagramScrubber
+    definition: 'Object declared by the contract with fields: duration, height, maxThumbnailsPerSprite, thumbnailDuration, thumbnailHeight, thumbnailWidth,
+      thumbnailsPerRow, thumbnailsPerSprite, urls, width.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramScrubber
+  - term: InstagramSticker
+    definition: 'Object declared by the contract with fields: audio, endTime, hashtag, id, isHidden, isPinned, position, post, startTime, targetMediaId,
+      title, type. (2 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramSticker
+  - term: InstagramStickerPost
+    definition: 'Object declared by the contract with fields: code, id, mediaType, productType, url.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramStickerPost
+  - term: InstagramStory
+    definition: 'Object declared by the contract with fields: ai, attribution, author, caption, carousel, code, collaborators, comments, createdAt,
+      crossposting, expiresAt, fbid. (32 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramStory
+  - term: InstagramStoryCollection
+    definition: 'Object declared by the contract with fields: audience, expiresAt, id, isArchived, lastStoryAt, metrics.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramStoryCollection
+  - term: InstagramStoryReference
+    definition: 'Object declared by the contract with fields: ai, attribution, author, caption, carousel, code, collaborators, comments, createdAt,
+      crossposting, expiresAt, fbid. (32 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramStoryReference
+  - term: InstagramStreamVariant
+    definition: 'Object declared by the contract with fields: bitrate, codec, frameRate, height, id, mimeType, qualityLabel, sampleRate, sizeBytes,
+      url, width.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramStreamVariant
+  - term: InstagramStreaming
+    definition: 'Object declared by the contract with fields: dash.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramStreaming
+  - term: InstagramSubtitles
+    definition: 'Object declared by the contract with fields: confidence, enabled, generated, locale, status, url.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramSubtitles
+  - term: InstagramSuggestion
+    definition: 'Object declared by the contract with fields: caption, hasStoryRing, icon, isNew, largeImages, posts, socialContext, thumbnails.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramSuggestion
+  - term: InstagramTemplate
+    definition: 'Object declared by the contract with fields: audioTitle, author, effectId, effects, minimumSegments, postId, posts, segments,
+      title, usageLabel.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramTemplate
+  - term: InstagramTemplateInfo
+    definition: 'Object declared by the contract with fields: author, effectId, effects, minimumSegments, postId, segments.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramTemplateInfo
+  - term: InstagramTemplateSegment
+    definition: 'Object declared by the contract with fields: assetEndTime, assetStartTime, duration.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramTemplateSegment
+  - term: InstagramUserTag
+    definition: 'Object declared by the contract with fields: position, user.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/InstagramUserTag
+  - term: MessageEnvelope
+    definition: 'Object declared by the contract with fields: message.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/MessageEnvelope
+  - term: RedditAuthor
+    definition: 'Object declared by the contract with fields: flair, handle, id, isPremium, placeholder.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/RedditAuthor
+  - term: RedditComment
+    definition: 'Object declared by the contract with fields: author, community, createdAt, depth, display, distinguishedBy, editedAt, id, isArchived,
+      isByPostAuthor, isControversial, isEdited. (11 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/RedditComment
+  - term: RedditCommentDisplay
+    definition: 'Object declared by the contract with fields: collapsedReason, isCollapsed.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/RedditCommentDisplay
+  - term: RedditCommentMetrics
+    definition: 'Object declared by the contract with fields: awards, gilded, score.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/RedditCommentMetrics
+  - term: RedditCommentReference
+    definition: 'Object declared by the contract with fields: author, community, createdAt, depth, display, distinguishedBy, editedAt, id, isArchived,
+      isByPostAuthor, isControversial, isEdited. (11 more)'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/RedditCommentReference
+  - term: RedditCommentSettings
+    definition: 'Object declared by the contract with fields: restrictCommenting, scoreHideDuration, suggestedSort.'
+    tags:
+    - Object
+    source: openapi/openhandle-openapi.yml#/components/schemas/RedditCommentSettings

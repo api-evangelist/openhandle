@@ -1,0 +1,675 @@
+generated: '2026-09-21'
+method: derived
+source: https://openhandle.dev/docs/mcp
+note: 'Every public REST operation is exposed as one MCP tool (docs: "Every public API endpoint is one
+  tool. The tool names, inputs, and responses match the REST API."). The live MCP tools/list is auth-gated
+  (401 anonymous), so each tool is bound to its backing operationId by name and path semantics rather
+  than by a fetched inputSchema; confidence is medium accordingly. find_test_data and get_test_data are
+  the two unmetered discovery tools, backed by the listTestData and getTestData REST operations.'
+surfaces:
+  openapi: openapi/openhandle-openapi.yml
+  mcp: https://api.openhandle.dev/mcp
+  mcp_gated: true
+  note: MCP endpoint requires OAuth or an API key; anonymous tools/list returns 401.
+crosswalk:
+- tool: instagram_comments_likers
+  category: Instagram
+  rest:
+  - Instagram_comment_likers_list
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_hashtags
+  category: Instagram
+  rest:
+  - instagramHashtagGet
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_hashtags_posts
+  category: Instagram
+  rest:
+  - instagramHashtagPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_hashtags_reels
+  category: Instagram
+  rest:
+  - instagramHashtagReelsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_highlights
+  category: Instagram
+  rest:
+  - Instagram_highlight_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_locations
+  category: Instagram
+  rest:
+  - instagramLocationGet
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_locations_posts
+  category: Instagram
+  rest:
+  - instagramLocationPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_music
+  category: Instagram
+  rest:
+  - instagramMusicGet
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_music_stream
+  category: Instagram
+  rest:
+  - Instagram_music_stream_list
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts
+  category: Instagram
+  rest:
+  - instagramPostGet
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_clip_metadata
+  category: Instagram
+  rest:
+  - Instagram_post_clip_metadata_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_comment_metadata
+  category: Instagram
+  rest:
+  - Instagram_post_comment_metadata_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_comment_moderation
+  category: Instagram
+  rest:
+  - Instagram_post_comment_moderation_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_comments
+  category: Instagram
+  rest:
+  - instagramPostCommentsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_comments_replies
+  category: Instagram
+  rest:
+  - instagramCommentRepliesList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_insights
+  category: Instagram
+  rest:
+  - Instagram_post_insights_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_likers
+  category: Instagram
+  rest:
+  - instagramPostLikersList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_oembed
+  category: Instagram
+  rest:
+  - Instagram_post_oembed_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_tagged_users
+  category: Instagram
+  rest:
+  - instagramPostTaggedUsersList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_posts_template
+  category: Instagram
+  rest:
+  - Instagram_post_template_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles
+  category: Instagram
+  rest:
+  - instagramProfileGet
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_about
+  category: Instagram
+  rest:
+  - Instagram_profile_about_get
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_business_recommendations
+  category: Instagram
+  rest:
+  - Instagram_profile_business_recommendations_list
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_followers
+  category: Instagram
+  rest:
+  - instagramProfileFollowersList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_followers_search
+  category: Instagram
+  rest:
+  - instagramProfileFollowersSearch
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_following
+  category: Instagram
+  rest:
+  - instagramProfileFollowingList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_following_search
+  category: Instagram
+  rest:
+  - instagramProfileFollowingSearch
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_highlights
+  category: Instagram
+  rest:
+  - Instagram_profile_highlights_list
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_pinned_posts
+  category: Instagram
+  rest:
+  - instagramProfilePinned_postsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_posts
+  category: Instagram
+  rest:
+  - instagramProfilePostsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_reels
+  category: Instagram
+  rest:
+  - instagramProfileReelsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_reposts
+  category: Instagram
+  rest:
+  - instagramProfileRepostsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_stories
+  category: Instagram
+  rest:
+  - Instagram_profile_stories_list
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_suggested
+  category: Instagram
+  rest:
+  - instagramProfileSuggestedList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_tagged_posts
+  category: Instagram
+  rest:
+  - instagramProfileTagged_postsList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_profiles_videos
+  category: Instagram
+  rest:
+  - instagramProfileVideosList
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_search_hashtags
+  category: Instagram
+  rest:
+  - instagramSearchHashtags
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_search_music
+  category: Instagram
+  rest:
+  - instagramSearchMusic
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_search_places
+  category: Instagram
+  rest:
+  - instagramSearchPlaces
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_search_profiles
+  category: Instagram
+  rest:
+  - instagramSearchProfiles
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_search_reels
+  category: Instagram
+  rest:
+  - instagramSearchReels
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_search_top
+  category: Instagram
+  rest:
+  - Instagram_search_top_list
+  binding: name-and-path
+  confidence: medium
+- tool: instagram_stories
+  category: Instagram
+  rest:
+  - Instagram_story_get
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_domains_posts
+  category: Reddit
+  rest:
+  - Reddit_domain_posts_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_posts
+  category: Reddit
+  rest:
+  - Reddit_post_get
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_posts_comments
+  category: Reddit
+  rest:
+  - Reddit_post_comments_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_posts_duplicates
+  category: Reddit
+  rest:
+  - Reddit_post_duplicates_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_profiles
+  category: Reddit
+  rest:
+  - Reddit_profile_get
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_profiles_comments
+  category: Reddit
+  rest:
+  - Reddit_profile_comments_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_profiles_moderated
+  category: Reddit
+  rest:
+  - Reddit_profile_moderated_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_profiles_posts
+  category: Reddit
+  rest:
+  - Reddit_profile_posts_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_profiles_trophies
+  category: Reddit
+  rest:
+  - Reddit_profile_trophies_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_search_posts
+  category: Reddit
+  rest:
+  - Reddit_search_posts_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_search_profiles
+  category: Reddit
+  rest:
+  - Reddit_search_profiles_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_search_subreddits
+  category: Reddit
+  rest:
+  - Reddit_search_subreddits_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_subreddits_new
+  category: Reddit
+  rest:
+  - Reddit_subreddits_new_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_subreddits_popular
+  category: Reddit
+  rest:
+  - Reddit_subreddits_popular_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_subreddits
+  category: Reddit
+  rest:
+  - Reddit_subreddit_get
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_subreddits_posts
+  category: Reddit
+  rest:
+  - Reddit_subreddit_posts_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_subreddits_rules
+  category: Reddit
+  rest:
+  - Reddit_subreddit_rules_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_subreddits_wiki_pages
+  category: Reddit
+  rest:
+  - Reddit_subreddit_wiki_list
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_subreddits_wiki_pages
+  category: Reddit
+  rest:
+  - Reddit_subreddit_wiki_page_get
+  binding: name-and-path
+  confidence: medium
+- tool: reddit_trending_posts
+  category: Reddit
+  rest:
+  - Reddit_trending_posts_list
+  binding: name-and-path
+  confidence: medium
+- tool: test_data
+  category: Utilities
+  rest:
+  - listTestData
+  binding: name-and-path
+  confidence: medium
+- tool: test_data
+  category: Utilities
+  rest:
+  - getTestData
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_effects
+  category: Tiktok
+  rest:
+  - Tiktok_effects_list
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_effects
+  category: Tiktok
+  rest:
+  - Tiktok_effect_get
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_effects_posts
+  category: Tiktok
+  rest:
+  - tiktokEffectPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_hashtags
+  category: Tiktok
+  rest:
+  - tiktokHashtagGet
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_hashtags_posts
+  category: Tiktok
+  rest:
+  - tiktokHashtagPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_locations
+  category: Tiktok
+  rest:
+  - tiktokLocationGet
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_locations_posts
+  category: Tiktok
+  rest:
+  - tiktokLocationPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_music
+  category: Tiktok
+  rest:
+  - tiktokMusicGet
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_music_posts
+  category: Tiktok
+  rest:
+  - tiktokMusicPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_posts
+  category: Tiktok
+  rest:
+  - tiktokPostGet
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_posts_comments
+  category: Tiktok
+  rest:
+  - tiktokPostCommentsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_posts_comments_replies
+  category: Tiktok
+  rest:
+  - tiktokCommentRepliesList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles
+  category: Tiktok
+  rest:
+  - tiktokProfileGet
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles_followers
+  category: Tiktok
+  rest:
+  - tiktokProfileFollowersList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles_following
+  category: Tiktok
+  rest:
+  - tiktokProfileFollowingList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles_liked_posts
+  category: Tiktok
+  rest:
+  - tiktokProfileLiked_postsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles_playlists
+  category: Tiktok
+  rest:
+  - Tiktok_profile_playlists_list
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles_playlists
+  category: Tiktok
+  rest:
+  - Tiktok_profile_playlist_get
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles_playlists_posts
+  category: Tiktok
+  rest:
+  - tiktokProfilePlaylistPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_profiles_posts
+  category: Tiktok
+  rest:
+  - tiktokProfilePostsList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_search_hashtags
+  category: Tiktok
+  rest:
+  - tiktokSearchHashtags
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_search_locations
+  category: Tiktok
+  rest:
+  - tiktokSearchLocations
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_search_music
+  category: Tiktok
+  rest:
+  - tiktokSearchMusic
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_search_posts
+  category: Tiktok
+  rest:
+  - tiktokSearchPosts
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_search_profiles
+  category: Tiktok
+  rest:
+  - tiktokSearchProfiles
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_trending_categories
+  category: Tiktok
+  rest:
+  - tiktokTrendingCategoriesList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_trending_music
+  category: Tiktok
+  rest:
+  - tiktokTrendingMusicList
+  binding: name-and-path
+  confidence: medium
+- tool: tiktok_trending_posts
+  category: Tiktok
+  rest:
+  - tiktokTrendingPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_lists_posts
+  category: Twitter
+  rest:
+  - twitterListPostsList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_posts
+  category: Twitter
+  rest:
+  - twitterPostGet
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_posts_comments
+  category: Twitter
+  rest:
+  - twitterPostCommentsList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_posts_comments_replies
+  category: Twitter
+  rest:
+  - twitterCommentRepliesList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_posts_reposters
+  category: Twitter
+  rest:
+  - twitterPostRepostersList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_profiles
+  category: Twitter
+  rest:
+  - twitterProfileGet
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_profiles_followers
+  category: Twitter
+  rest:
+  - twitterProfileFollowersList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_profiles_following
+  category: Twitter
+  rest:
+  - twitterProfileFollowingList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_profiles_media
+  category: Twitter
+  rest:
+  - twitterProfileMediaList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_profiles_posts
+  category: Twitter
+  rest:
+  - twitterProfilePostsList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_profiles_replies
+  category: Twitter
+  rest:
+  - twitterProfileRepliesList
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_search_media
+  category: Twitter
+  rest:
+  - twitterSearchMedia
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_search_posts
+  category: Twitter
+  rest:
+  - twitterSearchPosts
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_search_suggestions
+  category: Twitter
+  rest:
+  - Twitter_search_suggestions_list
+  binding: name-and-path
+  confidence: medium
+- tool: twitter_search_users
+  category: Twitter
+  rest:
+  - twitterSearchUsers
+  binding: name-and-path
+  confidence: medium
+- tool: urls_fetch
+  category: Utilities
+  rest:
+  - fetchSocialURL
+  binding: name-and-path
+  confidence: medium
+mcp_only: []
+rest_only: []
+coverage:
+  operations: 109
+  tools_mapped: 109
+  mcp_only: 0
+  rest_only: 0

@@ -1,0 +1,26 @@
+generated: '2026-09-21'
+method: generated
+generator: finish-artifacts.py (index from skill frontmatter)
+source: skills/*.md frontmatter; every operationId checked against openapi/
+skills:
+- file: skills/openhandle-brand-monitoring-search.md
+  name: openhandle-brand-monitoring-search
+  api: Openhandle API
+  operations:
+  - twitterSearchPosts
+  - tiktokSearchPosts
+  - instagramSearchProfiles
+- file: skills/openhandle-instagram-profile-and-posts.md
+  name: openhandle-instagram-profile-and-posts
+  api: Openhandle API
+  operations:
+  - instagramProfileGet
+  - instagramProfilePostsList
+  - instagramPostCommentsList
+- file: skills/openhandle-tiktok-user-videos.md
+  name: openhandle-tiktok-user-videos
+  api: Openhandle API
+  operations:
+  - tiktokProfileGet
+  - tiktokProfilePostsList
+  - tiktokPostGet

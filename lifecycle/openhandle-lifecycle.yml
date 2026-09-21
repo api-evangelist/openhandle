@@ -1,0 +1,28 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/versioning
+versioning: >-
+  URL versioning: current operations are under /v1/. OpenAPI info.version (1.1.0)
+  identifies the document release, not the API version. Breaking contract changes
+  (removing a field or changing its type) require a new major URL version;
+  additive fields and endpoints ship within a major version. Clients should
+  ignore unknown response fields.
+deprecation: >-
+  Version 1 has no announced retirement date. A deprecation notice will name the
+  affected version or operations, a replacement, migration steps, and any
+  scheduled retirement date in the documentation. Deprecation means an operation
+  is discouraged; sunset means it is scheduled to stop responding. No fixed
+  minimum notice period is currently promised. Machine-readable signals use RFC
+  9745 Deprecation (Structured Field date) and RFC 8594 Sunset (HTTP date) with a
+  Link rel="deprecation"; active v1 operations emit no artificial retirement
+  dates.
+sla: >-
+  No published uptime SLA on the public docs. Volume customers get direct support
+  from the team on a monthly-invoice arrangement (pricing page).
+status_page: null
+deprecated_operations: []
+note: >-
+  No status page was found (status.openhandle.dev does not resolve;
+  openhandle.dev/status returns 404). No dated public changelog page exists;
+  versioning is governed by the policy above. No operations are marked deprecated
+  in the OpenAPI document.

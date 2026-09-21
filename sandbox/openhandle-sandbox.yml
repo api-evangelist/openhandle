@@ -1,0 +1,39 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/test-environment
+description: 'Openhandle ships a full Test environment: every endpoint runs against deterministic synthetic
+  data and records a $0.000 actual charge. Test and Live share the same routes, parameters, response schemas,
+  pagination, and error handling. A test request still passes through authentication, validation, rate
+  limits, request history, pricing, and immutable usage logging, but never calls an external data service,
+  consumes an allowance, moves a live price band, or enters an invoice. No email verification, payment
+  method, or free Live request is required to use Test.'
+docs: https://openhandle.dev/docs/test-environment
+modes:
+- name: test
+- name: live
+environments:
+- name: test
+  selector: API key prefix oh_test_
+  charge: $0.000
+  data: deterministic synthetic
+- name: live
+  selector: API key prefix oh_live_ (legacy oh_ keys remain Live)
+  charge: normal billing
+  data: real public data
+key_formats:
+  oh_test_: Test key — deterministic synthetic data, $0.000 actual charge
+  oh_live_: Live key — real public data, normal billing
+  oh_: Legacy key — remains a Live key
+test_values:
+- '@northstar_forge_test (documented synthetic Instagram profile handle used in the docs examples)'
+- Discovery tools find_test_data / get_test_data (and REST listTestData / getTestData) return stable synthetic
+  inputs; unmetered
+time_simulation: none documented
+triggers: The key environment is immutable and selects the data path; there is no environment header,
+  parameter, or body field that can override it. Synthetic records are listed via the Test catalog (/docs/test-environment/catalog)
+  and the find_test_data/get_test_data tools.
+gaps:
+- No test payment cards or bank fixtures (Openhandle is a read-only data API, not a payments API)
+- No time-travel or test-clock tooling
+note: 'Response metadata on a test request: Openhandle-Environment: test, Openhandle-Cost: 0.000, Openhandle-List-Price,
+  Openhandle-Billing-Disposition: test, Openhandle-Dataset-Version, X-Request-ID.'

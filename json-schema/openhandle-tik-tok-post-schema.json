@@ -1,0 +1,4189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/openhandle/main/json-schema/openhandle-tik-tok-post-schema.json",
+  "title": "TikTokPost",
+  "x-generated": "2026-09-21",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/openhandle-openapi.yml#/components/schemas/TikTokPost",
+  "additionalProperties": false,
+  "properties": {
+    "ai": {
+      "$ref": "#/$defs/TikTokPostAI"
+    },
+    "audio": {
+      "$ref": "#/$defs/TikTokPostAudio"
+    },
+    "author": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TikTokProfileReference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "authorId": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "caption": {
+      "$ref": "#/$defs/TikTokPostCaption"
+    },
+    "collaborators": {
+      "items": {
+        "$ref": "#/$defs/TikTokCollaborator"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "commerce": {
+      "$ref": "#/$defs/TikTokPostCommerce"
+    },
+    "cover": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TikTokAsset"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "createdAt": {
+      "format": "date-time",
+      "minLength": 1,
+      "type": "string"
+    },
+    "description": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effects": {
+      "items": {
+        "$ref": "#/$defs/TikTokEffectReference"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "entities": {
+      "items": {
+        "$ref": "#/$defs/TikTokTextEntity"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "hasDanmaku": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "hasPromotionalMusic": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "hashtags": {
+      "items": {
+        "$ref": "#/$defs/TikTokHashtagReference"
+      },
+      "type": "array"
+    },
+    "id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "isAd": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isMeme": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isPaidContent": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isPinned": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "isVr": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "language": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "locations": {
+      "items": {
+        "$ref": "#/$defs/TikTokLocationReference"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "media": {
+      "items": {
+        "$ref": "#/$defs/TikTokAsset"
+      },
+      "type": "array"
+    },
+    "metrics": {
+      "$ref": "#/$defs/TikTokPostMetrics"
+    },
+    "musicContext": {
+      "$ref": "#/$defs/TikTokMusicContext"
+    },
+    "onScreenText": {
+      "items": {
+        "$ref": "#/$defs/TikTokUnspecified"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "paidCollectionId": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "playlist": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TikTokPlaylistReference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "region": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "searchContext": {
+      "$ref": "#/$defs/TikTokPostSearchContext"
+    },
+    "status": {
+      "$ref": "#/$defs/TikTokPostStatus"
+    },
+    "stickers": {
+      "items": {
+        "$ref": "#/$defs/TikTokInteractionSticker"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "template": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TikTokPostTemplate"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "text": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "title": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "type": {
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "format": "uri",
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "url",
+    "text",
+    "title",
+    "description",
+    "region",
+    "language",
+    "createdAt",
+    "author",
+    "authorId",
+    "isAd",
+    "isPaidContent",
+    "isVr",
+    "hasPromotionalMusic",
+    "hasDanmaku",
+    "isPinned",
+    "isMeme",
+    "media",
+    "cover",
+    "metrics",
+    "status",
+    "ai",
+    "commerce",
+    "entities",
+    "hashtags",
+    "locations",
+    "caption",
+    "searchContext",
+    "collaborators",
+    "audio",
+    "template",
+    "paidCollectionId",
+    "onScreenText",
+    "playlist",
+    "effects",
+    "stickers",
+    "musicContext"
+  ],
+  "type": "object",
+  "$defs": {
+    "TikTokAsset": {
+      "additionalProperties": false,
+      "properties": {
+        "bitrate": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "codecCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "covers": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "format": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "frameRate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "hasWatermark": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hash": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAutoGenerated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isBytevc1": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isOriginal": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "label": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locale": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "previewThumbnails": {
+          "items": {
+            "$ref": "#/$defs/TikTokPreviewThumbnails"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "qualityCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "qualityLabel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "renditions": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "role": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "subtitles": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "version": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "volumeInfo": {
+          "$ref": "#/$defs/TikTokVolumeInfo"
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "volumeInfo",
+        "id",
+        "type",
+        "url",
+        "width",
+        "height",
+        "size",
+        "hash",
+        "role",
+        "label",
+        "duration",
+        "hasWatermark",
+        "qualityLabel",
+        "qualityCode",
+        "bitrate",
+        "frameRate",
+        "isBytevc1",
+        "codecCode",
+        "format",
+        "language",
+        "locale",
+        "isAutoGenerated",
+        "isOriginal",
+        "version",
+        "expiresAt",
+        "renditions",
+        "covers",
+        "subtitles",
+        "previewThumbnails",
+        "variants"
+      ],
+      "type": "object"
+    },
+    "TikTokBeatData": {
+      "additionalProperties": false,
+      "properties": {
+        "bitrate": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "codecCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "covers": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "expiresAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "format": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "frameRate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "hasWatermark": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hash": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAutoGenerated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isBytevc1": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isOriginal": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "label": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locale": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "previewThumbnails": {
+          "items": {
+            "$ref": "#/$defs/TikTokPreviewThumbnails"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "qualityCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "qualityLabel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "renditions": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "resources": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "role": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "subtitles": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "version": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "volumeInfo": {
+          "$ref": "#/$defs/TikTokVolumeInfo"
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "volumeInfo",
+        "id",
+        "type",
+        "url",
+        "width",
+        "height",
+        "size",
+        "hash",
+        "role",
+        "label",
+        "duration",
+        "hasWatermark",
+        "qualityLabel",
+        "qualityCode",
+        "bitrate",
+        "frameRate",
+        "isBytevc1",
+        "codecCode",
+        "format",
+        "language",
+        "locale",
+        "isAutoGenerated",
+        "isOriginal",
+        "version",
+        "expiresAt",
+        "renditions",
+        "covers",
+        "subtitles",
+        "previewThumbnails",
+        "variants",
+        "resources"
+      ],
+      "type": "object"
+    },
+    "TikTokCollaborator": {
+      "additionalProperties": false,
+      "properties": {
+        "profile": {
+          "$ref": "#/$defs/TikTokProfileReference"
+        },
+        "status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "profile",
+        "status"
+      ],
+      "type": "object"
+    },
+    "TikTokCommerceMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "products": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "products"
+      ],
+      "type": "object"
+    },
+    "TikTokCoordinates": {
+      "additionalProperties": false,
+      "properties": {
+        "geohash": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "latitude": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "longitude": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude",
+        "geohash"
+      ],
+      "type": "object"
+    },
+    "TikTokDistrict": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "parentName"
+      ],
+      "type": "object"
+    },
+    "TikTokEffectClassification": {
+      "additionalProperties": false,
+      "properties": {
+        "creatorTypeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "sourceCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "creatorTypeCode",
+        "sourceCode"
+      ],
+      "type": "object"
+    },
+    "TikTokEffectCreation": {
+      "additionalProperties": false,
+      "properties": {
+        "isEffectHouse": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isExternalProducer": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isEffectHouse",
+        "isExternalProducer"
+      ],
+      "type": "object"
+    },
+    "TikTokEffectMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "uses": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "views": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "uses",
+        "views"
+      ],
+      "type": "object"
+    },
+    "TikTokEffectOwner": {
+      "additionalProperties": false,
+      "properties": {
+        "avatar": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokAsset"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "displayName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isTopEffectDesigner": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "secUid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verification": {
+          "$ref": "#/$defs/TikTokEffectOwnerVerification"
+        }
+      },
+      "required": [
+        "id",
+        "secUid",
+        "displayName",
+        "avatar",
+        "isTopEffectDesigner",
+        "verification"
+      ],
+      "type": "object"
+    },
+    "TikTokEffectOwnerVerification": {
+      "additionalProperties": false,
+      "properties": {
+        "typeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "typeCode"
+      ],
+      "type": "object"
+    },
+    "TikTokEffectReference": {
+      "additionalProperties": false,
+      "properties": {
+        "attributions": {
+          "items": {
+            "$ref": "#/$defs/TikTokUnspecified"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "children": {
+          "items": {
+            "$ref": "#/$defs/TikTokUnspecified"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "classification": {
+          "$ref": "#/$defs/TikTokEffectClassification"
+        },
+        "creation": {
+          "$ref": "#/$defs/TikTokEffectCreation"
+        },
+        "description": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "effectId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "icon": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokAsset"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isTopEffect": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "linkedAnchors": {
+          "items": {
+            "$ref": "#/$defs/TikTokUnspecified"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/TikTokEffectMetrics"
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokEffectOwner"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "publishedAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resourceId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tags": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "triggers": {
+          "items": {
+            "$ref": "#/$defs/TikTokEffectTrigger"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "effectId",
+        "resourceId",
+        "name",
+        "description",
+        "publishedAt",
+        "url",
+        "isTopEffect",
+        "tags",
+        "owner",
+        "icon",
+        "metrics",
+        "classification",
+        "creation",
+        "triggers",
+        "children",
+        "attributions",
+        "linkedAnchors"
+      ],
+      "type": "object"
+    },
+    "TikTokEffectTrigger": {
+      "additionalProperties": false,
+      "properties": {
+        "actionCodes": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "actionCodes"
+      ],
+      "type": "object"
+    },
+    "TikTokHashtagReference": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "url"
+      ],
+      "type": "object"
+    },
+    "TikTokInteractionSticker": {
+      "additionalProperties": false,
+      "properties": {
+        "hashtag": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokHashtagReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "index": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "isTextHashtag": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "materialIndex": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "positions": {
+          "items": {
+            "$ref": "#/$defs/TikTokStickerPosition"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "text": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "typeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "typeCode",
+        "index",
+        "materialIndex",
+        "text",
+        "hashtag",
+        "isTextHashtag",
+        "positions"
+      ],
+      "type": "object"
+    },
+    "TikTokLocationAddress": {
+      "additionalProperties": false,
+      "properties": {
+        "city": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cityCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "countryCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "district": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokDistrict"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fallback": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "formatted": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "regionCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "formatted",
+        "fallback",
+        "city",
+        "cityCode",
+        "regionCode",
+        "countryCode",
+        "district"
+      ],
+      "type": "object"
+    },
+    "TikTokLocationClassification": {
+      "additionalProperties": false,
+      "properties": {
+        "backendType": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "className": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "code": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "detailType": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hierarchy": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "levelCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "serviceCategory": {
+          "$ref": "#/$defs/TikTokServiceCategory"
+        },
+        "sourceCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "className",
+        "detailType",
+        "sourceCode",
+        "levelCode",
+        "backendType",
+        "hierarchy",
+        "serviceCategory"
+      ],
+      "type": "object"
+    },
+    "TikTokLocationCommerce": {
+      "additionalProperties": false,
+      "properties": {
+        "hasProductShelf": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isClaimed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "hasProductShelf",
+        "isClaimed"
+      ],
+      "type": "object"
+    },
+    "TikTokLocationMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "favorites": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "reviews": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "videos": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "favorites",
+        "reviews",
+        "videos"
+      ],
+      "type": "object"
+    },
+    "TikTokLocationParent": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object"
+    },
+    "TikTokLocationRating": {
+      "additionalProperties": false,
+      "properties": {
+        "hasRating": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "maxScore": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/TikTokRatingSource"
+        }
+      },
+      "required": [
+        "score",
+        "maxScore",
+        "hasRating",
+        "source"
+      ],
+      "type": "object"
+    },
+    "TikTokLocationReference": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/TikTokLocationAddress"
+        },
+        "category": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "classification": {
+          "$ref": "#/$defs/TikTokLocationClassification"
+        },
+        "commerce": {
+          "$ref": "#/$defs/TikTokLocationCommerce"
+        },
+        "coordinates": {
+          "$ref": "#/$defs/TikTokCoordinates"
+        },
+        "externalUrl": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/TikTokLocationMetrics"
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "openingHours": {
+          "$ref": "#/$defs/TikTokOpeningHours"
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokLocationParent"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "priceLevel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rating": {
+          "$ref": "#/$defs/TikTokLocationRating"
+        },
+        "source": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "category",
+        "source",
+        "url",
+        "address",
+        "coordinates",
+        "parent",
+        "classification",
+        "metrics",
+        "rating",
+        "priceLevel",
+        "externalUrl",
+        "openingHours",
+        "commerce"
+      ],
+      "type": "object"
+    },
+    "TikTokLyricAsset": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "typeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "typeCode",
+        "url"
+      ],
+      "type": "object"
+    },
+    "TikTokMatchedTrack": {
+      "additionalProperties": false,
+      "properties": {
+        "artistName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artists": {
+          "items": {
+            "$ref": "#/$defs/TikTokProfileReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "chorus": {
+          "$ref": "#/$defs/TikTokMusicPreview"
+        },
+        "cover": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokAsset"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mixedArtistName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mixedTitle": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "release": {
+          "$ref": "#/$defs/TikTokMusicRelease"
+        },
+        "title": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "artistName",
+        "mixedTitle",
+        "mixedArtistName",
+        "cover",
+        "duration",
+        "chorus",
+        "url",
+        "artists",
+        "release"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicChartContext": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "position": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "trendCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "position",
+        "trendCode"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicClassification": {
+      "additionalProperties": false,
+      "properties": {
+        "languageLabel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "styleCodes": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "themeCodes": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "themes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "themes",
+        "themeCodes",
+        "styleCodes",
+        "languageLabel"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicContext": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicDurations": {
+      "additionalProperties": false,
+      "properties": {
+        "shoot": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "video": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "shoot",
+        "video"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicGrouping": {
+      "additionalProperties": false,
+      "properties": {
+        "groupIds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "sameGroupId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "similarGroupId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ugid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "sameGroupId",
+        "similarGroupId",
+        "ugid",
+        "groupIds"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "groupUses": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "posts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "ugidUses": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "posts",
+        "groupUses",
+        "ugidUses"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicPreview": {
+      "additionalProperties": false,
+      "properties": {
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "endTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "startTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "startTime",
+        "endTime",
+        "duration"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicReference": {
+      "additionalProperties": false,
+      "properties": {
+        "album": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appleMusicSongId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artistName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artists": {
+          "items": {
+            "$ref": "#/$defs/TikTokProfileReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "audio": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokAsset"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "beatData": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokBeatData"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "chartContext": {
+          "$ref": "#/$defs/TikTokMusicChartContext"
+        },
+        "classification": {
+          "$ref": "#/$defs/TikTokMusicClassification"
+        },
+        "covers": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "createdAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "durations": {
+          "$ref": "#/$defs/TikTokMusicDurations"
+        },
+        "externalSongs": {
+          "items": {
+            "$ref": "#/$defs/TikTokUnspecified"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "grouping": {
+          "$ref": "#/$defs/TikTokMusicGrouping"
+        },
+        "hasBehindTheSong": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasHumanVoice": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "hasMatchedMetadata": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAuthorArtist": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isAuthorDeleted": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isOriginal": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isOriginalSound": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPgc": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPlayMusic": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "lyricAssets": {
+          "items": {
+            "$ref": "#/$defs/TikTokLyricAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "matchedCatalogTrack": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokMusicReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "matchedSong": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokMatchedTrack"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "matchedSound": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokMatchedTrack"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/TikTokMusicMetrics"
+        },
+        "mid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "preview": {
+          "$ref": "#/$defs/TikTokMusicPreview"
+        },
+        "recommendationStatusCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "release": {
+          "$ref": "#/$defs/TikTokMusicRelease"
+        },
+        "searchContext": {
+          "$ref": "#/$defs/TikTokMusicSearchContext"
+        },
+        "similarTracks": {
+          "items": {
+            "$ref": "#/$defs/TikTokMusicReference"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/TikTokMusicSource"
+        },
+        "streamingLinks": {
+          "items": {
+            "$ref": "#/$defs/TikTokStreamingLink"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "title": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "mid",
+        "title",
+        "artistName",
+        "album",
+        "url",
+        "duration",
+        "createdAt",
+        "isOriginal",
+        "isOriginalSound",
+        "isAuthorArtist",
+        "hasHumanVoice",
+        "isAuthorDeleted",
+        "isPgc",
+        "hasMatchedMetadata",
+        "recommendationStatusCode",
+        "isPlayMusic",
+        "owner",
+        "artists",
+        "metrics",
+        "audio",
+        "covers",
+        "beatData",
+        "durations",
+        "release",
+        "preview",
+        "matchedSong",
+        "matchedSound",
+        "classification",
+        "grouping",
+        "streamingLinks",
+        "lyricAssets",
+        "source",
+        "appleMusicSongId",
+        "searchContext",
+        "chartContext",
+        "matchedCatalogTrack",
+        "hasBehindTheSong",
+        "similarTracks",
+        "externalSongs"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicRelease": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isNewRelease": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isNewRelease",
+        "date"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicSearchContext": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relatedQuery": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "relatedQuery"
+      ],
+      "type": "object"
+    },
+    "TikTokMusicSource": {
+      "additionalProperties": false,
+      "properties": {
+        "audioAssetId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourcePostId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "sourcePostId",
+        "audioAssetId"
+      ],
+      "type": "object"
+    },
+    "TikTokOpeningHours": {
+      "additionalProperties": false,
+      "properties": {
+        "endTime": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/$defs/TikTokOpeningHoursEntry"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "startTime": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "text": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "entries",
+        "text",
+        "startTime",
+        "endTime",
+        "status"
+      ],
+      "type": "object"
+    },
+    "TikTokOpeningHoursEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "dayCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "text": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "dayCode",
+        "text"
+      ],
+      "type": "object"
+    },
+    "TikTokPlaylistMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "plays": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "posts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "posts",
+        "plays"
+      ],
+      "type": "object"
+    },
+    "TikTokPlaylistReference": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "creatorName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "index": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "lastPostAddedAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/TikTokPlaylistMetrics"
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "typeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "url",
+        "creatorName",
+        "author",
+        "typeCode",
+        "index",
+        "lastPostAddedAt",
+        "metrics"
+      ],
+      "type": "object"
+    },
+    "TikTokPostAI": {
+      "additionalProperties": false,
+      "properties": {
+        "isCreatedByAi": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "labelType": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isCreatedByAi",
+        "labelType"
+      ],
+      "type": "object"
+    },
+    "TikTokPostAudio": {
+      "additionalProperties": false,
+      "properties": {
+        "addedTrack": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokMusicReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "addedVolume": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "endTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "originalVolume": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "startTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "track": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokMusicReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "usesFullSong": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "track",
+        "addedTrack",
+        "startTime",
+        "endTime",
+        "originalVolume",
+        "addedVolume",
+        "usesFullSong"
+      ],
+      "type": "object"
+    },
+    "TikTokPostCaption": {
+      "additionalProperties": false,
+      "properties": {
+        "entities": {
+          "items": {
+            "$ref": "#/$defs/TikTokTextEntity"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "markup": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "markup",
+        "entities"
+      ],
+      "type": "object"
+    },
+    "TikTokPostCommerce": {
+      "additionalProperties": false,
+      "properties": {
+        "brandedContentType": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "disclosureLabel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isDiversionAd": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isEcommerce": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/TikTokCommerceMetrics"
+        },
+        "products": {
+          "items": {
+            "$ref": "#/$defs/TikTokProduct"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "sellerIds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "brandedContentType",
+        "isDiversionAd",
+        "disclosureLabel",
+        "metrics",
+        "isEcommerce",
+        "sellerIds",
+        "products"
+      ],
+      "type": "object"
+    },
+    "TikTokPostMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "comments": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "downloads": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "likes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "reposts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "saves": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "shares": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "views": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "whatsapp": {
+          "$ref": "#/$defs/TikTokWhatsAppMetrics"
+        }
+      },
+      "required": [
+        "likes",
+        "comments",
+        "views",
+        "saves",
+        "shares",
+        "downloads",
+        "reposts",
+        "whatsapp"
+      ],
+      "type": "object"
+    },
+    "TikTokPostSearchContext": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "highlights": {
+          "items": {
+            "$ref": "#/$defs/TikTokSearchHighlight"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "description",
+        "highlights"
+      ],
+      "type": "object"
+    },
+    "TikTokPostStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "isDeleted": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isProhibited": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isUnderReview": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "privacyCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "reviewedCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isDeleted",
+        "isProhibited",
+        "privacyCode",
+        "isUnderReview",
+        "reviewedCode"
+      ],
+      "type": "object"
+    },
+    "TikTokPostTemplate": {
+      "additionalProperties": false,
+      "properties": {
+        "authorName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/TikTokTemplateMetrics"
+        },
+        "musicId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "authorName",
+        "description",
+        "duration",
+        "musicId",
+        "metrics"
+      ],
+      "type": "object"
+    },
+    "TikTokPreviewThumbnails": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "duration": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "format": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "imageCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "imageIds": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "images": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "interval": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rows": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "tileHeight": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "tileWidth": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "duration",
+        "interval",
+        "imageCount",
+        "columns",
+        "rows",
+        "tileWidth",
+        "tileHeight",
+        "format",
+        "images",
+        "imageIds"
+      ],
+      "type": "object"
+    },
+    "TikTokProduct": {
+      "additionalProperties": false,
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/$defs/TikTokProductCategory"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "cover": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokAsset"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disclosureLabel": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "images": {
+          "items": {
+            "$ref": "#/$defs/TikTokAsset"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "inShop": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPlatformProduct": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "label": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "platformCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "pricing": {
+          "$ref": "#/$defs/TikTokProductPricing"
+        },
+        "sellerId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "shortName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "skus": {
+          "items": {
+            "$ref": "#/$defs/TikTokProductSKU"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "source": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "statusCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "shortName",
+        "source",
+        "platformCode",
+        "statusCode",
+        "inShop",
+        "isPlatformProduct",
+        "sellerId",
+        "pricing",
+        "images",
+        "cover",
+        "skus",
+        "categories",
+        "disclosureLabel",
+        "label"
+      ],
+      "type": "object"
+    },
+    "TikTokProductCategory": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isLeaf": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "level": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "level",
+        "isLeaf",
+        "parentId"
+      ],
+      "type": "object"
+    },
+    "TikTokProductPricing": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "marketPrice": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "price": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "price",
+        "marketPrice",
+        "currency"
+      ],
+      "type": "object"
+    },
+    "TikTokProductSKU": {
+      "additionalProperties": false,
+      "properties": {
+        "externalId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "externalProductId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "externalId",
+        "externalProductId"
+      ],
+      "type": "object"
+    },
+    "TikTokProfileMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "followers": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "following": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "likedPosts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "likes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "posts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "visiblePosts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "followers",
+        "following",
+        "posts",
+        "visiblePosts",
+        "likes",
+        "likedPosts"
+      ],
+      "type": "object"
+    },
+    "TikTokProfileReference": {
+      "additionalProperties": false,
+      "properties": {
+        "accountType": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "avatar": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokAsset"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "bio": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "category": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "commerce": {
+          "additionalProperties": false,
+          "properties": {
+            "hasLiveCommerce": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "hasNewProducts": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "level": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "level",
+            "hasLiveCommerce",
+            "hasNewProducts"
+          ],
+          "type": "object"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "displayName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "handle": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isAdVirtual": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isCanceled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isDisciplineMember": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isEffectArtist": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isPrivate": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isStar": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "isVerified": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "language": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics": {
+          "$ref": "#/$defs/TikTokProfileMetrics"
+        },
+        "music": {
+          "additionalProperties": false,
+          "properties": {
+            "metrics": {
+              "additionalProperties": false,
+              "properties": {
+                "likes": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "tracks": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "uses": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "tracks",
+                "uses",
+                "likes"
+              ],
+              "type": "object"
+            },
+            "newReleaseIds": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "metrics",
+            "newReleaseIds"
+          ],
+          "type": "object"
+        },
+        "predictions": {
+          "additionalProperties": false,
+          "properties": {
+            "ageGroup": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "ageGroup"
+          ],
+          "type": "object"
+        },
+        "privacy": {
+          "additionalProperties": false,
+          "properties": {
+            "followingVisibility": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "followingVisibility"
+          ],
+          "type": "object"
+        },
+        "regionCode": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "searchContext": {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "nameField": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "description",
+            "name",
+            "nameField"
+          ],
+          "type": "object"
+        },
+        "secUid": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "socialLinks": {
+          "items": {
+            "$ref": "#/$defs/TikTokSocialLink"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "stories": {
+          "additionalProperties": false,
+          "properties": {
+            "changedAt": {
+              "format": "date-time",
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "items": {
+              "items": {
+                "$ref": "#/$defs/TikTokStoryReference"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "metrics": {
+              "additionalProperties": false,
+              "properties": {
+                "countsByPostType": {
+                  "items": {
+                    "$ref": "#/$defs/TikTokStoryCount"
+                  },
+                  "type": [
+                    "array",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "countsByPostType"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "items",
+            "changedAt",
+            "metrics"
+          ],
+          "type": "object"
+        },
+        "storyStatus": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verification": {
+          "additionalProperties": false,
+          "properties": {
+            "badgeType": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "customLabel": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "label": {
+              "minLength": 1,
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "badgeType",
+            "label",
+            "customLabel"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "secUid",
+        "handle",
+        "displayName",
+        "bio",
+        "url",
+        "createdAt",
+        "avatar",
+        "isPrivate",
+        "isVerified",
+        "accountType",
+        "isEffectArtist",
+        "isAdVirtual",
+        "isStar",
+        "storyStatus",
+        "isDisciplineMember",
+        "isCanceled",
+        "regionCode",
+        "language",
+        "category",
+        "verification",
+        "metrics",
+        "commerce",
+        "privacy",
+        "music",
+        "predictions",
+        "searchContext",
+        "socialLinks",
+        "stories"
+      ],
+      "type": "object"
+    },
+    "TikTokRatingSource": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "name"
+      ],
+      "type": "object"
+    },
+    "TikTokSearchHighlight": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ranges": {
+          "items": {
+            "$ref": "#/$defs/TikTokTextRange"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "field",
+        "ranges"
+      ],
+      "type": "object"
+    },
+    "TikTokServiceCategory": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "code"
+      ],
+      "type": "object"
+    },
+    "TikTokSocialLink": {
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "handle": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "platform": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "platform",
+        "id",
+        "handle",
+        "displayName",
+        "url"
+      ],
+      "type": "object"
+    },
+    "TikTokStickerPosition": {
+      "additionalProperties": false,
+      "properties": {
+        "endTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "isRelative": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "rotation": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "scale": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "startTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "width": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "x": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "y": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height",
+        "rotation",
+        "scale",
+        "isRelative",
+        "startTime",
+        "endTime"
+      ],
+      "type": "object"
+    },
+    "TikTokStoryCount": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "postTypeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "postTypeCode",
+        "count"
+      ],
+      "type": "object"
+    },
+    "TikTokStoryReference": {
+      "additionalProperties": false,
+      "properties": {
+        "expiresAt": {
+          "format": "date-time",
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mediaTypeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "postTypeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "mediaTypeCode",
+        "postTypeCode",
+        "expiresAt"
+      ],
+      "type": "object"
+    },
+    "TikTokStreamingLink": {
+      "additionalProperties": false,
+      "properties": {
+        "platformCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "songId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "platformCode",
+        "songId"
+      ],
+      "type": "object"
+    },
+    "TikTokTemplateMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "clips": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "clips"
+      ],
+      "type": "object"
+    },
+    "TikTokTextEntity": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "hashtag": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokHashtagReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "start": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "tagId": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "minLength": 1,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "typeCode": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "user": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TikTokProfileReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "typeCode",
+        "start",
+        "end",
+        "tagId",
+        "user",
+        "hashtag"
+      ],
+      "type": "object"
+    },
+    "TikTokTextRange": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "start": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "TikTokUnspecified": {
+      "additionalProperties": false,
+      "properties": {},
+      "type": "object"
+    },
+    "TikTokVolumeInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "loudness": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "loudnessRange": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "loudnessRangeEnd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "loudnessRangeStart": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maxVolume": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maximumMomentaryLoudness": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maximumShortTermLoudness": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "meanVolume": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "peak": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "version": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "loudness",
+        "peak",
+        "loudnessRange",
+        "loudnessRangeStart",
+        "loudnessRangeEnd",
+        "maximumMomentaryLoudness",
+        "maximumShortTermLoudness",
+        "version",
+        "maxVolume",
+        "meanVolume"
+      ],
+      "type": "object"
+    },
+    "TikTokWhatsAppMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "shares": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "shares"
+      ],
+      "type": "object"
+    }
+  }
+}

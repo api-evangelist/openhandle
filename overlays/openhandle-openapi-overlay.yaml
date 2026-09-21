@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: Openhandle API — API Evangelist enrichment overlay
+  version: 1.0.0
+extends: openapi/openhandle-openapi.yml
+actions:
+- target: $.info
+  description: >-
+    Add provider contact and terms that the published spec omits, sourced from
+    openhandle.dev/contact and the terms of service.
+  update:
+    contact:
+      name: Openhandle support
+      email: hello@openhandle.dev
+      url: https://openhandle.dev/contact
+    termsOfService: https://openhandle.dev/legal/terms-of-service
+- target: $.info
+  description: Record the machine-readable documentation index (llms.txt) and docs home.
+  update:
+    x-llms-txt: https://openhandle.dev/llms.txt
+    x-documentation: https://openhandle.dev/docs

@@ -1,0 +1,62 @@
+generated: '2026-09-21'
+method: searched
+source: https://openhandle.dev/docs/concepts/envelope-and-errors
+idempotency:
+  coverage: na
+  mechanism: null
+  header: null
+  retention: null
+  docs: https://openhandle.dev/docs/versioning
+  note: >-
+    The API is read-only: all 109 operations are GET and read public social data;
+    the service never likes, follows, posts, or messages. There is no mutating
+    surface, so replay protection is not applicable. GET requests are naturally
+    idempotent.
+reversibility:
+  applicability: na
+  note: >-
+    Read-only API with no write, create, delete, or state-changing operation, so
+    there is nothing to cancel, refund, void, or restore. Reversibility is not
+    applicable.
+dry_run:
+  supported: na
+  note: >-
+    No write surface to rehearse. The Test environment (oh_test_ keys) does let an
+    agent exercise every endpoint against synthetic data at $0.000 before using
+    Live, which serves the same rehearsal purpose for a read API.
+pagination:
+  style: opaque-cursor
+  params:
+  - cursor
+  - since
+  response_fields:
+  - meta.cursors.next
+  note: >-
+    List endpoints return one page per request and an opaque forward cursor in
+    meta.cursors.next; pass it back as the `cursor` query parameter. Cursors are
+    opaque and bound to their endpoint/target/freshness tier (CURSOR_MISMATCH
+    otherwise). Post lists accept a `since` RFC 3339 timestamp to stop paging at a
+    point in time. Each page is one billable request.
+freshness:
+  note: >-
+    A per-request freshness tier controls how fresh the answer must be: live, 24h,
+    7d, or 30d. 30-day cache hits are free; 24h and 7d hits are cheaper than live.
+    Every response reports its `source` (live or cache) and `capturedAt`.
+versioning: URL /v1/; see lifecycle/openhandle-lifecycle.yml
+error_envelope: >-
+  Uniform {error:{code,message,requestId,retryable}} on every error; branch on
+  code. See errors/openhandle-problem-types.yml.
+authentication: >-
+  Bearer API key (oh_test_/oh_live_) on every REST request; OAuth 2.0 (PKCE) for
+  the MCP endpoint only. See authentication/openhandle-authentication.yml.
+metadata: >-
+  Success envelope carries platform, resource, capturedAt (RFC 3339), source, data,
+  and meta (list responses only). Nulls mean the provider did not supply the field;
+  measured zeros stay 0.
+request_tracing: >-
+  Every response carries a requestId (X-Request-ID header, error.requestId in the
+  envelope) used in the dashboard Requests and Usage views.
+rate_limit_signaling: >-
+  RateLimit-Policy and RateLimit headers (draft-ietf-httpapi-ratelimit-headers-11)
+  on every response; 429 with RATE_LIMITED and Retry-After on exhaustion. See
+  rate-limits/openhandle-rate-limits.yml.

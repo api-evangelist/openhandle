@@ -1,0 +1,147 @@
+# Openhandle
+
+> Openhandle is a public social data API for Instagram, TikTok, X, and Reddit. Profiles, posts, comments, followers, and search come back in one schema with a capture time and a source on every answer. You add balance and pay one price per request, with caps per account and per key. Every page on openhandle.dev is also markdown: add `.md` to the URL or send `Accept: text/markdown`.
+
+## Start
+
+- [Quickstart](https://openhandle.dev/docs/quickstart.md): First request in five minutes on a free test key
+- [Authentication](https://openhandle.dev/docs/authentication.md): One Bearer header. Test keys and live keys
+- [Test environment](https://openhandle.dev/docs/test-environment.md): Every endpoint on synthetic data, never charged
+- [SDKs](https://openhandle.dev/docs/sdks.md): TypeScript, Python, and Go
+- [Pricing](https://openhandle.dev/pricing.md): Per-request rates, lower cache rates, free 30-day cache hits, caps, invoices
+
+## Agent setup
+
+- [Openhandle skill](https://openhandle.dev/SKILL.md): Install an SDK, configure a Test key, add social data, and verify the integration
+
+## Machine readable
+
+- [OpenAPI spec](https://api.openhandle.dev/openapi.json): every operation and schema
+- [Openhandle MCP manifest](https://openhandle.dev/mcp): Server description in the official MCP Registry server.json format
+- [Openhandle MCP endpoint](https://api.openhandle.dev/mcp): Streamable HTTP. Requires OAuth or a Bearer key; unauthenticated requests return 401
+- [Openhandle MCP setup](https://openhandle.dev/setup-mcp.md): Client setup guide and server URL
+- [Openhandle MCP documentation](https://openhandle.dev/docs/mcp.md): Connection setup, OAuth scope, and Test mode
+- [OAuth protected resource metadata](https://api.openhandle.dev/.well-known/oauth-protected-resource/mcp): Machine-readable supported scopes and authorization server
+- [Rate limits](https://openhandle.dev/docs/rate-limits.md): Quota headers and retry behavior
+- [Versioning and deprecation](https://openhandle.dev/docs/versioning.md): Compatibility and retirement policy
+
+## Platforms
+
+- [Reddit API](https://openhandle.dev/apis/reddit.md): Public profiles, posts, comment trees, subreddits, search, and wikis.
+- [Instagram API](https://openhandle.dev/apis/instagram.md): Normalized public profiles, posts, comments, and reply threads.
+- [TikTok API](https://openhandle.dev/apis/tiktok.md): Public TikTok profiles, videos, comments, and replies in one stable schema.
+- [X (Twitter) API](https://openhandle.dev/apis/twitter.md): Public X profiles, timelines, social graph, search, posts, and conversations in one stable schema.
+- [Instagram reference](https://openhandle.dev/docs/platforms/instagram.md): Endpoints, examples, and fields
+- [TikTok reference](https://openhandle.dev/docs/platforms/tiktok.md): Endpoints, examples, and fields
+- [X reference](https://openhandle.dev/docs/platforms/twitter.md): Endpoints, examples, and fields
+
+## Concepts
+
+- [Envelope and errors](https://openhandle.dev/docs/concepts/envelope-and-errors.md): What every answer looks like, and every error code.
+- [Freshness and caching](https://openhandle.dev/docs/concepts/freshness-and-caching.md): Live, or up to 24 hours, 7 days, or 30 days old. You pick per request.
+- [Identifiers](https://openhandle.dev/docs/concepts/identifiers.md): Handles, IDs, and URLs. What you can pass and what stays stable.
+- [Metric semantics](https://openhandle.dev/docs/concepts/metric-semantics.md): What a view, a like, and a share mean on each platform.
+- [Pagination](https://openhandle.dev/docs/concepts/pagination.md): Opaque cursors, one page per request.
+- [URL resolution](https://openhandle.dev/docs/concepts/url-resolution.md): Paste a platform URL, get the right resource.
+
+## Guides
+
+- [Get Instagram profile data](https://openhandle.dev/docs/guides/get-instagram-profile-data.md): Followers, bio, verification, and metrics for any public account.
+- [Get TikTok user videos](https://openhandle.dev/docs/guides/get-tiktok-user-videos.md): A creator’s videos with views, likes, comments, and shares.
+- [Instagram without Graph approval](https://openhandle.dev/docs/guides/instagram-api-without-graph-approval.md): Public data without a Meta app review.
+- [TikTok without the Research API](https://openhandle.dev/docs/guides/tiktok-data-without-research-api.md): Commercial use without the academic program.
+- [Private and deleted accounts](https://openhandle.dev/docs/guides/private-and-deleted-accounts.md): What you get back, and what it costs.
+- [Claude Code setup](https://openhandle.dev/docs/agents/claude-code.md): Add the MCP server in one command.
+- [Cursor setup](https://openhandle.dev/docs/agents/cursor.md): One entry in mcp.json.
+- [Vercel AI SDK setup](https://openhandle.dev/docs/agents/vercel-ai-sdk.md): Openhandle tools inside your own agent.
+- [LangChain setup](https://openhandle.dev/docs/agents/langchain.md): MCP tools in a LangChain agent.
+- [n8n setup](https://openhandle.dev/docs/agents/n8n.md): HTTP node or MCP client node.
+
+## Questions
+
+- [How do I get an Instagram follower count without logging in?](https://openhandle.dev/questions/how-do-i-get-an-instagram-follower-count-without-logging-in.md): Call one profile endpoint with the username. The follower count comes back as an integer, with no Instagram login, no Meta app, and no app review.
+- [How do I get an Instagram user ID from a username?](https://openhandle.dev/questions/how-do-i-get-an-instagram-user-id-from-a-username.md): Call the profile endpoint with the username. The response carries the platform ID in data.id. Store that ID. Usernames change, IDs never do.
+- [How do I get comments on an Instagram post that is not mine?](https://openhandle.dev/questions/how-do-i-get-comments-on-an-instagram-post-that-is-not-mine.md): Call the post comments endpoint with the post ID. One page of comments comes back with author, text, likes, and a cursor for the next page. No Graph API, no account link.
+- [How do I get Instagram Reel play counts?](https://openhandle.dev/questions/how-do-i-get-instagram-reel-play-counts.md): Call the post endpoint with the Reel ID, or list a profile’s reels. Plays come back in metrics.views for any public reel. Images and carousels return null there, because they have no plays.
+- [How do I get Instagram hashtag posts past the 30 hashtag limit?](https://openhandle.dev/questions/how-do-i-get-instagram-hashtag-posts-past-the-30-hashtag-limit.md): The Graph API allows 30 unique hashtags per account per week. A public data API has no such cap. Call the hashtag posts endpoint for any hashtag, as often as you need.
+- [How do I get Instagram posts by location?](https://openhandle.dev/questions/how-do-i-get-instagram-posts-by-location.md): Search places by name to get the location ID, then list its posts sorted recent or top. Public posts tagged at that place come back one page at a time.
+- [How do I get a competitor’s Instagram engagement rate?](https://openhandle.dev/questions/how-do-i-get-a-competitors-instagram-engagement-rate.md): Read the profile for the follower count and the last posts for likes and comments, then divide. Two calls, real numbers, and nulls where Instagram hides likes. Reach and saves are not public.
+- [How do I track a competitor’s follower growth on Instagram or TikTok?](https://openhandle.dev/questions/how-do-i-track-a-competitors-follower-growth.md): Read the public profile on a schedule, store the count with its capture time, and chart the difference. One endpoint per platform, no history to buy, no account to connect.
+- [Is there a webhook for new Instagram or TikTok posts?](https://openhandle.dev/questions/is-there-a-webhook-for-new-instagram-or-tiktok-posts.md): No. Neither platform notifies anyone about a public account you do not own, and Openhandle does not either. Poll the profile posts endpoint on a schedule and diff the IDs. Here is the cheap way.
+- [Why do Instagram image URLs expire with a 403?](https://openhandle.dev/questions/why-do-instagram-image-urls-expire-with-a-403.md): Instagram CDN links carry a signature that expires after a few days. Once it does, the link answers 403 and your page shows a broken image. Openhandle serves media from its own CDN, so the link you store keeps working.
+- [The Instagram Basic Display API is deprecated. What now?](https://openhandle.dev/questions/instagram-basic-display-api-is-deprecated-what-now.md): Meta retired Basic Display in December 2024. If you read public profiles or posts, switch to a public data API. If you act on behalf of users, move to Instagram Login with the Graph API.
+- [instaloader returns 401 "Please wait a few minutes". What now?](https://openhandle.dev/questions/instaloader-returns-401-please-wait-what-now.md): Instagram is rate limiting your IP or session. Waiting works once, then it comes back. If you only need public profile and post data, an API that does the reading for you ends the loop.
+- [Can I get data from a private Instagram account?](https://openhandle.dev/questions/can-i-get-data-from-a-private-instagram-account.md): No. Not the follower count, not the posts, not the stories. Openhandle returns a PROFILE_PRIVATE error and reads nothing. Here is what that answer looks like and what to do with it.
+- [Can I get Instagram like counts when likes are hidden?](https://openhandle.dev/questions/can-i-get-instagram-like-counts-when-likes-are-hidden.md): No. When an account hides like counts, Instagram shows the number to nobody. The API returns null for that post, never a zero or an estimate. Here is what you still get.
+- [Can I get story views for another Instagram account?](https://openhandle.dev/questions/can-i-get-story-views-for-another-instagram-account.md): No. Story view counts and viewer lists are visible only to the account owner. What you can read is the public story itself: media, timing, and links, for public accounts.
+- [Does TikTok have a public API?](https://openhandle.dev/questions/does-tiktok-have-a-public-api.md): Not for reading accounts you do not own. TikTok’s Research API is for approved researchers and the Display API reads only the logged-in user. For public profiles, videos, and comments, use a public data API.
+- [How do I get a TikTok follower count for any username?](https://openhandle.dev/questions/how-do-i-get-a-tiktok-follower-count-for-any-username.md): Call the profile endpoint with the username. Followers, following, total likes, and video count come back as integers for any public account. No TikTok login, no Research API.
+- [How do I get the view count of a TikTok video?](https://openhandle.dev/questions/how-do-i-get-the-view-count-of-a-tiktok-video.md): Call the post endpoint with the video ID. Views, likes, comments, shares, and saves come back as integers. No Research API application, no TikTok login.
+- [How do I get comments on a TikTok video?](https://openhandle.dev/questions/how-do-i-get-comments-on-a-tiktok-video.md): Call the post comments endpoint with the video ID. One page of comments comes back with author, text, likes, and a cursor for the next page. Replies have their own endpoint. No TikTok login, no Research API.
+- [How do I search TikTok videos by keyword?](https://openhandle.dev/questions/how-do-i-search-tiktok-videos-by-keyword.md): Call the search posts endpoint with a query. Public videos come back one page at a time with author, caption, and metrics. No TikTok login, no Research API.
+- [How do I get trending TikTok hashtags and sounds?](https://openhandle.dev/questions/how-do-i-get-trending-tiktok-hashtags-and-sounds.md): Call the trending music and trending posts endpoints for what TikTok is pushing now, and search hashtags by keyword for their post counts. Public data, one API key, no Research API.
+- [How do I get TikTok Research API access as a non-academic?](https://openhandle.dev/questions/how-do-i-get-tiktok-research-api-access-as-a-non-academic.md): You do not. The Research API is for researchers at qualifying academic and non-profit institutions, by application. For a company or an independent developer, public TikTok data comes from a public data API.
+- [TikTok-Api returns empty results or a captcha. What now?](https://openhandle.dev/questions/tiktok-api-returns-empty-or-a-captcha-what-now.md): TikTok detected the browser your script drives. Empty lists and captchas are the same signal. If you need public profiles and videos, an API that reads TikTok for you ends the loop.
+- [Can I get another TikTok creator’s audience age and gender?](https://openhandle.dev/questions/can-i-get-another-tiktok-creators-audience-age-and-gender.md): No. Audience demographics live in the creator’s own analytics and are shown to nobody else. Tools that sell them estimate. What you can read is the public profile, videos, and region.
+- [Is the X (Twitter) API free to read posts?](https://openhandle.dev/questions/is-the-x-twitter-api-free-to-read-posts.md): No. The free tier of the X API can post but not read. Reading needs a paid monthly tier with a post cap. For public posts, profiles, and search, a per-request public data API costs a fraction.
+- [How do I search X (Twitter) posts by keyword?](https://openhandle.dev/questions/how-do-i-search-x-twitter-posts-by-keyword.md): Call the search endpoint with a query. Latest or top posts come back one page at a time with author, text, and metrics. No monthly X API plan.
+- [How do I get replies or a full thread on X (Twitter)?](https://openhandle.dev/questions/how-do-i-get-replies-or-a-full-thread-on-x.md): Call the post comments endpoint with the post ID. Replies come back one page at a time with author, text, and metrics. Nested replies have their own endpoint. Cursors keep working.
+- [How do I get all posts from an X user past 3,200?](https://openhandle.dev/questions/how-do-i-get-all-posts-from-an-x-user-past-3200.md): The 3,200 cap belongs to the official X timeline endpoint. Openhandle pages a public profile as far as X shows it to a visitor, and search reaches older posts by query. Neither is a full archive.
+- [Can I get X (Twitter) posts by date range?](https://openhandle.dev/questions/can-i-get-x-posts-by-date-range.md): Partly. A profile feed accepts a since timestamp and stops paging there. There is no end-date filter and no date filter on search. Bound the range yourself with createdAt.
+- [snscrape, Twint, and Nitter are dead. What now?](https://openhandle.dev/questions/snscrape-twint-and-nitter-are-dead-what-now.md): All three read X through guest access that X removed. Nothing you install brings it back. For public posts, profiles, and search, call an API that keeps reading X for you.
+- [Is the Reddit API free?](https://openhandle.dev/questions/is-the-reddit-api-free.md): Free for non-commercial use within a per-minute quota. Commercial use needs Reddit’s approval and a paid per-call rate. For public posts, comments, and subreddits, a public data API skips the approval.
+- [How do I track brand mentions across subreddits?](https://openhandle.dev/questions/how-do-i-track-brand-mentions-across-subreddits.md): Search Reddit posts for the brand name sorted new, on a schedule, and store the IDs. Narrow to one subreddit or a time window when you need to. Then read the comment threads that matter.
+- [How do I get a Reddit user’s post history?](https://openhandle.dev/questions/how-do-i-get-a-reddit-users-post-history.md): Call the profile posts endpoint with the username. Posts come back newest first, one page at a time, with score and comment counts. Comments have their own endpoint. Deleted content is gone.
+- [How do I get the comment thread of a Reddit post?](https://openhandle.dev/questions/how-do-i-get-the-comment-thread-of-a-reddit-post.md): Call the post comments endpoint with the post ID. Comments come back as a nested tree with score, depth, and replies, sorted the way Reddit sorts them. No OAuth client, no approval.
+- [How do I get Reddit data without an API key?](https://openhandle.dev/questions/how-do-i-get-reddit-data-without-an-api-key.md): You do not, reliably. Appending .json to a reddit.com URL without a token is blocked or throttled, and scripted traffic gets cut off. A key you create yourself in a minute is the honest shortcut.
+- [Why does PRAW return 429, and how do I get more throughput?](https://openhandle.dev/questions/why-does-praw-return-429.md): PRAW is hitting Reddit’s per-client quota, about 100 queries per minute. You cannot raise it without a commercial agreement. For public data, spread reads across time or move the heavy reads to a per-request API.
+- [Pushshift is gone. How do I get Reddit history?](https://openhandle.dev/questions/pushshift-is-gone-how-do-i-get-reddit-history.md): You cannot rebuild the archive. Pushshift lost general access in 2023 and nothing public replaced it. What you can do is read what Reddit shows now and start your own history today.
+
+## Use cases
+
+- [Creator payouts](https://openhandle.dev/use-cases/creator-payouts.md): Pay creators per view on numbers you can defend.
+- [Influencer vetting](https://openhandle.dev/use-cases/influencer-vetting.md): Sign creators on the platform’s numbers, not their media kit.
+- [UGC galleries](https://openhandle.dev/use-cases/ugc.md): Collect what people post about your brand, and put it on your site.
+- [Creator analytics](https://openhandle.dev/use-cases/creator-analytics.md): Growth dashboards on data that stays consistent.
+- [Social listening](https://openhandle.dev/use-cases/social-listening.md): Every public conversation, in one shape, ready for analysis.
+- [Brand monitoring](https://openhandle.dev/use-cases/brand-monitoring.md): Watch your accounts, your competitors, and the comments under both.
+
+## Company
+
+- [About Openhandle](https://openhandle.dev/about.md): Product and business details
+- [Contact Openhandle](https://openhandle.dev/contact.md): Support, privacy requests, and postal address
+- [Privacy policy](https://openhandle.dev/legal/privacy-policy.md): Data handling and your rights
+
+## Comparisons
+
+- [TikHub alternative](https://openhandle.dev/compare/tikhub-alternative.md): Compare TikHub with Openhandle on pricing, coverage, billing, reliability, and support.
+- [ScrapeCreators alternative](https://openhandle.dev/compare/scrapecreators-alternative.md): Compare ScrapeCreators with Openhandle on pricing, coverage, billing, reliability, and support.
+- [EnsembleData alternative](https://openhandle.dev/compare/ensembledata-alternative.md): Compare EnsembleData with Openhandle on pricing, coverage, billing, reliability, and support.
+- [SocialCrawl alternative](https://openhandle.dev/compare/socialcrawl-alternative.md): Compare SocialCrawl with Openhandle on pricing, coverage, billing, reliability, and support.
+- [SocialFetch alternative](https://openhandle.dev/compare/socialfetch-alternative.md): Compare SocialFetch with Openhandle on pricing, coverage, billing, reliability, and support.
+- [Social media scraping API](https://openhandle.dev/compare/social-media-scraping-api.md): Build a scraper, rent one on a marketplace, or call one API for public Instagram, TikTok, and X data. What each costs, and when each fits.
+- [Instagram scraper API](https://openhandle.dev/compare/instagram-scraper-api.md): What an Instagram scraper API gives you, where it breaks, and how to get public Instagram profiles, posts, and comments from one API instead.
+- [TikTok scraper API](https://openhandle.dev/compare/tiktok-scraper-api.md): What a TikTok scraper API gives you, where it breaks, and how to get public TikTok profiles, videos, and comments from one API instead.
+- [Twitter (X) scraper API](https://openhandle.dev/compare/twitter-scraper-api.md): What a Twitter scraper API gives you, where it breaks, and how to get public X profiles, posts, and replies from one API instead.
+- [Apify vs ScrapeCreators](https://openhandle.dev/compare/apify-vs-scrapecreators.md): A scraper marketplace on metered compute against flat credit packs, two very different ways to buy social data.
+- [Apify vs SocialCrawl](https://openhandle.dev/compare/apify-vs-socialcrawl.md): A marketplace of per-actor schemas against one unified schema over 48 platforms: platform flexibility versus integration speed.
+- [Bright Data vs Apify](https://openhandle.dev/compare/brightdata-vs-apify.md): The two heavyweight scraping platforms compared for social media data: per-record delivery against a scraper marketplace.
+- [Bright Data vs ScrapeCreators](https://openhandle.dev/compare/brightdata-vs-scrapecreators.md): An enterprise per-record data vendor against indie credit packs: when the enterprise premium on social data is worth paying.
+- [Data365 vs ScrapeCreators](https://openhandle.dev/compare/data365-vs-scrapecreators.md): Sales-assisted EUR contracts with per-type credit costs against self-serve USD packs at a flat one credit per request.
+- [EnsembleData vs Data365](https://openhandle.dev/compare/ensembledata-vs-data365.md): Two subscription social data APIs compared: daily-unit plans against monthly credit contracts.
+- [EnsembleData vs ScrapeCreators](https://openhandle.dev/compare/ensembledata-vs-scrapecreators.md): Daily-unit subscriptions against never-expiring credit packs: two social data APIs with opposite pricing philosophies.
+- [EnsembleData vs TikHub](https://openhandle.dev/compare/ensembledata-vs-tikhub.md): Daily-quota subscriptions against pay-per-request credits: two TikTok-strong social data APIs compared on price, depth, and quota shape.
+- [Instagram scraper APIs on RapidAPI](https://openhandle.dev/compare/instagram-scraper-apis-on-rapidapi.md): The Instagram scraping listings on RapidAPI: what they cost, how they fail, and how to evaluate one before you depend on it.
+- [RapidAPI vs direct providers](https://openhandle.dev/compare/rapidapi-vs-direct-providers.md): Buying social data APIs through a marketplace against buying direct: what the marketplace layer really costs.
+- [ScrapeCreators vs SocialCrawl](https://openhandle.dev/compare/scrapecreators-vs-socialcrawl.md): Flat USD credits against variable GBP credits: two social data APIs compared on pricing mechanics, breadth, and payload shape.
+- [ScrapeCreators vs SocialFetch](https://openhandle.dev/compare/scrapecreators-vs-socialfetch.md): Two credit-pack social data APIs that share a price point but split on normalization, ops transparency, and endpoint depth.
+- [ScrapeCreators vs SociaVault](https://openhandle.dev/compare/scrapecreators-vs-sociavault.md): Two credit-based social scraping APIs compared on pricing, platform coverage, and credit mechanics.
+- [ScrapeCreators vs TikHub](https://openhandle.dev/compare/scrapecreators-vs-tikhub.md): Credit packs against pay-per-request: two developer-focused social scraping APIs compared on price, depth, and limits.
+- [ScrapTik vs TikHub](https://openhandle.dev/compare/scraptik-vs-tikhub.md): RapidAPI's top TikTok scraper against a self-serve TikTok API hub: distribution models and per-request economics compared.
+- [SocialFetch vs SocialCrawl](https://openhandle.dev/compare/socialfetch-vs-socialcrawl.md): Two normalized-schema social scraping APIs compared: platform breadth against operational transparency.
+- [SocialFetch vs TikHub](https://openhandle.dev/compare/socialfetch-vs-tikhub.md): A normalized multi-platform API with published ops behavior against a cheaper raw-payload specialist with TikTok and Douyin depth.
+- [SociaVault vs SocialCrawl](https://openhandle.dev/compare/sociavault-vs-socialcrawl.md): Two variable-credit social data APIs compared on credit mechanics, long-tail coverage, and what a call really costs.
+- [SociaVault vs SocialFetch](https://openhandle.dev/compare/sociavault-vs-socialfetch.md): One-time credit packs against an operations-focused social API: pricing mechanics and platform mixes compared.
+- [SociaVault vs TikHub](https://openhandle.dev/compare/sociavault-vs-tikhub.md): One-time credit packs with a long-tail platform list against cheap pay-per-request TikTok/Douyin depth.
+- [TikHub vs Apify](https://openhandle.dev/compare/tikhub-vs-apify.md): A dedicated social API hub against a general scraping marketplace: pricing, coverage, and reliability compared.
+- [TikTok scraper APIs on RapidAPI](https://openhandle.dev/compare/tiktok-scraper-apis-on-rapidapi.md): The TikTok scraping listings on RapidAPI: what they cost, how they fail, and how to evaluate one before you depend on it.
