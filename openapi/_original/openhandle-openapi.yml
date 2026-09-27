@@ -1,3 +1,5 @@
+# x-archived-from: openhandle-openapi.yml
+# x-archived-on: 2026-09-26
 components:
   schemas:
     ErrorEnvelope:

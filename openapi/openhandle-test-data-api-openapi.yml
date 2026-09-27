@@ -1,0 +1,433 @@
+openapi: 3.2.0
+info:
+  title: Openhandle Test Data API
+  version: 1.1.0
+  description: 'Operations tagged Test Data across 2 of this provider''s published API definitions: openhandle-openapi.json, openhandle-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.openhandle.dev
+tags:
+- name: Test Data
+paths:
+  /v1/test-data:
+    get:
+      description: Public, unmetered discovery. Filter by platform, resource, operation, traits, expected status, error code, or text.
+      operationId: listTestData
+      parameters:
+      - description: Provider-specific public-data filter for this operation.
+        in: query
+        name: platform
+        required: false
+        schema:
+          enum:
+          - instagram
+          - tiktok
+          - twitter
+          - reddit
+          type: string
+      - description: Provider-specific public-data filter for this operation.
+        in: query
+        name: resource
+        required: false
+        schema:
+          enum:
+          - profile
+          - post
+          - comment
+          - hashtag
+          - location
+          - music
+          - category
+          - list
+          - entity
+          - subreddit
+          - rule
+          - wiki
+          - trophy
+          type: string
+      - description: Provider-specific public-data filter for this operation.
+        in: query
+        name: operation
+        required: false
+        schema:
+          type: string
+      - description: Provider-specific public-data filter for this operation.
+        in: query
+        name: traits
+        required: false
+        schema:
+          type: string
+      - description: Provider-specific public-data filter for this operation.
+        in: query
+        name: status
+        required: false
+        schema:
+          type: integer
+      - description: Provider-specific public-data filter for this operation.
+        in: query
+        name: errorCode
+        required: false
+        schema:
+          type: string
+      - description: Provider-specific public-data filter for this operation.
+        in: query
+        name: search
+        required: false
+        schema:
+          type: string
+      - description: Maximum number of results to return.
+        example: '100'
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 100
+          maximum: 100
+          minimum: 1
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestDataCatalogEnvelope'
+          description: Matching catalog entries for the active dataset version.
+      summary: Search the synthetic test-data catalog
+      x-openhandle-sdk:
+        operation: list
+        paginated: false
+        path: testData.list
+        scope:
+        - name: testData
+      tags:
+      - Test Data
+    servers:
+    - url: https://api.openhandle.dev
+  /v1/test-data/{id}:
+    get:
+      operationId: getTestData
+      parameters:
+      - description: Provider-specific public-data filter for this operation.
+        example: instagram.profile.northstar-forge
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestDataEntryEnvelope'
+          description: The catalog entry.
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageEnvelope'
+          description: The catalog entry does not exist.
+      summary: Get one synthetic catalog entry
+      x-openhandle-sdk:
+        operation: get
+        paginated: false
+        path: testData.entry.get
+        scope:
+        - name: testData
+        - name: entry
+          parameter: id
+          reference: testDataEntry
+      tags:
+      - Test Data
+    servers:
+    - url: https://api.openhandle.dev
+components:
+  schemas:
+    TestDataCatalog:
+      additionalProperties: false
+      properties:
+        changeNotes:
+          items:
+            type: string
+          type: array
+        contentHash:
+          minLength: 1
+          type: string
+        datasetVersion:
+          minLength: 1
+          type: string
+        entries:
+          items:
+            $ref: '#/components/schemas/TestDataEntry'
+          type: array
+        mediaProvenanceUrl:
+          format: uri
+          type: string
+        operations:
+          items:
+            $ref: '#/components/schemas/TestDataOperation'
+          type: array
+        synthetic:
+          const: true
+          type: boolean
+      required:
+      - datasetVersion
+      - contentHash
+      - mediaProvenanceUrl
+      - synthetic
+      - changeNotes
+      - operations
+      - entries
+      type: object
+    TestDataCatalogEnvelope:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/TestDataCatalog'
+      required:
+      - data
+      type: object
+    TestDataExpectedResult:
+      additionalProperties: false
+      properties:
+        errorCode:
+          minLength: 1
+          type: string
+        status:
+          enum:
+          - 200
+          - 403
+          - 404
+          type: integer
+      required:
+      - status
+      type: object
+    TestDataOperation:
+      additionalProperties: false
+      properties:
+        description:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        inputFields:
+          items:
+            minLength: 1
+            type: string
+          type: array
+        locators:
+          items:
+            minLength: 1
+            type: string
+          type: array
+        method:
+          const: GET
+          type: string
+        paginated:
+          type: boolean
+        path:
+          minLength: 1
+          type: string
+        platform:
+          enum:
+          - instagram
+          - tiktok
+          - twitter
+          - reddit
+          type: string
+        publicSchema:
+          minLength: 1
+          type: string
+        resource:
+          enum:
+          - profile
+          - post
+          - comment
+          - hashtag
+          - location
+          - music
+          - category
+          - list
+          - entity
+          - subreddit
+          - rule
+          - wiki
+          - trophy
+          type: string
+        summary:
+          minLength: 1
+          type: string
+        toolName:
+          minLength: 1
+          type: string
+      required:
+      - id
+      - platform
+      - resource
+      - publicSchema
+      - method
+      - path
+      - summary
+      - description
+      - inputFields
+      - locators
+      - paginated
+      - toolName
+      type: object
+    TestDataRelationship:
+      additionalProperties: false
+      properties:
+        entryId:
+          minLength: 1
+          type: string
+        type:
+          minLength: 1
+          type: string
+      required:
+      - type
+      - entryId
+      type: object
+    MessageEnvelope:
+      additionalProperties: false
+      properties:
+        message:
+          minLength: 1
+          type: string
+      required:
+      - message
+      type: object
+    TestDataEntryEnvelope:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/TestDataEntry'
+      required:
+      - data
+      type: object
+    TestDataEntry:
+      additionalProperties: false
+      properties:
+        datasetVersion:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        expected:
+          $ref: '#/components/schemas/TestDataExpectedResult'
+        id:
+          minLength: 1
+          type: string
+        inputs:
+          additionalProperties:
+            type: string
+          type: object
+        label:
+          minLength: 1
+          type: string
+        operationIds:
+          items:
+            minLength: 1
+            type: string
+          type: array
+        platform:
+          enum:
+          - instagram
+          - tiktok
+          - twitter
+          - reddit
+          type: string
+        relationships:
+          items:
+            $ref: '#/components/schemas/TestDataRelationship'
+          type: array
+        resource:
+          enum:
+          - profile
+          - post
+          - comment
+          - hashtag
+          - location
+          - music
+          - category
+          - list
+          - entity
+          - subreddit
+          - rule
+          - wiki
+          - trophy
+          type: string
+        synthetic:
+          const: true
+          type: boolean
+        traits:
+          items:
+            minLength: 1
+            type: string
+          type: array
+      required:
+      - id
+      - datasetVersion
+      - platform
+      - resource
+      - label
+      - description
+      - traits
+      - inputs
+      - expected
+      - relationships
+      - operationIds
+      - synthetic
+      type: object
+  securitySchemes:
+    OpenhandleKey:
+      description: Use an oh_test_ key for synthetic data and $0.000 actual charges, or an oh_live_ key for real public data and normal billing. Legacy oh_ keys remain Live.
+      scheme: bearer
+      type: http
+    OpenhandleMCPOAuth:
+      description: OAuth grants for the MCP endpoint only. REST operations require OpenhandleKey.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openhandle.dev/oauth/authorize
+          scopes:
+            mcp: Read public social data through all MCP tools (legacy default).
+            read:instagram: Read public Instagram data through MCP tools.
+            read:tiktok: Read public TikTok data through MCP tools.
+            read:twitter: Read public X (Twitter) data through MCP tools.
+          tokenUrl: https://api.openhandle.dev/oauth/token
+      type: oauth2
+externalDocs:
+  description: Test environment guide
+  url: https://openhandle.dev/docs/test-environment
+x-refined-from:
+- openhandle-openapi.json
+- openhandle-openapi.yml
+x-openhandle-mcp:
+  documentation: https://openhandle.dev/docs/mcp
+  protectedResourceMetadata: https://api.openhandle.dev/.well-known/oauth-protected-resource/mcp
+  scopesSupported:
+  - mcp
+  - read:instagram
+  - read:tiktok
+  - read:twitter
+  securityScheme: OpenhandleMCPOAuth
+  transport: streamable-http
+  url: https://api.openhandle.dev/mcp
+x-openhandle-sdks:
+- documentation: https://openhandle.dev/docs/sdks
+  language: TypeScript
+  package: '@openhandle/sdk'
+  repository: https://github.com/openhandlehq/openhandle-typescript
+- documentation: https://openhandle.dev/docs/sdks
+  language: Go
+  package: github.com/openhandlehq/openhandle-go
+  repository: https://github.com/openhandlehq/openhandle-go
+- documentation: https://openhandle.dev/docs/sdks
+  language: Python
+  package: openhandle
+  repository: https://github.com/openhandlehq/openhandle-python
+x-openhandle-test-data:
+  catalogUrl: /v1/test-data
+  contentHash: sha256:b5b99db8b0b9435d04d230483c54f5accfaa44dfa2cd12962a02e03739edfab0
+  datasetVersion: 2026-09-07.2
+x-openhandle-versioning-policy: https://openhandle.dev/docs/versioning

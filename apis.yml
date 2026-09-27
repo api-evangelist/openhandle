@@ -100,19 +100,16 @@ maintainers:
   email: hello@openhandle.dev
   url: https://openhandle.dev
 apis:
-- name: Openhandle API
-  description: Read-only REST API returning public Instagram, TikTok, X (Twitter), and Reddit profiles,
-    posts, comments, followers, and search in one normalized envelope. 109 GET operations under /v1/,
-    Bearer API-key auth, opaque cursor pagination, per-request freshness tiers, and a uniform error envelope.
-    Also reachable as a remote MCP server.
+- aid: openhandle:openhandle-instagram-api
+  name: Openhandle Instagram API
+  description: The Instagram API from Openhandle — 43 operation(s) for instagram.
   humanURL: https://openhandle.dev/docs
   baseURL: https://api.openhandle.dev
+  tags:
+  - Instagram
   properties:
   - type: OpenAPI
-    url: openapi/openhandle-openapi.yml
-  - name: OpenAPI (provider-hosted)
-    type: OpenAPI
-    url: https://api.openhandle.dev/openapi.json
+    url: openapi/openhandle-instagram-api-openapi.yml
   - type: Documentation
     url: https://openhandle.dev/docs
   - type: APIReference
@@ -133,7 +130,156 @@ apis:
     url: json-schema/openhandle-tik-tok-music-schema.json
   - type: JSONSchema
     url: json-schema/openhandle-tik-tok-post-schema.json
-  aid: openhandle:openhandle-api
+- aid: openhandle:openhandle-reddit-api
+  name: Openhandle Reddit API
+  description: The Reddit API from Openhandle — 20 operation(s) for reddit.
+  humanURL: https://openhandle.dev/docs
+  baseURL: https://api.openhandle.dev
+  tags:
+  - Reddit
+  properties:
+  - type: OpenAPI
+    url: openapi/openhandle-reddit-api-openapi.yml
+  - type: Documentation
+    url: https://openhandle.dev/docs
+  - type: APIReference
+    url: https://openhandle.dev/docs/api-reference
+  - type: GettingStarted
+    url: https://openhandle.dev/docs/quickstart
+  - type: LLMsTxt
+    url: https://openhandle.dev/llms.txt
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-story-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-post-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-music-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-post-schema.json
+- aid: openhandle:openhandle-test-data-api
+  name: Openhandle Test Data API
+  description: The Test Data API from Openhandle — 2 operation(s) for test data.
+  humanURL: https://openhandle.dev/docs
+  baseURL: https://api.openhandle.dev
+  tags:
+  - Test Data
+  properties:
+  - type: OpenAPI
+    url: openapi/openhandle-test-data-api-openapi.yml
+  - type: Documentation
+    url: https://openhandle.dev/docs
+  - type: APIReference
+    url: https://openhandle.dev/docs/api-reference
+  - type: GettingStarted
+    url: https://openhandle.dev/docs/quickstart
+  - type: LLMsTxt
+    url: https://openhandle.dev/llms.txt
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-story-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-post-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-music-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-post-schema.json
+- aid: openhandle:openhandle-tiktok-api
+  name: Openhandle Tiktok API
+  description: The Tiktok API from Openhandle — 28 operation(s) for tiktok.
+  humanURL: https://openhandle.dev/docs
+  baseURL: https://api.openhandle.dev
+  tags:
+  - Tiktok
+  properties:
+  - type: OpenAPI
+    url: openapi/openhandle-tiktok-api-openapi.yml
+  - type: Documentation
+    url: https://openhandle.dev/docs
+  - type: APIReference
+    url: https://openhandle.dev/docs/api-reference
+  - type: GettingStarted
+    url: https://openhandle.dev/docs/quickstart
+  - type: LLMsTxt
+    url: https://openhandle.dev/llms.txt
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-story-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-post-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-music-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-post-schema.json
+- aid: openhandle:openhandle-twitter-api
+  name: Openhandle Twitter API
+  description: The Twitter API from Openhandle — 15 operation(s) for twitter.
+  humanURL: https://openhandle.dev/docs
+  baseURL: https://api.openhandle.dev
+  tags:
+  - Twitter
+  properties:
+  - type: OpenAPI
+    url: openapi/openhandle-twitter-api-openapi.yml
+  - type: Documentation
+    url: https://openhandle.dev/docs
+  - type: APIReference
+    url: https://openhandle.dev/docs/api-reference
+  - type: GettingStarted
+    url: https://openhandle.dev/docs/quickstart
+  - type: LLMsTxt
+    url: https://openhandle.dev/llms.txt
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-story-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-post-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-music-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-post-schema.json
+- aid: openhandle:openhandle-utilities-api
+  name: Openhandle Utilities API
+  description: The Utilities API from Openhandle — 1 operation(s) for utilities.
+  humanURL: https://openhandle.dev/docs
+  baseURL: https://api.openhandle.dev
+  tags:
+  - Utilities
+  properties:
+  - type: OpenAPI
+    url: openapi/openhandle-utilities-api-openapi.yml
+  - type: Documentation
+    url: https://openhandle.dev/docs
+  - type: APIReference
+    url: https://openhandle.dev/docs/api-reference
+  - type: GettingStarted
+    url: https://openhandle.dev/docs/quickstart
+  - type: LLMsTxt
+    url: https://openhandle.dev/llms.txt
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-story-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-post-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-instagram-profile-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-music-schema.json
+  - type: JSONSchema
+    url: json-schema/openhandle-tik-tok-post-schema.json
 x-enrichment:
   date: '2026-09-21'
   status: enriched
