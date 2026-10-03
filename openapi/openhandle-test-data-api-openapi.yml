@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
+  description: Read public social data through one API contract. API keys starting with oh_test_ use the deterministic synthetic dataset and record a $0.000 actual charge. Keys starting with oh_live_, plus legacy oh_ keys, use real public data and normal billing. Do not send an environment parameter or header.
   title: Openhandle Test Data API
   version: 1.1.0
-  description: 'Operations tagged Test Data across 2 of this provider''s published API definitions: openhandle-openapi.json, openhandle-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.openhandle.dev
 tags:
@@ -100,8 +100,6 @@ paths:
         - name: testData
       tags:
       - Test Data
-    servers:
-    - url: https://api.openhandle.dev
   /v1/test-data/{id}:
     get:
       operationId: getTestData
@@ -138,68 +136,37 @@ paths:
           reference: testDataEntry
       tags:
       - Test Data
-    servers:
-    - url: https://api.openhandle.dev
 components:
   schemas:
-    TestDataCatalog:
+    TestDataRelationship:
       additionalProperties: false
       properties:
-        changeNotes:
-          items:
-            type: string
-          type: array
-        contentHash:
+        entryId:
           minLength: 1
           type: string
-        datasetVersion:
+        type:
           minLength: 1
           type: string
-        entries:
-          items:
-            $ref: '#/components/schemas/TestDataEntry'
-          type: array
-        mediaProvenanceUrl:
-          format: uri
-          type: string
-        operations:
-          items:
-            $ref: '#/components/schemas/TestDataOperation'
-          type: array
-        synthetic:
-          const: true
-          type: boolean
       required:
-      - datasetVersion
-      - contentHash
-      - mediaProvenanceUrl
-      - synthetic
-      - changeNotes
-      - operations
-      - entries
+      - type
+      - entryId
       type: object
-    TestDataCatalogEnvelope:
+    TestDataEntryEnvelope:
       additionalProperties: false
       properties:
         data:
-          $ref: '#/components/schemas/TestDataCatalog'
+          $ref: '#/components/schemas/TestDataEntry'
       required:
       - data
       type: object
-    TestDataExpectedResult:
+    MessageEnvelope:
       additionalProperties: false
       properties:
-        errorCode:
+        message:
           minLength: 1
           type: string
-        status:
-          enum:
-          - 200
-          - 403
-          - 404
-          type: integer
       required:
-      - status
+      - message
       type: object
     TestDataOperation:
       additionalProperties: false
@@ -274,35 +241,64 @@ components:
       - paginated
       - toolName
       type: object
-    TestDataRelationship:
+    TestDataExpectedResult:
       additionalProperties: false
       properties:
-        entryId:
+        errorCode:
           minLength: 1
           type: string
-        type:
-          minLength: 1
-          type: string
+        status:
+          enum:
+          - 200
+          - 403
+          - 404
+          type: integer
       required:
-      - type
-      - entryId
+      - status
       type: object
-    MessageEnvelope:
-      additionalProperties: false
-      properties:
-        message:
-          minLength: 1
-          type: string
-      required:
-      - message
-      type: object
-    TestDataEntryEnvelope:
+    TestDataCatalogEnvelope:
       additionalProperties: false
       properties:
         data:
-          $ref: '#/components/schemas/TestDataEntry'
+          $ref: '#/components/schemas/TestDataCatalog'
       required:
       - data
+      type: object
+    TestDataCatalog:
+      additionalProperties: false
+      properties:
+        changeNotes:
+          items:
+            type: string
+          type: array
+        contentHash:
+          minLength: 1
+          type: string
+        datasetVersion:
+          minLength: 1
+          type: string
+        entries:
+          items:
+            $ref: '#/components/schemas/TestDataEntry'
+          type: array
+        mediaProvenanceUrl:
+          format: uri
+          type: string
+        operations:
+          items:
+            $ref: '#/components/schemas/TestDataOperation'
+          type: array
+        synthetic:
+          const: true
+          type: boolean
+      required:
+      - datasetVersion
+      - contentHash
+      - mediaProvenanceUrl
+      - synthetic
+      - changeNotes
+      - operations
+      - entries
       type: object
     TestDataEntry:
       additionalProperties: false
@@ -399,9 +395,6 @@ components:
 externalDocs:
   description: Test environment guide
   url: https://openhandle.dev/docs/test-environment
-x-refined-from:
-- openhandle-openapi.json
-- openhandle-openapi.yml
 x-openhandle-mcp:
   documentation: https://openhandle.dev/docs/mcp
   protectedResourceMetadata: https://api.openhandle.dev/.well-known/oauth-protected-resource/mcp

@@ -1,8 +1,7 @@
 {
   "provider": "openhandle",
   "sources": [
-    "_original/openhandle-openapi.json",
-    "openhandle-openapi.yml"
+    "_original/openhandle-openapi.json"
   ],
   "outputs": [
     "openhandle-instagram-api-openapi.yml",
@@ -12,12 +11,11 @@
     "openhandle-twitter-api-openapi.yml",
     "openhandle-utilities-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/openhandle-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "openhandle-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "openhandle-openapi.json: tagged paths GET /v1/test-data -> Test Data",
@@ -41,35 +39,15 @@
     "openhandle-openapi.json: declared missing tag: Utilities",
     "openhandle-openapi.json: declared missing tag: Wiki",
     "openhandle-openapi.json: multi-axis tagging (18 tags, 6 first tags, 1.97x duplication over 109 operations) \u2014 split on first tag, 106 operations narrowed",
-    "openhandle-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "openhandle-openapi.yml: tagged paths GET /v1/test-data -> Test Data",
-    "openhandle-openapi.yml: tagged paths GET /v1/test-data/{id} -> Test Data",
-    "openhandle-openapi.yml: declared missing tag: Category",
-    "openhandle-openapi.yml: declared missing tag: Comment",
-    "openhandle-openapi.yml: declared missing tag: Entity",
-    "openhandle-openapi.yml: declared missing tag: Hashtag",
-    "openhandle-openapi.yml: declared missing tag: Instagram",
-    "openhandle-openapi.yml: declared missing tag: Location",
-    "openhandle-openapi.yml: declared missing tag: Music",
-    "openhandle-openapi.yml: declared missing tag: Post",
-    "openhandle-openapi.yml: declared missing tag: Profile",
-    "openhandle-openapi.yml: declared missing tag: Reddit",
-    "openhandle-openapi.yml: declared missing tag: Rule",
-    "openhandle-openapi.yml: declared missing tag: Subreddit",
-    "openhandle-openapi.yml: declared missing tag: Test Data",
-    "openhandle-openapi.yml: declared missing tag: Tiktok",
-    "openhandle-openapi.yml: declared missing tag: Trophy",
-    "openhandle-openapi.yml: declared missing tag: Twitter",
-    "openhandle-openapi.yml: declared missing tag: Utilities",
-    "openhandle-openapi.yml: declared missing tag: Wiki",
-    "openhandle-openapi.yml: multi-axis tagging (18 tags, 6 first tags, 1.97x duplication over 109 operations) \u2014 split on first tag, 106 operations narrowed",
-    "tag 'Instagram' spans 2 source specs (openhandle-openapi.json, openhandle-openapi.yml): per-path servers applied",
-    "tag 'Reddit' spans 2 source specs (openhandle-openapi.json, openhandle-openapi.yml): per-path servers applied",
-    "tag 'Test Data' spans 2 source specs (openhandle-openapi.json, openhandle-openapi.yml): per-path servers applied",
-    "tag 'Tiktok' spans 2 source specs (openhandle-openapi.json, openhandle-openapi.yml): per-path servers applied",
-    "tag 'Twitter' spans 2 source specs (openhandle-openapi.json, openhandle-openapi.yml): per-path servers applied",
-    "tag 'Utilities' spans 2 source specs (openhandle-openapi.json, openhandle-openapi.yml): per-path servers applied",
-    "apis.yml register: written (+6 apis, 6 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "_original/openhandle-openapi.yml: archived document superseded by a larger archived document",
+    "openhandle-instagram-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openhandle-reddit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openhandle-test-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openhandle-tiktok-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openhandle-twitter-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openhandle-utilities-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
