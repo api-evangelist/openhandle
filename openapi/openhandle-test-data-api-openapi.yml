@@ -138,124 +138,6 @@ paths:
       - Test Data
 components:
   schemas:
-    TestDataRelationship:
-      additionalProperties: false
-      properties:
-        entryId:
-          minLength: 1
-          type: string
-        type:
-          minLength: 1
-          type: string
-      required:
-      - type
-      - entryId
-      type: object
-    TestDataEntryEnvelope:
-      additionalProperties: false
-      properties:
-        data:
-          $ref: '#/components/schemas/TestDataEntry'
-      required:
-      - data
-      type: object
-    MessageEnvelope:
-      additionalProperties: false
-      properties:
-        message:
-          minLength: 1
-          type: string
-      required:
-      - message
-      type: object
-    TestDataOperation:
-      additionalProperties: false
-      properties:
-        description:
-          minLength: 1
-          type: string
-        id:
-          minLength: 1
-          type: string
-        inputFields:
-          items:
-            minLength: 1
-            type: string
-          type: array
-        locators:
-          items:
-            minLength: 1
-            type: string
-          type: array
-        method:
-          const: GET
-          type: string
-        paginated:
-          type: boolean
-        path:
-          minLength: 1
-          type: string
-        platform:
-          enum:
-          - instagram
-          - tiktok
-          - twitter
-          - reddit
-          type: string
-        publicSchema:
-          minLength: 1
-          type: string
-        resource:
-          enum:
-          - profile
-          - post
-          - comment
-          - hashtag
-          - location
-          - music
-          - category
-          - list
-          - entity
-          - subreddit
-          - rule
-          - wiki
-          - trophy
-          type: string
-        summary:
-          minLength: 1
-          type: string
-        toolName:
-          minLength: 1
-          type: string
-      required:
-      - id
-      - platform
-      - resource
-      - publicSchema
-      - method
-      - path
-      - summary
-      - description
-      - inputFields
-      - locators
-      - paginated
-      - toolName
-      type: object
-    TestDataExpectedResult:
-      additionalProperties: false
-      properties:
-        errorCode:
-          minLength: 1
-          type: string
-        status:
-          enum:
-          - 200
-          - 403
-          - 404
-          type: integer
-      required:
-      - status
-      type: object
     TestDataCatalogEnvelope:
       additionalProperties: false
       properties:
@@ -299,6 +181,30 @@ components:
       - changeNotes
       - operations
       - entries
+      type: object
+    MessageEnvelope:
+      additionalProperties: false
+      properties:
+        message:
+          minLength: 1
+          type: string
+      required:
+      - message
+      type: object
+    TestDataExpectedResult:
+      additionalProperties: false
+      properties:
+        errorCode:
+          minLength: 1
+          type: string
+        status:
+          enum:
+          - 200
+          - 403
+          - 404
+          type: integer
+      required:
+      - status
       type: object
     TestDataEntry:
       additionalProperties: false
@@ -374,6 +280,100 @@ components:
       - relationships
       - operationIds
       - synthetic
+      type: object
+    TestDataOperation:
+      additionalProperties: false
+      properties:
+        description:
+          minLength: 1
+          type: string
+        id:
+          minLength: 1
+          type: string
+        inputFields:
+          items:
+            minLength: 1
+            type: string
+          type: array
+        locators:
+          items:
+            minLength: 1
+            type: string
+          type: array
+        method:
+          const: GET
+          type: string
+        paginated:
+          type: boolean
+        path:
+          minLength: 1
+          type: string
+        platform:
+          enum:
+          - instagram
+          - tiktok
+          - twitter
+          - reddit
+          type: string
+        publicSchema:
+          minLength: 1
+          type: string
+        resource:
+          enum:
+          - profile
+          - post
+          - comment
+          - hashtag
+          - location
+          - music
+          - category
+          - list
+          - entity
+          - subreddit
+          - rule
+          - wiki
+          - trophy
+          type: string
+        summary:
+          minLength: 1
+          type: string
+        toolName:
+          minLength: 1
+          type: string
+      required:
+      - id
+      - platform
+      - resource
+      - publicSchema
+      - method
+      - path
+      - summary
+      - description
+      - inputFields
+      - locators
+      - paginated
+      - toolName
+      type: object
+    TestDataRelationship:
+      additionalProperties: false
+      properties:
+        entryId:
+          minLength: 1
+          type: string
+        type:
+          minLength: 1
+          type: string
+      required:
+      - type
+      - entryId
+      type: object
+    TestDataEntryEnvelope:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/TestDataEntry'
+      required:
+      - data
       type: object
   securitySchemes:
     OpenhandleKey:

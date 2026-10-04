@@ -8288,153 +8288,68 @@ paths:
           query: synthetic
 components:
   schemas:
-    RedditPostReference:
+    TwitterCardApp:
       additionalProperties: false
       properties:
-        author:
+        category:
           anyOf:
-          - $ref: '#/components/schemas/RedditAuthor'
+          - $ref: '#/components/schemas/TwitterCardText'
           - type: 'null'
-        comments:
-          $ref: '#/components/schemas/RedditCommentsSetting'
-        community:
-          anyOf:
-          - $ref: '#/components/schemas/RedditCommunity'
-          - type: 'null'
-        createdAt:
-          format: date-time
+        countryCode:
           minLength: 1
           type:
           - string
           - 'null'
-        distinguishedBy:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        domain:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        editedAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        embed:
+        description:
           anyOf:
-          - $ref: '#/components/schemas/RedditEmbed'
+          - $ref: '#/components/schemas/TwitterCardText'
           - type: 'null'
-        flair:
-          anyOf:
-          - $ref: '#/components/schemas/RedditFlair'
-          - type: 'null'
+        groupId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        hasInAppPurchases:
+          type:
+          - boolean
+          - 'null'
+        iconKey:
+          minLength: 1
+          type:
+          - string
+          - 'null'
         id:
           minLength: 1
           type:
           - string
           - 'null'
-        isArchived:
+        isEditorsChoice:
           type:
           - boolean
           - 'null'
-        isCrosspostable:
+        isFree:
           type:
           - boolean
           - 'null'
-        isEdited:
-          type:
-          - boolean
-          - 'null'
-        isGallery:
-          type:
-          - boolean
-          - 'null'
-        isLocked:
-          type:
-          - boolean
-          - 'null'
-        isMediaOnly:
-          type:
-          - boolean
-          - 'null'
-        isMeta:
-          type:
-          - boolean
-          - 'null'
-        isOriginalContent:
-          type:
-          - boolean
-          - 'null'
-        isPinned:
-          type:
-          - boolean
-          - 'null'
-        isRedditMediaDomain:
-          type:
-          - boolean
-          - 'null'
-        isSelf:
-          type:
-          - boolean
-          - 'null'
-        isSensitive:
-          type:
-          - boolean
-          - 'null'
-        isSpoiler:
-          type:
-          - boolean
-          - 'null'
-        isStickied:
-          type:
-          - boolean
-          - 'null'
-        isVideo:
-          type:
-          - boolean
-          - 'null'
-        linkUrl:
+        metrics:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterAppMetrics'
+          - type: 'null'
+        resolvedUrl:
           format: uri
           minLength: 1
           type:
           - string
           - 'null'
-        media:
-          items:
-            $ref: '#/components/schemas/RedditMedia'
+        sizeBytes:
           type:
-          - array
+          - integer
           - 'null'
-        metrics:
-          $ref: '#/components/schemas/RedditPostMetrics'
-        removedByCategory:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        textHtml:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        thumbnail:
-          anyOf:
-          - $ref: '#/components/schemas/RedditThumbnail'
-          - type: 'null'
         title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        topAwardedType:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterCardText'
+          - type: 'null'
+        type:
           minLength: 1
           type:
           - string
@@ -8445,360 +8360,163 @@ components:
           type:
           - string
           - 'null'
-        visibility:
-          $ref: '#/components/schemas/RedditPostVisibility'
       required:
+      - groupId
       - id
-      - title
-      - text
-      - textHtml
-      - domain
+      - type
+      - countryCode
       - url
-      - linkUrl
-      - author
-      - community
+      - resolvedUrl
+      - isEditorsChoice
+      - isFree
+      - iconKey
+      - sizeBytes
+      - hasInAppPurchases
+      - category
+      - title
+      - description
       - metrics
-      - createdAt
-      - isEdited
-      - editedAt
-      - isSelf
-      - isVideo
-      - isGallery
-      - isMeta
-      - isOriginalContent
-      - isCrosspostable
-      - isRedditMediaDomain
-      - isMediaOnly
-      - isSensitive
-      - isSpoiler
-      - isStickied
-      - isLocked
-      - isArchived
-      - isPinned
-      - visibility
-      - comments
-      - distinguishedBy
-      - removedByCategory
-      - topAwardedType
-      - flair
-      - thumbnail
-      - media
-      - embed
       type: object
-    TwitterMediaSource:
+    TwitterBroadcaster:
       additionalProperties: false
       properties:
-        authorId:
+        displayName:
           minLength: 1
           type:
           - string
+          - 'null'
+        handle:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - handle
+      - displayName
+      type: object
+    InstagramTemplateInfo:
+      additionalProperties: false
+      properties:
+        author:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramProfileReference'
+          - type: 'null'
+        effectId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        effects:
+          additionalProperties: false
+          properties:
+            segments:
+              items: {}
+              type:
+              - array
+              - 'null'
+          required:
+          - segments
+          type: object
+        minimumSegments:
+          type:
+          - integer
           - 'null'
         postId:
           minLength: 1
           type:
           - string
           - 'null'
+        segments:
+          items:
+            $ref: '#/components/schemas/InstagramTemplateSegment'
+          type:
+          - array
+          - 'null'
       required:
       - postId
-      - authorId
-      type: object
-    InstagramLocationHours:
-      additionalProperties: false
-      properties:
-        currentStatus:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isOpen:
-          type:
-          - boolean
-          - 'null'
-        schedule:
-          items: {}
-          type:
-          - array
-          - 'null'
-        status:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        today:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - status
-      - currentStatus
-      - today
-      - isOpen
-      - schedule
-      type: object
-    InstagramSuggestion:
-      additionalProperties: false
-      properties:
-        caption:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        hasStoryRing:
-          type:
-          - boolean
-          - 'null'
-        icon:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isNew:
-          type:
-          - boolean
-          - 'null'
-        largeImages:
-          items:
-            $ref: '#/components/schemas/InstagramImage'
-          type:
-          - array
-          - 'null'
-        posts:
-          items:
-            $ref: '#/components/schemas/InstagramPostReference'
-          type:
-          - array
-          - 'null'
-        socialContext:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        thumbnails:
-          items:
-            $ref: '#/components/schemas/InstagramImage'
-          type:
-          - array
-          - 'null'
-      required:
-      - socialContext
-      - hasStoryRing
-      - isNew
-      - icon
-      - caption
-      - thumbnails
-      - largeImages
-      - posts
-      type: object
-    InstagramProfileAccountType:
-      oneOf:
-      - enum:
-        - personal
-        - business
-        - creator
-        type: string
-      - type: integer
-    RedditEmbed:
-      additionalProperties: false
-      properties:
-        author:
-          anyOf:
-          - $ref: '#/components/schemas/RedditEmbedAuthor'
-          - type: 'null'
-        domain:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        height:
-          type:
-          - integer
-          - 'null'
-        html:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        mediaDomainUrl:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        provider:
-          anyOf:
-          - $ref: '#/components/schemas/RedditEmbedSource'
-          - type: 'null'
-        scrolling:
-          type:
-          - boolean
-          - 'null'
-        thumbnail:
-          anyOf:
-          - $ref: '#/components/schemas/RedditThumbnail'
-          - type: 'null'
-        title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        version:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - domain
-      - version
-      - title
-      - type
-      - html
-      - height
-      - width
-      - provider
       - author
-      - thumbnail
-      - scrolling
-      - mediaDomainUrl
+      - minimumSegments
+      - segments
+      - effectId
+      - effects
       type: object
-    TwitterImage:
+    TwitterMediaFeature:
       additionalProperties: false
       properties:
-        altText:
+        faceRegions:
+          items:
+            $ref: '#/components/schemas/TwitterRectangle'
+          type:
+          - array
+          - 'null'
+        size:
           minLength: 1
           type:
           - string
           - 'null'
-        height:
+        taggedProfiles:
+          items:
+            $ref: '#/components/schemas/TwitterProfileReference'
           type:
-          - integer
-          - 'null'
-        isNft:
-          type:
-          - boolean
-          - 'null'
-        role:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        shape:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        width:
-          type:
-          - integer
+          - array
           - 'null'
       required:
-      - type
-      - url
-      - role
-      - width
-      - height
-      - altText
-      - shape
-      - isNft
+      - size
+      - faceRegions
+      - taggedProfiles
       type: object
-    RedditMediaVariant:
+    TwitterRichText:
       additionalProperties: false
       properties:
-        format:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - format
-      - type
-      - url
-      type: object
-    TwitterRange:
-      additionalProperties: false
-      properties:
-        end:
-          type: integer
-        start:
-          type: integer
-      required:
-      - start
-      - end
-      type: object
-    RedditCommunityHandle:
-      additionalProperties: false
-      properties:
-        handle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - handle
-      type: object
-    InstagramProfileLocation:
-      additionalProperties: false
-      properties:
-        address:
-          $ref: '#/components/schemas/InstagramProfileAddress'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - address
-      type: object
-    TwitterProfileEntities:
-      additionalProperties: false
-      properties:
-        bio:
+        entities:
           items:
             $ref: '#/components/schemas/TwitterEntity'
           type:
           - array
           - 'null'
-        externalUrl:
-          items:
-            $ref: '#/components/schemas/TwitterEntity'
+        text:
+          minLength: 1
           type:
-          - array
+          - string
           - 'null'
       required:
-      - bio
-      - externalUrl
+      - text
+      - entities
+      type: object
+    InstagramProfileAddress:
+      additionalProperties: false
+      properties:
+        city:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        cityId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        postalCode:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        street:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - street
+      - city
+      - cityId
+      - postalCode
       type: object
     InstagramLocationReference:
       additionalProperties: false
@@ -8895,1310 +8613,277 @@ components:
       - searchContext
       - hours
       type: object
-    TwitterCardText:
+    TwitterRectangle:
       additionalProperties: false
       properties:
-        isRightToLeft:
-          type:
-          - boolean
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - text
-      - isRightToLeft
-      type: object
-    InstagramProfileDisplaySettings:
-      additionalProperties: false
-      properties:
-        showCategory:
-          type:
-          - boolean
-          - 'null'
-        showPublicContacts:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - showCategory
-      - showPublicContacts
-      type: object
-    InstagramAudioPart:
-      additionalProperties: false
-      properties:
-        artist:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramProfileReference'
-          - type: 'null'
-        artistName:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        artwork:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        isExplicit:
-          type:
-          - boolean
-          - 'null'
-        musicId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        parentStartTime:
-          type:
-          - number
-          - 'null'
-        startTime:
-          type:
-          - number
-          - 'null'
-        title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - type
-      - title
-      - artistName
-      - isExplicit
-      - musicId
-      - artist
-      - startTime
-      - parentStartTime
-      - artwork
-      type: object
-    InstagramProfileContentSettings:
-      additionalProperties: false
-      properties:
-        highlightResharingEnabled:
-          type:
-          - boolean
-          - 'null'
-        postRemixingEnabled:
-          type:
-          - boolean
-          - 'null'
-        postResharingEnabled:
-          type:
-          - boolean
-          - 'null'
-        reelRemixingEnabled:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - postResharingEnabled
-      - highlightResharingEnabled
-      - postRemixingEnabled
-      - reelRemixingEnabled
-      type: object
-    TwitterCardApp:
-      additionalProperties: false
-      properties:
-        category:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterCardText'
-          - type: 'null'
-        countryCode:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        description:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterCardText'
-          - type: 'null'
-        groupId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        hasInAppPurchases:
-          type:
-          - boolean
-          - 'null'
-        iconKey:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isEditorsChoice:
-          type:
-          - boolean
-          - 'null'
-        isFree:
-          type:
-          - boolean
-          - 'null'
-        metrics:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterAppMetrics'
-          - type: 'null'
-        resolvedUrl:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        sizeBytes:
+        height:
           type:
           - integer
           - 'null'
-        title:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterCardText'
-          - type: 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - groupId
-      - id
-      - type
-      - countryCode
-      - url
-      - resolvedUrl
-      - isEditorsChoice
-      - isFree
-      - iconKey
-      - sizeBytes
-      - hasInAppPurchases
-      - category
-      - title
-      - description
-      - metrics
-      type: object
-    TwitterLongText:
-      additionalProperties: false
-      properties:
-        formatting:
-          items:
-            $ref: '#/components/schemas/TwitterFormatting'
-          type:
-          - array
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        inlineMedia:
-          items: {}
-          type:
-          - array
-          - 'null'
-        isExpandable:
-          type:
-          - boolean
-          - 'null'
-        timestamps:
-          items: {}
-          type:
-          - array
-          - 'null'
-      required:
-      - id
-      - isExpandable
-      - inlineMedia
-      - formatting
-      - timestamps
-      type: object
-    TwitterMediaRestrictions:
-      additionalProperties: false
-      properties:
-        isDmca:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - isDmca
-      type: object
-    TikTokAsset:
-      additionalProperties: false
-      properties:
-        bitrate:
+        width:
           type:
           - integer
           - 'null'
-        codecCode:
+        x:
           type:
           - integer
           - 'null'
-        covers:
-          items:
-            $ref: '#/components/schemas/TikTokAsset'
+        y:
           type:
-          - array
+          - integer
           - 'null'
+      required:
+      - x
+      - y
+      - width
+      - height
+      type: object
+    InstagramScrubber:
+      additionalProperties: false
+      properties:
         duration:
           type:
           - number
-          - 'null'
-        expiresAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        format:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        frameRate:
-          type:
-          - number
-          - 'null'
-        hasWatermark:
-          type:
-          - boolean
-          - 'null'
-        hash:
-          minLength: 1
-          type:
-          - string
           - 'null'
         height:
           type:
           - integer
           - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isAutoGenerated:
-          type:
-          - boolean
-          - 'null'
-        isBytevc1:
-          type:
-          - boolean
-          - 'null'
-        isOriginal:
-          type:
-          - boolean
-          - 'null'
-        label:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        language:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        locale:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        previewThumbnails:
-          items:
-            $ref: '#/components/schemas/TikTokPreviewThumbnails'
-          type:
-          - array
-          - 'null'
-        qualityCode:
+        maxThumbnailsPerSprite:
           type:
           - integer
           - 'null'
-        qualityLabel:
-          minLength: 1
+        thumbnailDuration:
           type:
-          - string
+          - number
           - 'null'
-        renditions:
-          items:
-            $ref: '#/components/schemas/TikTokAsset'
-          type:
-          - array
-          - 'null'
-        role:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        size:
+        thumbnailHeight:
           type:
           - integer
           - 'null'
-        subtitles:
-          items:
-            $ref: '#/components/schemas/TikTokAsset'
-          type:
-          - array
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        variants:
-          items:
-            $ref: '#/components/schemas/TikTokAsset'
-          type:
-          - array
-          - 'null'
-        version:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        volumeInfo:
-          $ref: '#/components/schemas/TikTokVolumeInfo'
-        width:
+        thumbnailWidth:
           type:
           - integer
           - 'null'
-      required:
-      - volumeInfo
-      - id
-      - type
-      - url
-      - width
-      - height
-      - size
-      - hash
-      - role
-      - label
-      - duration
-      - hasWatermark
-      - qualityLabel
-      - qualityCode
-      - bitrate
-      - frameRate
-      - isBytevc1
-      - codecCode
-      - format
-      - language
-      - locale
-      - isAutoGenerated
-      - isOriginal
-      - version
-      - expiresAt
-      - renditions
-      - covers
-      - subtitles
-      - previewThumbnails
-      - variants
-      type: object
-    TikTokPageContinuation:
-      additionalProperties: false
-      properties:
-        maxTime:
+        thumbnailsPerRow:
           type:
           - integer
           - 'null'
-        minTime:
+        thumbnailsPerSprite:
           type:
           - integer
           - 'null'
-        offset:
-          type:
-          - integer
-          - 'null'
-        pageToken:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - pageToken
-      - minTime
-      - maxTime
-      - offset
-      type: object
-    TwitterCardComponent:
-      additionalProperties: false
-      properties:
-        appGroupId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        buttons:
-          items:
-            $ref: '#/components/schemas/TwitterCardButton'
-          type:
-          - array
-          - 'null'
-        destinationId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        media:
-          items:
-            $ref: '#/components/schemas/TwitterCardMediaRef'
-          type:
-          - array
-          - 'null'
-        mediaKey:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        subtitle:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterCardText'
-          - type: 'null'
-        title:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterCardText'
-          - type: 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - type
-      - destinationId
-      - mediaKey
-      - appGroupId
-      - title
-      - subtitle
-      - media
-      - buttons
-      type: object
-    TwitterFormatting:
-      additionalProperties: false
-      properties:
-        range:
-          $ref: '#/components/schemas/TwitterRange'
-        types:
+        urls:
           items:
             minLength: 1
             type: string
           type:
           - array
           - 'null'
-      required:
-      - range
-      - types
-      type: object
-    InstagramTemplateSegment:
-      additionalProperties: false
-      properties:
-        assetEndTime:
-          type:
-          - number
-          - 'null'
-        assetStartTime:
-          type:
-          - number
-          - 'null'
-        duration:
-          type:
-          - number
-          - 'null'
-      required:
-      - duration
-      - assetStartTime
-      - assetEndTime
-      type: object
-    RedditThumbnail:
-      additionalProperties: false
-      properties:
-        height:
-          type:
-          - integer
-          - 'null'
-        state:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
         width:
           type:
           - integer
           - 'null'
       required:
-      - type
-      - url
-      - state
+      - urls
       - width
       - height
+      - thumbnailWidth
+      - thumbnailHeight
+      - thumbnailsPerRow
+      - thumbnailsPerSprite
+      - maxThumbnailsPerSprite
+      - thumbnailDuration
+      - duration
       type: object
-    InstagramProfileContent:
-      additionalProperties: false
+    ResponseMeta:
       properties:
-        hasGuides:
+        cashtags:
+          items: {}
           type:
-          - boolean
+          - array
           - 'null'
-        hasHighlights:
-          type:
-          - boolean
-          - 'null'
-        hasLongformMedia:
-          type:
-          - boolean
-          - 'null'
-        hasMusic:
-          type:
-          - boolean
-          - 'null'
-        hasVideos:
-          type:
-          - boolean
-          - 'null'
-        hasVisibleNotes:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - hasHighlights
-      - hasLongformMedia
-      - hasVideos
-      - hasMusic
-      - hasGuides
-      - hasVisibleNotes
-      type: object
-    TikTokPreviewThumbnails:
-      additionalProperties: false
-      properties:
-        columns:
+        chart:
+          anyOf:
+          - $ref: '#/components/schemas/TikTokChartMetadata'
+          - type: 'null'
+        collection:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramStoryCollection'
+          - type: 'null'
+        community:
+          anyOf:
+          - $ref: '#/components/schemas/RedditCommunityHandle'
+          - type: 'null'
+        context:
+          anyOf:
+          - $ref: '#/components/schemas/RedditListingContext'
+          - type: 'null'
+        continuation:
+          anyOf:
+          - $ref: '#/components/schemas/TikTokPageContinuation'
+          - type: 'null'
+        count:
           type:
           - integer
           - 'null'
-        duration:
-          type:
-          - number
-          - 'null'
-        format:
+        cursors:
+          $ref: '#/components/schemas/ResponseCursors'
+        domain:
           minLength: 1
           type:
           - string
           - 'null'
-        imageCount:
+        events:
+          items: {}
+          type:
+          - array
+          - 'null'
+        handle:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        hasFilteredComments:
+          type:
+          - boolean
+          - 'null'
+        hasMore:
+          type:
+          - boolean
+          - 'null'
+        hasMoreAfter:
+          type:
+          - boolean
+          - 'null'
+        hasMoreBefore:
+          type:
+          - boolean
+          - 'null'
+        hashtags:
+          items: {}
+          type:
+          - array
+          - 'null'
+        isLimited:
+          type: boolean
+        likesEnabled:
+          type:
+          - boolean
+          - 'null'
+        limit:
           type:
           - integer
           - 'null'
-        imageIds:
+        lists:
+          items: {}
+          type:
+          - array
+          - 'null'
+        metrics:
+          properties:
+            comments:
+              type:
+              - integer
+              - 'null'
+            followers:
+              type:
+              - integer
+              - 'null'
+            following:
+              type:
+              - integer
+              - 'null'
+            likes:
+              type:
+              - integer
+              - 'null'
+            replies:
+              type:
+              - integer
+              - 'null'
+            results:
+              type:
+              - integer
+              - 'null'
+            suggestions:
+              type:
+              - integer
+              - 'null'
+          type: object
+        nextCursorLabel:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        nextCursorType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        parent:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramCommentReference'
+          - type: 'null'
+        previousCursor:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        promoted:
+          items:
+            $ref: '#/components/schemas/TwitterPostReference'
+          type:
+          - array
+          - 'null'
+        queries:
+          items:
+            $ref: '#/components/schemas/TwitterSuggestedQuery'
+          type:
+          - array
+          - 'null'
+        query:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        siteRules:
           items:
             minLength: 1
             type: string
           type:
           - array
           - 'null'
-        images:
-          items:
-            $ref: '#/components/schemas/TikTokAsset'
+        sort:
+          minLength: 1
           type:
-          - array
+          - string
           - 'null'
-        interval:
+        threadingEnabled:
+          type:
+          - boolean
+          - 'null'
+        track:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramAudioReference'
+          - type: 'null'
+      required:
+      - cursors
+      type: object
+    InstagramPosition:
+      additionalProperties: false
+      properties:
+        x:
           type:
           - number
           - 'null'
-        rows:
-          type:
-          - integer
-          - 'null'
-        tileHeight:
-          type:
-          - integer
-          - 'null'
-        tileWidth:
-          type:
-          - integer
-          - 'null'
-      required:
-      - duration
-      - interval
-      - imageCount
-      - columns
-      - rows
-      - tileWidth
-      - tileHeight
-      - format
-      - images
-      - imageIds
-      type: object
-    InstagramMediaPreview:
-      additionalProperties: false
-      properties:
-        fbid:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        thumbnail:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-      required:
-      - id
-      - fbid
-      - thumbnail
-      type: object
-    InstagramMediaVariant:
-      additionalProperties: false
-      properties:
-        bitrate:
-          type:
-          - integer
-          - 'null'
-        height:
-          type:
-          - integer
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isSpatial:
-          type:
-          - boolean
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - id
-      - type
-      - url
-      - width
-      - height
-      - bitrate
-      - isSpatial
-      type: object
-    InstagramProduct:
-      additionalProperties: false
-      properties:
-        checkout:
-          additionalProperties: false
-          properties:
-            style:
-              minLength: 1
-              type:
-              - string
-              - 'null'
-          required:
-          - style
-          type: object
-        compoundId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        description:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        hasVariants:
-          type:
-          - boolean
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        image:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        isAffiliate:
-          type:
-          - boolean
-          - 'null'
-        isInStock:
-          type:
-          - boolean
-          - 'null'
-        merchant:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramProfileReference'
-          - type: 'null'
-        name:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        pricing:
-          additionalProperties: false
-          properties:
-            current:
-              $ref: '#/components/schemas/InstagramPrice'
-            formatted:
-              minLength: 1
-              type:
-              - string
-              - 'null'
-            full:
-              $ref: '#/components/schemas/InstagramPrice'
-            isUkEuCompliant:
-              type:
-              - boolean
-              - 'null'
-          required:
-          - current
-          - full
-          - formatted
-          - isUkEuCompliant
-          type: object
-        retailerId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        reviewStatus:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        thumbnail:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - compoundId
-      - retailerId
-      - name
-      - description
-      - url
-      - hasVariants
-      - isInStock
-      - isAffiliate
-      - reviewStatus
-      - merchant
-      - image
-      - thumbnail
-      - pricing
-      - checkout
-      type: object
-    TwitterBroadcast:
-      additionalProperties: false
-      properties:
-        broadcaster:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterBroadcaster'
-          - type: 'null'
-        height:
-          type:
-          - integer
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isHighLatency:
-          type:
-          - boolean
-          - 'null'
-        media:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterBroadcastMedia'
-          - type: 'null'
-        orientationCode:
-          type:
-          - integer
-          - 'null'
-        replayEditedStartTime:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        scheduledStartAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        source:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        state:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - id
-      - url
-      - title
-      - source
-      - state
-      - isHighLatency
-      - width
-      - height
-      - orientationCode
-      - scheduledStartAt
-      - media
-      - broadcaster
-      - replayEditedStartTime
-      type: object
-    RedditEmbedAuthor:
-      additionalProperties: false
-      properties:
-        displayName:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - displayName
-      - url
-      type: object
-    TwitterColor:
-      additionalProperties: false
-      properties:
-        percentage:
-          type: number
-        rgb:
-          $ref: '#/components/schemas/TwitterRGB'
-      required:
-      - percentage
-      - rgb
-      type: object
-    InstagramPrice:
-      additionalProperties: false
-      properties:
-        amount:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        formatted:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        strippedFormatted:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - amount
-      - formatted
-      - strippedFormatted
-      type: object
-    TwitterPreview:
-      additionalProperties: false
-      properties:
-        displayTextRange:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterRange'
-          - type: 'null'
-        entities:
-          items:
-            $ref: '#/components/schemas/TwitterEntity'
-          type:
-          - array
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - text
-      - entities
-      - displayTextRange
-      type: object
-    TwitterProfileLocation:
-      additionalProperties: false
-      properties:
-        place:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterPlace'
-          - type: 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - text
-      - place
-      type: object
-    InstagramStreamVariant:
-      additionalProperties: false
-      properties:
-        bitrate:
-          type:
-          - integer
-          - 'null'
-        codec:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        frameRate:
+        y:
           type:
           - number
           - 'null'
-        height:
-          type:
-          - integer
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        mimeType:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        qualityLabel:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        sampleRate:
-          type:
-          - integer
-          - 'null'
-        sizeBytes:
-          type:
-          - integer
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
       required:
-      - id
-      - url
-      - codec
-      - mimeType
-      - qualityLabel
-      - width
-      - height
-      - bitrate
-      - sizeBytes
-      - sampleRate
-      - frameRate
-      type: object
-    TwitterPost:
-      additionalProperties: false
-      properties:
-        article:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterArticle'
-          - type: 'null'
-        author:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterProfileReference'
-          - type: 'null'
-        authorId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        card:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterCard'
-          - type: 'null'
-        communityNote:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterCommunityNote'
-          - type: 'null'
-        conversationId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        createdAt:
-          format: date-time
-          minLength: 1
-          type: string
-        displayTextRange:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterRange'
-          - type: 'null'
-        edit:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterEdit'
-          - type: 'null'
-        entities:
-          items:
-            $ref: '#/components/schemas/TwitterEntity'
-          type: array
-        hasGrokAnalysisButton:
-          type:
-          - boolean
-          - 'null'
-        id:
-          minLength: 1
-          type: string
-        inReplyToHandle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        inReplyToPostId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        inReplyToUserId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isPromoted:
-          type:
-          - boolean
-          - 'null'
-        isQuote:
-          type:
-          - boolean
-          - 'null'
-        isRepost:
-          type:
-          - boolean
-          - 'null'
-        isSensitive:
-          type:
-          - boolean
-          - 'null'
-        language:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        longText:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterLongText'
-          - type: 'null'
-        media:
-          items:
-            $ref: '#/components/schemas/TwitterMedia'
-          type: array
-        metrics:
-          $ref: '#/components/schemas/TwitterPostMetrics'
-        preview:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterPreview'
-          - type: 'null'
-        previousMetrics:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterPreviousMetrics'
-          - type: 'null'
-        promotion:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterPromotion'
-          - type: 'null'
-        quotedPost:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterPostReference'
-          - type: 'null'
-        quotedPostId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        repostedPost:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterPostReference'
-          - type: 'null'
-        restrictions:
-          items:
-            $ref: '#/components/schemas/TwitterRestriction'
-          type:
-          - array
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        timeline:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterTimelinePlacement'
-          - type: 'null'
-        url:
-          format: uri
-          minLength: 1
-          type: string
-      required:
-      - id
-      - text
-      - language
-      - isSensitive
-      - isQuote
-      - createdAt
-      - conversationId
-      - authorId
-      - inReplyToPostId
-      - inReplyToUserId
-      - inReplyToHandle
-      - quotedPostId
-      - author
-      - url
-      - metrics
-      - displayTextRange
-      - media
-      - entities
-      - edit
-      - hasGrokAnalysisButton
-      - communityNote
-      - isRepost
-      - repostedPost
-      - quotedPost
-      - preview
-      - longText
-      - article
-      - previousMetrics
-      - card
-      - restrictions
-      - isPromoted
-      - promotion
-      - timeline
-      type: object
-    TwitterPlace:
-      additionalProperties: false
-      properties:
-        country:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        countryCode:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        fullName:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        name:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - name
-      - fullName
-      - type
-      - country
-      - countryCode
+      - x
+      - y
       type: object
     TwitterCommunityNote:
       additionalProperties: false
@@ -10244,186 +8929,6 @@ components:
       - summary
       - preview
       - presentation
-      type: object
-    RedditCommentsSetting:
-      additionalProperties: false
-      properties:
-        allowLiveComments:
-          type:
-          - boolean
-          - 'null'
-        discussionType:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isContestMode:
-          type:
-          - boolean
-          - 'null'
-        suggestedSort:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - isContestMode
-      - allowLiveComments
-      - suggestedSort
-      - discussionType
-      type: object
-    RedditSubredditMetrics:
-      additionalProperties: false
-      properties:
-        subscribers:
-          type:
-          - integer
-          - 'null'
-      required:
-      - subscribers
-      type: object
-    TwitterProfile:
-      additionalProperties: false
-      properties:
-        avatar:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterImage'
-          - type: 'null'
-        banner:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterImage'
-          - type: 'null'
-        bio:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        createdAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        displayName:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        entities:
-          $ref: '#/components/schemas/TwitterProfileEntities'
-        externalUrl:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        handle:
-          minLength: 1
-          type: string
-        hasCustomTimelines:
-          type:
-          - boolean
-          - 'null'
-        id:
-          minLength: 1
-          type: string
-        isLifelineInstitution:
-          type:
-          - boolean
-          - 'null'
-        isPrivate:
-          type:
-          - boolean
-          - 'null'
-        isSuspended:
-          type:
-          - boolean
-          - 'null'
-        isVerified:
-          type:
-          - boolean
-          - 'null'
-        labels:
-          items:
-            $ref: '#/components/schemas/TwitterLabel'
-          type:
-          - array
-          - 'null'
-        location:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterProfileLocation'
-          - type: 'null'
-        metrics:
-          $ref: '#/components/schemas/TwitterProfileMetrics'
-        pinnedPostIds:
-          items:
-            minLength: 1
-            type: string
-          type:
-          - array
-          - 'null'
-        professional:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterProfessional'
-          - type: 'null'
-        subscriptions:
-          $ref: '#/components/schemas/TwitterSubscriptions'
-        url:
-          format: uri
-          minLength: 1
-          type: string
-        verification:
-          $ref: '#/components/schemas/TwitterVerification'
-        visibility:
-          $ref: '#/components/schemas/TwitterVisibility'
-        withheld:
-          $ref: '#/components/schemas/TwitterWithheld'
-      required:
-      - id
-      - handle
-      - displayName
-      - bio
-      - url
-      - externalUrl
-      - createdAt
-      - location
-      - avatar
-      - banner
-      - isPrivate
-      - isSuspended
-      - isVerified
-      - hasCustomTimelines
-      - isLifelineInstitution
-      - metrics
-      - verification
-      - pinnedPostIds
-      - entities
-      - withheld
-      - subscriptions
-      - visibility
-      - professional
-      - labels
-      type: object
-    TwitterVerification:
-      additionalProperties: false
-      properties:
-        isBlueVerified:
-          type:
-          - boolean
-          - 'null'
-        legacyVerified:
-          type:
-          - boolean
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - legacyVerified
-      - type
-      - isBlueVerified
       type: object
     InstagramProfileReference:
       additionalProperties: false
@@ -10645,130 +9150,673 @@ components:
       - broadcastChannels
       - fundraisers
       type: object
-    InstagramStreaming:
+    InstagramSuggestion:
       additionalProperties: false
       properties:
-        dash:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramDASH'
-          - type: 'null'
-      required:
-      - dash
-      type: object
-    InstagramTemplateInfo:
-      additionalProperties: false
-      properties:
-        author:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramProfileReference'
-          - type: 'null'
-        effectId:
+        caption:
           minLength: 1
           type:
           - string
           - 'null'
-        effects:
-          additionalProperties: false
-          properties:
-            segments:
-              items: {}
-              type:
-              - array
-              - 'null'
-          required:
-          - segments
-          type: object
-        minimumSegments:
+        hasStoryRing:
           type:
-          - integer
+          - boolean
           - 'null'
-        postId:
+        icon:
           minLength: 1
           type:
           - string
           - 'null'
-        segments:
+        isNew:
+          type:
+          - boolean
+          - 'null'
+        largeImages:
           items:
-            $ref: '#/components/schemas/InstagramTemplateSegment'
+            $ref: '#/components/schemas/InstagramImage'
+          type:
+          - array
+          - 'null'
+        posts:
+          items:
+            $ref: '#/components/schemas/InstagramPostReference'
+          type:
+          - array
+          - 'null'
+        socialContext:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        thumbnails:
+          items:
+            $ref: '#/components/schemas/InstagramImage'
           type:
           - array
           - 'null'
       required:
-      - postId
-      - author
-      - minimumSegments
-      - segments
-      - effectId
-      - effects
+      - socialContext
+      - hasStoryRing
+      - isNew
+      - icon
+      - caption
+      - thumbnails
+      - largeImages
+      - posts
       type: object
-    TwitterRGB:
+    InstagramLocationAddress:
       additionalProperties: false
       properties:
-        blue:
-          type: integer
-        green:
-          type: integer
-        red:
-          type: integer
+        city:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        countryCode:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        postalCode:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        region:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        street:
+          minLength: 1
+          type:
+          - string
+          - 'null'
       required:
-      - red
-      - green
-      - blue
+      - street
+      - city
+      - postalCode
+      - region
+      - countryCode
       type: object
-    TikTokVolumeInfo:
+    TwitterArticle:
       additionalProperties: false
       properties:
-        loudness:
+        cover:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterMedia'
+          - type: 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        previewText:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        title:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - title
+      - previewText
+      - cover
+      type: object
+    RedditSubredditMetrics:
+      additionalProperties: false
+      properties:
+        subscribers:
+          type:
+          - integer
+          - 'null'
+      required:
+      - subscribers
+      type: object
+    InstagramStoryCollection:
+      additionalProperties: false
+      properties:
+        audience:
+          additionalProperties: false
+          properties:
+            hasCloseFriendsStories:
+              type:
+              - boolean
+              - 'null'
+            hasSubscriberStories:
+              type:
+              - boolean
+              - 'null'
+          required:
+          - hasCloseFriendsStories
+          - hasSubscriberStories
+          type: object
+        expiresAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isArchived:
+          type:
+          - boolean
+          - 'null'
+        lastStoryAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        metrics:
+          additionalProperties: false
+          properties:
+            stories:
+              type:
+              - integer
+              - 'null'
+          required:
+          - stories
+          type: object
+      required:
+      - id
+      - lastStoryAt
+      - expiresAt
+      - isArchived
+      - metrics
+      - audience
+      type: object
+    InstagramProfileMetrics:
+      additionalProperties: false
+      properties:
+        arEffects:
+          type:
+          - integer
+          - 'null'
+        followers:
+          type:
+          - integer
+          - 'null'
+        following:
+          type:
+          - integer
+          - 'null'
+        posts:
+          type:
+          - integer
+          - 'null'
+      required:
+      - followers
+      - following
+      - posts
+      - arEffects
+      type: object
+    RedditPostMetrics:
+      additionalProperties: false
+      properties:
+        awards:
+          type:
+          - integer
+          - 'null'
+        comments:
+          type:
+          - integer
+          - 'null'
+        crossposts:
+          type:
+          - integer
+          - 'null'
+        gilded:
+          type:
+          - integer
+          - 'null'
+        score:
+          type:
+          - integer
+          - 'null'
+        upvoteRatio:
           type:
           - number
           - 'null'
-        loudnessRange:
+        views:
+          type:
+          - integer
+          - 'null'
+      required:
+      - score
+      - upvoteRatio
+      - comments
+      - crossposts
+      - awards
+      - gilded
+      - views
+      type: object
+    TwitterMediaSize:
+      additionalProperties: false
+      properties:
+        height:
+          type:
+          - integer
+          - 'null'
+        name:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        resizeMode:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - name
+      - width
+      - height
+      - resizeMode
+      type: object
+    TwitterPollChoice:
+      additionalProperties: false
+      properties:
+        images:
+          items:
+            $ref: '#/components/schemas/TwitterImage'
+          type:
+          - array
+          - 'null'
+        label:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        metrics:
+          additionalProperties: false
+          properties:
+            votes:
+              type: integer
+          required:
+          - votes
+          type:
+          - object
+          - 'null'
+        position:
+          type: integer
+      required:
+      - position
+      - label
+      - metrics
+      - images
+      type: object
+    TwitterCardComponent:
+      additionalProperties: false
+      properties:
+        appGroupId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        buttons:
+          items:
+            $ref: '#/components/schemas/TwitterCardButton'
+          type:
+          - array
+          - 'null'
+        destinationId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        media:
+          items:
+            $ref: '#/components/schemas/TwitterCardMediaRef'
+          type:
+          - array
+          - 'null'
+        mediaKey:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        subtitle:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterCardText'
+          - type: 'null'
+        title:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterCardText'
+          - type: 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - type
+      - destinationId
+      - mediaKey
+      - appGroupId
+      - title
+      - subtitle
+      - media
+      - buttons
+      type: object
+    InstagramMediaPreview:
+      additionalProperties: false
+      properties:
+        fbid:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        thumbnail:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+      required:
+      - id
+      - fbid
+      - thumbnail
+      type: object
+    InstagramProfileAccountType:
+      oneOf:
+      - enum:
+        - personal
+        - business
+        - creator
+        type: string
+      - type: integer
+    InstagramProfileDisplaySettings:
+      additionalProperties: false
+      properties:
+        showCategory:
+          type:
+          - boolean
+          - 'null'
+        showPublicContacts:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - showCategory
+      - showPublicContacts
+      type: object
+    RedditCommentsSetting:
+      additionalProperties: false
+      properties:
+        allowLiveComments:
+          type:
+          - boolean
+          - 'null'
+        discussionType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isContestMode:
+          type:
+          - boolean
+          - 'null'
+        suggestedSort:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - isContestMode
+      - allowLiveComments
+      - suggestedSort
+      - discussionType
+      type: object
+    InstagramCrop:
+      additionalProperties: false
+      properties:
+        bottom:
           type:
           - number
           - 'null'
-        loudnessRangeEnd:
+        left:
           type:
           - number
           - 'null'
-        loudnessRangeStart:
+        right:
           type:
           - number
           - 'null'
-        maxVolume:
-          type:
-          - number
-          - 'null'
-        maximumMomentaryLoudness:
-          type:
-          - number
-          - 'null'
-        maximumShortTermLoudness:
-          type:
-          - number
-          - 'null'
-        meanVolume:
-          type:
-          - number
-          - 'null'
-        peak:
-          type:
-          - number
-          - 'null'
-        version:
+        top:
           type:
           - number
           - 'null'
       required:
-      - loudness
-      - peak
-      - loudnessRange
-      - loudnessRangeStart
-      - loudnessRangeEnd
-      - maximumMomentaryLoudness
-      - maximumShortTermLoudness
-      - version
-      - maxVolume
-      - meanVolume
+      - left
+      - right
+      - top
+      - bottom
+      type: object
+    TikTokPreviewThumbnails:
+      additionalProperties: false
+      properties:
+        columns:
+          type:
+          - integer
+          - 'null'
+        duration:
+          type:
+          - number
+          - 'null'
+        format:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        imageCount:
+          type:
+          - integer
+          - 'null'
+        imageIds:
+          items:
+            minLength: 1
+            type: string
+          type:
+          - array
+          - 'null'
+        images:
+          items:
+            $ref: '#/components/schemas/TikTokAsset'
+          type:
+          - array
+          - 'null'
+        interval:
+          type:
+          - number
+          - 'null'
+        rows:
+          type:
+          - integer
+          - 'null'
+        tileHeight:
+          type:
+          - integer
+          - 'null'
+        tileWidth:
+          type:
+          - integer
+          - 'null'
+      required:
+      - duration
+      - interval
+      - imageCount
+      - columns
+      - rows
+      - tileWidth
+      - tileHeight
+      - format
+      - images
+      - imageIds
+      type: object
+    InstagramProfileThreads:
+      additionalProperties: false
+      properties:
+        handle:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isActive:
+          type:
+          - boolean
+          - 'null'
+        joinerLabel:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - isActive
+      - handle
+      - url
+      - joinerLabel
+      type: object
+    RedditFlair:
+      additionalProperties: false
+      properties:
+        backgroundColor:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        cssClass:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        hasPatreonFlair:
+          type:
+          - boolean
+          - 'null'
+        templateId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        textColor:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - text
+      - type
+      - templateId
+      - cssClass
+      - backgroundColor
+      - textColor
+      - hasPatreonFlair
+      type: object
+    RedditMediaVariant:
+      additionalProperties: false
+      properties:
+        format:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - format
+      - type
+      - url
+      type: object
+    TwitterProfessional:
+      additionalProperties: false
+      properties:
+        categories:
+          items:
+            $ref: '#/components/schemas/TwitterProfessionalCategory'
+          type:
+          - array
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - type
+      - categories
+      type: object
+    InstagramCoordinates:
+      additionalProperties: false
+      properties:
+        latitude:
+          type:
+          - number
+          - 'null'
+        longitude:
+          type:
+          - number
+          - 'null'
+      required:
+      - latitude
+      - longitude
+      type: object
+    TwitterColor:
+      additionalProperties: false
+      properties:
+        percentage:
+          type: number
+        rgb:
+          $ref: '#/components/schemas/TwitterRGB'
+      required:
+      - percentage
+      - rgb
       type: object
     SuccessEnvelope:
       additionalProperties: false
@@ -10814,6 +9862,159 @@ components:
       - source
       - data
       type: object
+    TwitterFormatting:
+      additionalProperties: false
+      properties:
+        range:
+          $ref: '#/components/schemas/TwitterRange'
+        types:
+          items:
+            minLength: 1
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - range
+      - types
+      type: object
+    TwitterPlace:
+      additionalProperties: false
+      properties:
+        country:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        countryCode:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        fullName:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        name:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - name
+      - fullName
+      - type
+      - country
+      - countryCode
+      type: object
+    TwitterProfileLocation:
+      additionalProperties: false
+      properties:
+        place:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterPlace'
+          - type: 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - text
+      - place
+      type: object
+    TwitterImage:
+      additionalProperties: false
+      properties:
+        altText:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        isNft:
+          type:
+          - boolean
+          - 'null'
+        role:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        shape:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - type
+      - url
+      - role
+      - width
+      - height
+      - altText
+      - shape
+      - isNft
+      type: object
+    TwitterAppMetrics:
+      additionalProperties: false
+      properties:
+        rating:
+          type:
+          - number
+          - 'null'
+        ratings:
+          type:
+          - integer
+          - 'null'
+      required:
+      - rating
+      - ratings
+      type: object
+    TwitterRGB:
+      additionalProperties: false
+      properties:
+        blue:
+          type: integer
+        green:
+          type: integer
+        red:
+          type: integer
+      required:
+      - red
+      - green
+      - blue
+      type: object
     InstagramAudioMetrics:
       additionalProperties: false
       properties:
@@ -10839,133 +10040,395 @@ components:
       - reels
       - photos
       type: object
-    TwitterProfileMetrics:
+    TwitterNotePresentation:
       additionalProperties: false
       properties:
-        affiliates:
+        iconType:
+          minLength: 1
           type:
-          - integer
+          - string
           - 'null'
-        creatorSubscriptions:
+        style:
+          minLength: 1
           type:
-          - integer
-          - 'null'
-        followers:
-          type:
-          - integer
-          - 'null'
-        following:
-          type:
-          - integer
-          - 'null'
-        likedPosts:
-          type:
-          - integer
-          - 'null'
-        mediaPosts:
-          type:
-          - integer
-          - 'null'
-        posts:
-          type:
-          - integer
+          - string
           - 'null'
       required:
-      - followers
-      - following
-      - posts
-      - likedPosts
-      - mediaPosts
-      - creatorSubscriptions
-      - affiliates
+      - iconType
+      - style
       type: object
-    InstagramCrop:
+    TwitterLongText:
       additionalProperties: false
       properties:
-        bottom:
+        formatting:
+          items:
+            $ref: '#/components/schemas/TwitterFormatting'
           type:
-          - number
+          - array
           - 'null'
-        left:
+        id:
+          minLength: 1
           type:
-          - number
+          - string
           - 'null'
-        right:
+        inlineMedia:
+          items: {}
           type:
-          - number
+          - array
           - 'null'
-        top:
+        isExpandable:
           type:
-          - number
+          - boolean
+          - 'null'
+        timestamps:
+          items: {}
+          type:
+          - array
           - 'null'
       required:
-      - left
-      - right
-      - top
-      - bottom
+      - id
+      - isExpandable
+      - inlineMedia
+      - formatting
+      - timestamps
       type: object
-    ErrorEnvelope:
+    InstagramDASH:
+      additionalProperties: false
       properties:
-        error:
+        manifest:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        qualityCount:
+          type:
+          - integer
+          - 'null'
+        variants:
+          items:
+            $ref: '#/components/schemas/InstagramStreamVariant'
+          type:
+          - array
+          - 'null'
+      required:
+      - manifest
+      - variants
+      - qualityCount
+      type: object
+    RedditPostReference:
+      additionalProperties: false
+      properties:
+        author:
+          anyOf:
+          - $ref: '#/components/schemas/RedditAuthor'
+          - type: 'null'
+        comments:
+          $ref: '#/components/schemas/RedditCommentsSetting'
+        community:
+          anyOf:
+          - $ref: '#/components/schemas/RedditCommunity'
+          - type: 'null'
+        createdAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        distinguishedBy:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        domain:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        editedAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        embed:
+          anyOf:
+          - $ref: '#/components/schemas/RedditEmbed'
+          - type: 'null'
+        flair:
+          anyOf:
+          - $ref: '#/components/schemas/RedditFlair'
+          - type: 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isArchived:
+          type:
+          - boolean
+          - 'null'
+        isCrosspostable:
+          type:
+          - boolean
+          - 'null'
+        isEdited:
+          type:
+          - boolean
+          - 'null'
+        isGallery:
+          type:
+          - boolean
+          - 'null'
+        isLocked:
+          type:
+          - boolean
+          - 'null'
+        isMediaOnly:
+          type:
+          - boolean
+          - 'null'
+        isMeta:
+          type:
+          - boolean
+          - 'null'
+        isOriginalContent:
+          type:
+          - boolean
+          - 'null'
+        isPinned:
+          type:
+          - boolean
+          - 'null'
+        isRedditMediaDomain:
+          type:
+          - boolean
+          - 'null'
+        isSelf:
+          type:
+          - boolean
+          - 'null'
+        isSensitive:
+          type:
+          - boolean
+          - 'null'
+        isSpoiler:
+          type:
+          - boolean
+          - 'null'
+        isStickied:
+          type:
+          - boolean
+          - 'null'
+        isVideo:
+          type:
+          - boolean
+          - 'null'
+        linkUrl:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        media:
+          items:
+            $ref: '#/components/schemas/RedditMedia'
+          type:
+          - array
+          - 'null'
+        metrics:
+          $ref: '#/components/schemas/RedditPostMetrics'
+        removedByCategory:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        textHtml:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        thumbnail:
+          anyOf:
+          - $ref: '#/components/schemas/RedditThumbnail'
+          - type: 'null'
+        title:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        topAwardedType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        visibility:
+          $ref: '#/components/schemas/RedditPostVisibility'
+      required:
+      - id
+      - title
+      - text
+      - textHtml
+      - domain
+      - url
+      - linkUrl
+      - author
+      - community
+      - metrics
+      - createdAt
+      - isEdited
+      - editedAt
+      - isSelf
+      - isVideo
+      - isGallery
+      - isMeta
+      - isOriginalContent
+      - isCrosspostable
+      - isRedditMediaDomain
+      - isMediaOnly
+      - isSensitive
+      - isSpoiler
+      - isStickied
+      - isLocked
+      - isArchived
+      - isPinned
+      - visibility
+      - comments
+      - distinguishedBy
+      - removedByCategory
+      - topAwardedType
+      - flair
+      - thumbnail
+      - media
+      - embed
+      type: object
+    InstagramProfileBroadcastChannels:
+      additionalProperties: false
+      properties:
+        hasPublicChannels:
+          type:
+          - boolean
+          - 'null'
+        isCreator:
+          type:
+          - boolean
+          - 'null'
+        pinned:
+          items:
+            $ref: '#/components/schemas/InstagramProfileBroadcastChannel'
+          type:
+          - array
+          - 'null'
+      required:
+      - isCreator
+      - hasPublicChannels
+      - pinned
+      type: object
+    TwitterMediaSource:
+      additionalProperties: false
+      properties:
+        authorId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        postId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - postId
+      - authorId
+      type: object
+    InstagramNote:
+      additionalProperties: false
+      properties:
+        author:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramProfileReference'
+          - type: 'null'
+        createdAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - text
+      - createdAt
+      - author
+      type: object
+    InstagramProfileBroadcastChannel:
+      additionalProperties: false
+      properties:
+        avatar:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        cover:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        creator:
+          additionalProperties: false
           properties:
-            code:
-              type: string
-            details:
-              additionalProperties: true
-              type: object
-            message:
-              type: string
-            requestId:
-              type: string
-            retryable:
-              type: boolean
+            handle:
+              minLength: 1
+              type:
+              - string
+              - 'null'
+            id:
+              minLength: 1
+              type:
+              - string
+              - 'null'
+            isVerified:
+              type:
+              - boolean
+              - 'null'
           required:
-          - code
-          - message
-          - requestId
-          - retryable
+          - id
+          - handle
+          - isVerified
           type: object
-      required:
-      - error
-      type: object
-    RedditPostVisibility:
-      additionalProperties: false
-      properties:
-        isRobotIndexable:
+        id:
+          minLength: 1
           type:
-          - boolean
+          - string
           - 'null'
-        isScoreHidden:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - isRobotIndexable
-      - isScoreHidden
-      type: object
-    TwitterVisibility:
-      additionalProperties: false
-      properties:
-        hasHiddenLikesOnProfile:
-          type:
-          - boolean
-          - 'null'
-        hasHiddenSubscriptionsOnProfile:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - hasHiddenLikesOnProfile
-      - hasHiddenSubscriptionsOnProfile
-      type: object
-    TwitterMediaVariant:
-      additionalProperties: false
-      properties:
-        bitrate:
-          type:
-          - integer
-          - 'null'
-        contentType:
+        metrics:
+          additionalProperties: false
+          properties:
+            members:
+              type:
+              - integer
+              - 'null'
+          required:
+          - members
+          type: object
+        title:
           minLength: 1
           type:
           - string
@@ -10977,88 +10440,26 @@ components:
           - string
           - 'null'
       required:
+      - id
+      - title
       - url
-      - bitrate
-      - contentType
+      - avatar
+      - cover
+      - creator
+      - metrics
       type: object
-    TwitterMedia:
+    RedditThumbnail:
       additionalProperties: false
       properties:
-        altText:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        aspectRatio:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterAspectRatio'
-          - type: 'null'
-        availability:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterMediaAvailability'
-          - type: 'null'
-        duration:
-          type:
-          - number
-          - 'null'
-        features:
-          items:
-            $ref: '#/components/schemas/TwitterMediaFeature'
-          type:
-          - array
-          - 'null'
-        focusRegions:
-          items:
-            $ref: '#/components/schemas/TwitterRectangle'
-          type:
-          - array
-          - 'null'
         height:
           type:
           - integer
           - 'null'
-        id:
+        state:
           minLength: 1
           type:
           - string
           - 'null'
-        isAnimated:
-          type:
-          - boolean
-          - 'null'
-        isMonetizable:
-          type:
-          - boolean
-          - 'null'
-        key:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        palette:
-          items:
-            $ref: '#/components/schemas/TwitterColor'
-          type:
-          - array
-          - 'null'
-        restrictions:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterMediaRestrictions'
-          - type: 'null'
-        sizes:
-          items:
-            $ref: '#/components/schemas/TwitterMediaSize'
-          type:
-          - array
-          - 'null'
-        source:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterMediaSource'
-          - type: 'null'
-        thumbnail:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterImage'
-          - type: 'null'
         type:
           minLength: 1
           type:
@@ -11070,109 +10471,16 @@ components:
           type:
           - string
           - 'null'
-        variants:
-          items:
-            $ref: '#/components/schemas/TwitterMediaVariant'
-          type:
-          - array
-          - 'null'
         width:
           type:
           - integer
           - 'null'
       required:
-      - id
       - type
-      - key
-      - altText
-      - isAnimated
-      - source
+      - url
+      - state
       - width
       - height
-      - focusRegions
-      - features
-      - sizes
-      - duration
-      - aspectRatio
-      - variants
-      - url
-      - thumbnail
-      - availability
-      - restrictions
-      - isMonetizable
-      - palette
-      type: object
-    TwitterImageAltText:
-      additionalProperties: false
-      properties:
-        role:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - role
-      - text
-      type: object
-    TwitterMediaFeature:
-      additionalProperties: false
-      properties:
-        faceRegions:
-          items:
-            $ref: '#/components/schemas/TwitterRectangle'
-          type:
-          - array
-          - 'null'
-        size:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        taggedProfiles:
-          items:
-            $ref: '#/components/schemas/TwitterProfileReference'
-          type:
-          - array
-          - 'null'
-      required:
-      - size
-      - faceRegions
-      - taggedProfiles
-      type: object
-    TwitterEdit:
-      additionalProperties: false
-      properties:
-        editableUntil:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        historyIds:
-          items:
-            minLength: 1
-            type: string
-          type:
-          - array
-          - 'null'
-        initialPostId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        remaining:
-          type:
-          - integer
-          - 'null'
-      required:
-      - historyIds
-      - editableUntil
-      - remaining
-      - initialPostId
       type: object
     TwitterPostReference:
       additionalProperties: false
@@ -11360,6 +10668,2062 @@ components:
       - isPromoted
       - promotion
       - timeline
+      type: object
+    RedditEmbed:
+      additionalProperties: false
+      properties:
+        author:
+          anyOf:
+          - $ref: '#/components/schemas/RedditEmbedAuthor'
+          - type: 'null'
+        domain:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        html:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        mediaDomainUrl:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        provider:
+          anyOf:
+          - $ref: '#/components/schemas/RedditEmbedSource'
+          - type: 'null'
+        scrolling:
+          type:
+          - boolean
+          - 'null'
+        thumbnail:
+          anyOf:
+          - $ref: '#/components/schemas/RedditThumbnail'
+          - type: 'null'
+        title:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        version:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - domain
+      - version
+      - title
+      - type
+      - html
+      - height
+      - width
+      - provider
+      - author
+      - thumbnail
+      - scrolling
+      - mediaDomainUrl
+      type: object
+    InstagramMediaVariant:
+      additionalProperties: false
+      properties:
+        bitrate:
+          type:
+          - integer
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isSpatial:
+          type:
+          - boolean
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      - type
+      - url
+      - width
+      - height
+      - bitrate
+      - isSpatial
+      type: object
+    InstagramProfileFundraisers:
+      additionalProperties: false
+      properties:
+        items:
+          items: {}
+          type:
+          - array
+          - 'null'
+        metrics:
+          additionalProperties: false
+          properties:
+            active:
+              type:
+              - integer
+              - 'null'
+          required:
+          - active
+          type: object
+      required:
+      - metrics
+      - items
+      type: object
+    TwitterRestriction:
+      additionalProperties: false
+      properties:
+        action:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        message:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - action
+      - message
+      type: object
+    InstagramUserTag:
+      additionalProperties: false
+      properties:
+        position:
+          $ref: '#/components/schemas/InstagramPosition'
+        user:
+          $ref: '#/components/schemas/InstagramProfileReference'
+      required:
+      - user
+      - position
+      type: object
+    RedditListingContext:
+      additionalProperties: false
+      properties:
+        originalPost:
+          anyOf:
+          - $ref: '#/components/schemas/RedditPostReference'
+          - type: 'null'
+        post:
+          anyOf:
+          - $ref: '#/components/schemas/RedditPostReference'
+          - type: 'null'
+      required:
+      - post
+      - originalPost
+      type: object
+    TwitterEntity:
+      additionalProperties: false
+      properties:
+        displayName:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        displayUrl:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        handle:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        mediaId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        range:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterRange'
+          - type: 'null'
+        shortUrl:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - type
+      - range
+      - shortUrl
+      - url
+      - displayUrl
+      - text
+      - handle
+      - id
+      - displayName
+      - mediaId
+      type: object
+    RedditPostVisibility:
+      additionalProperties: false
+      properties:
+        isRobotIndexable:
+          type:
+          - boolean
+          - 'null'
+        isScoreHidden:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - isRobotIndexable
+      - isScoreHidden
+      type: object
+    RedditMedia:
+      additionalProperties: false
+      properties:
+        bitrateKbps:
+          type:
+          - integer
+          - 'null'
+        caption:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        duration:
+          type:
+          - number
+          - 'null'
+        hasAudio:
+          type:
+          - boolean
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isAnimated:
+          type:
+          - boolean
+          - 'null'
+        mimeType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        scrubber:
+          anyOf:
+          - $ref: '#/components/schemas/RedditMediaVariant'
+          - type: 'null'
+        transcodingStatus:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        variants:
+          items:
+            $ref: '#/components/schemas/RedditMediaVariant'
+          type:
+          - array
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - type
+      - id
+      - width
+      - height
+      - mimeType
+      - caption
+      - url
+      - variants
+      - bitrateKbps
+      - hasAudio
+      - duration
+      - isAnimated
+      - transcodingStatus
+      - scrubber
+      type: object
+    TwitterCardDestination:
+      additionalProperties: false
+      properties:
+        appGroupId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        displayUrl:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        mediaKey:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - type
+      - mediaKey
+      - appGroupId
+      - url
+      - displayUrl
+      type: object
+    InstagramProfileContentSettings:
+      additionalProperties: false
+      properties:
+        highlightResharingEnabled:
+          type:
+          - boolean
+          - 'null'
+        postRemixingEnabled:
+          type:
+          - boolean
+          - 'null'
+        postResharingEnabled:
+          type:
+          - boolean
+          - 'null'
+        reelRemixingEnabled:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - postResharingEnabled
+      - highlightResharingEnabled
+      - postRemixingEnabled
+      - reelRemixingEnabled
+      type: object
+    InstagramMedia:
+      additionalProperties: false
+      properties:
+        altText:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        audio:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramAudioReference'
+          - type: 'null'
+        bitrate:
+          type:
+          - integer
+          - 'null'
+        commercialityStatus:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        createdAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        crops:
+          additionalProperties: false
+          properties:
+            feedPreview:
+              $ref: '#/components/schemas/InstagramCrop'
+            fourByThree:
+              $ref: '#/components/schemas/InstagramCrop'
+            square:
+              $ref: '#/components/schemas/InstagramCrop'
+          required:
+          - fourByThree
+          - square
+          - feedPreview
+          type: object
+        duration:
+          type:
+          - number
+          - 'null'
+        firstFrame:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        hasAudio:
+          type:
+          - boolean
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        originalHeight:
+          type:
+          - integer
+          - 'null'
+        originalWidth:
+          type:
+          - integer
+          - 'null'
+        parentId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        productTags:
+          items:
+            $ref: '#/components/schemas/InstagramProductTag'
+          type:
+          - array
+          - 'null'
+        scrubber:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramScrubber'
+          - type: 'null'
+        streaming:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramStreaming'
+          - type: 'null'
+        subtitles:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramSubtitles'
+          - type: 'null'
+        taggedUsers:
+          items:
+            $ref: '#/components/schemas/InstagramUserTag'
+          type:
+          - array
+          - 'null'
+        thumbnail:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        variants:
+          items:
+            $ref: '#/components/schemas/InstagramMediaVariant'
+          type:
+          - array
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      - type
+      - parentId
+      - createdAt
+      - url
+      - width
+      - height
+      - originalWidth
+      - originalHeight
+      - bitrate
+      - hasAudio
+      - altText
+      - commercialityStatus
+      - duration
+      - variants
+      - thumbnail
+      - firstFrame
+      - scrubber
+      - streaming
+      - subtitles
+      - audio
+      - taggedUsers
+      - productTags
+      - crops
+      type: object
+    TwitterProfessionalCategory:
+      additionalProperties: false
+      properties:
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        name:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - name
+      type: object
+    ResponseCursors:
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+      required:
+      - next
+      type: object
+    TwitterEdit:
+      additionalProperties: false
+      properties:
+        editableUntil:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        historyIds:
+          items:
+            minLength: 1
+            type: string
+          type:
+          - array
+          - 'null'
+        initialPostId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        remaining:
+          type:
+          - integer
+          - 'null'
+      required:
+      - historyIds
+      - editableUntil
+      - remaining
+      - initialPostId
+      type: object
+    TwitterCardText:
+      additionalProperties: false
+      properties:
+        isRightToLeft:
+          type:
+          - boolean
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - text
+      - isRightToLeft
+      type: object
+    TikTokAsset:
+      additionalProperties: false
+      properties:
+        bitrate:
+          type:
+          - integer
+          - 'null'
+        codecCode:
+          type:
+          - integer
+          - 'null'
+        covers:
+          items:
+            $ref: '#/components/schemas/TikTokAsset'
+          type:
+          - array
+          - 'null'
+        duration:
+          type:
+          - number
+          - 'null'
+        expiresAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        format:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        frameRate:
+          type:
+          - number
+          - 'null'
+        hasWatermark:
+          type:
+          - boolean
+          - 'null'
+        hash:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isAutoGenerated:
+          type:
+          - boolean
+          - 'null'
+        isBytevc1:
+          type:
+          - boolean
+          - 'null'
+        isOriginal:
+          type:
+          - boolean
+          - 'null'
+        label:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        language:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        locale:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        previewThumbnails:
+          items:
+            $ref: '#/components/schemas/TikTokPreviewThumbnails'
+          type:
+          - array
+          - 'null'
+        qualityCode:
+          type:
+          - integer
+          - 'null'
+        qualityLabel:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        renditions:
+          items:
+            $ref: '#/components/schemas/TikTokAsset'
+          type:
+          - array
+          - 'null'
+        role:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        size:
+          type:
+          - integer
+          - 'null'
+        subtitles:
+          items:
+            $ref: '#/components/schemas/TikTokAsset'
+          type:
+          - array
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        variants:
+          items:
+            $ref: '#/components/schemas/TikTokAsset'
+          type:
+          - array
+          - 'null'
+        version:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        volumeInfo:
+          $ref: '#/components/schemas/TikTokVolumeInfo'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - volumeInfo
+      - id
+      - type
+      - url
+      - width
+      - height
+      - size
+      - hash
+      - role
+      - label
+      - duration
+      - hasWatermark
+      - qualityLabel
+      - qualityCode
+      - bitrate
+      - frameRate
+      - isBytevc1
+      - codecCode
+      - format
+      - language
+      - locale
+      - isAutoGenerated
+      - isOriginal
+      - version
+      - expiresAt
+      - renditions
+      - covers
+      - subtitles
+      - previewThumbnails
+      - variants
+      type: object
+    InstagramLocationHours:
+      additionalProperties: false
+      properties:
+        currentStatus:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isOpen:
+          type:
+          - boolean
+          - 'null'
+        schedule:
+          items: {}
+          type:
+          - array
+          - 'null'
+        status:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        today:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - status
+      - currentStatus
+      - today
+      - isOpen
+      - schedule
+      type: object
+    RedditEmbedAuthor:
+      additionalProperties: false
+      properties:
+        displayName:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - displayName
+      - url
+      type: object
+    InstagramProductTag:
+      additionalProperties: false
+      properties:
+        position:
+          $ref: '#/components/schemas/InstagramPosition'
+        product:
+          $ref: '#/components/schemas/InstagramProduct'
+      required:
+      - product
+      - position
+      type: object
+    InstagramPostMetrics:
+      additionalProperties: false
+      properties:
+        comments:
+          type:
+          - integer
+          - 'null'
+        facebook:
+          additionalProperties: false
+          properties:
+            comments:
+              type:
+              - integer
+              - 'null'
+            likes:
+              type:
+              - integer
+              - 'null'
+            plays:
+              type:
+              - integer
+              - 'null'
+          required:
+          - likes
+          - plays
+          - comments
+          type: object
+        instagram:
+          additionalProperties: false
+          properties:
+            plays:
+              type:
+              - integer
+              - 'null'
+          required:
+          - plays
+          type: object
+        likes:
+          type:
+          - integer
+          - 'null'
+        plays:
+          type:
+          - integer
+          - 'null'
+        premiumReactions:
+          type:
+          - integer
+          - 'null'
+        reposts:
+          type:
+          - integer
+          - 'null'
+        reshares:
+          type:
+          - integer
+          - 'null'
+        saves:
+          type:
+          - integer
+          - 'null'
+        views:
+          type:
+          - integer
+          - 'null'
+      required:
+      - likes
+      - comments
+      - saves
+      - reshares
+      - reposts
+      - premiumReactions
+      - plays
+      - views
+      - instagram
+      - facebook
+      type: object
+    TwitterMediaVariant:
+      additionalProperties: false
+      properties:
+        bitrate:
+          type:
+          - integer
+          - 'null'
+        contentType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - url
+      - bitrate
+      - contentType
+      type: object
+    TwitterPostMetrics:
+      additionalProperties: false
+      properties:
+        comments:
+          type:
+          - integer
+          - 'null'
+        likes:
+          type:
+          - integer
+          - 'null'
+        quotes:
+          type:
+          - integer
+          - 'null'
+        reposts:
+          type:
+          - integer
+          - 'null'
+        saves:
+          type:
+          - integer
+          - 'null'
+        views:
+          type:
+          - integer
+          - 'null'
+        viewsState:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - likes
+      - comments
+      - reposts
+      - quotes
+      - saves
+      - views
+      - viewsState
+      type: object
+    TwitterTimelinePlacement:
+      additionalProperties: false
+      properties:
+        conversationSection:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        displayType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        moduleDisplayType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        position:
+          type:
+          - integer
+          - 'null'
+      required:
+      - position
+      - conversationSection
+      - moduleDisplayType
+      - displayType
+      type: object
+    InstagramSubtitles:
+      additionalProperties: false
+      properties:
+        confidence:
+          type:
+          - number
+          - 'null'
+        enabled:
+          type:
+          - boolean
+          - 'null'
+        generated:
+          type:
+          - boolean
+          - 'null'
+        locale:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        status:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - enabled
+      - generated
+      - status
+      - locale
+      - confidence
+      - url
+      type: object
+    TwitterPost:
+      additionalProperties: false
+      properties:
+        article:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterArticle'
+          - type: 'null'
+        author:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterProfileReference'
+          - type: 'null'
+        authorId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        card:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterCard'
+          - type: 'null'
+        communityNote:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterCommunityNote'
+          - type: 'null'
+        conversationId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        createdAt:
+          format: date-time
+          minLength: 1
+          type: string
+        displayTextRange:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterRange'
+          - type: 'null'
+        edit:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterEdit'
+          - type: 'null'
+        entities:
+          items:
+            $ref: '#/components/schemas/TwitterEntity'
+          type: array
+        hasGrokAnalysisButton:
+          type:
+          - boolean
+          - 'null'
+        id:
+          minLength: 1
+          type: string
+        inReplyToHandle:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        inReplyToPostId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        inReplyToUserId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isPromoted:
+          type:
+          - boolean
+          - 'null'
+        isQuote:
+          type:
+          - boolean
+          - 'null'
+        isRepost:
+          type:
+          - boolean
+          - 'null'
+        isSensitive:
+          type:
+          - boolean
+          - 'null'
+        language:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        longText:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterLongText'
+          - type: 'null'
+        media:
+          items:
+            $ref: '#/components/schemas/TwitterMedia'
+          type: array
+        metrics:
+          $ref: '#/components/schemas/TwitterPostMetrics'
+        preview:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterPreview'
+          - type: 'null'
+        previousMetrics:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterPreviousMetrics'
+          - type: 'null'
+        promotion:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterPromotion'
+          - type: 'null'
+        quotedPost:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterPostReference'
+          - type: 'null'
+        quotedPostId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        repostedPost:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterPostReference'
+          - type: 'null'
+        restrictions:
+          items:
+            $ref: '#/components/schemas/TwitterRestriction'
+          type:
+          - array
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        timeline:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterTimelinePlacement'
+          - type: 'null'
+        url:
+          format: uri
+          minLength: 1
+          type: string
+      required:
+      - id
+      - text
+      - language
+      - isSensitive
+      - isQuote
+      - createdAt
+      - conversationId
+      - authorId
+      - inReplyToPostId
+      - inReplyToUserId
+      - inReplyToHandle
+      - quotedPostId
+      - author
+      - url
+      - metrics
+      - displayTextRange
+      - media
+      - entities
+      - edit
+      - hasGrokAnalysisButton
+      - communityNote
+      - isRepost
+      - repostedPost
+      - quotedPost
+      - preview
+      - longText
+      - article
+      - previousMetrics
+      - card
+      - restrictions
+      - isPromoted
+      - promotion
+      - timeline
+      type: object
+    TwitterSuggestedQuery:
+      additionalProperties: false
+      properties:
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - text
+      type: object
+    TwitterProfileEntities:
+      additionalProperties: false
+      properties:
+        bio:
+          items:
+            $ref: '#/components/schemas/TwitterEntity'
+          type:
+          - array
+          - 'null'
+        externalUrl:
+          items:
+            $ref: '#/components/schemas/TwitterEntity'
+          type:
+          - array
+          - 'null'
+      required:
+      - bio
+      - externalUrl
+      type: object
+    TwitterRange:
+      additionalProperties: false
+      properties:
+        end:
+          type: integer
+        start:
+          type: integer
+      required:
+      - start
+      - end
+      type: object
+    TwitterCardMediaRef:
+      additionalProperties: false
+      properties:
+        destinationId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        key:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - key
+      - destinationId
+      type: object
+    InstagramStreaming:
+      additionalProperties: false
+      properties:
+        dash:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramDASH'
+          - type: 'null'
+      required:
+      - dash
+      type: object
+    TwitterBroadcastMedia:
+      additionalProperties: false
+      properties:
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        key:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - key
+      type: object
+    TikTokPageContinuation:
+      additionalProperties: false
+      properties:
+        maxTime:
+          type:
+          - integer
+          - 'null'
+        minTime:
+          type:
+          - integer
+          - 'null'
+        offset:
+          type:
+          - integer
+          - 'null'
+        pageToken:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - pageToken
+      - minTime
+      - maxTime
+      - offset
+      type: object
+    InstagramCommentReference:
+      additionalProperties: false
+      properties:
+        ai:
+          additionalProperties: false
+          properties:
+            type:
+              minLength: 1
+              type:
+              - string
+              - 'null'
+          required:
+          - type
+          type: object
+        author:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramProfileReference'
+          - type: 'null'
+        createdAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isByPostAuthor:
+          type:
+          - boolean
+          - 'null'
+        isCovered:
+          type:
+          - boolean
+          - 'null'
+        isEdited:
+          type:
+          - boolean
+          - 'null'
+        isLikedByPostAuthor:
+          type:
+          - boolean
+          - 'null'
+        isPinned:
+          type:
+          - boolean
+          - 'null'
+        keywords:
+          items: {}
+          type:
+          - array
+          - 'null'
+        likedByCoauthors:
+          items:
+            $ref: '#/components/schemas/InstagramProfileReference'
+          type:
+          - array
+          - 'null'
+        media:
+          items:
+            $ref: '#/components/schemas/InstagramImage'
+          type:
+          - array
+          - 'null'
+        metrics:
+          $ref: '#/components/schemas/InstagramCommentMetrics'
+        parentId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        pinnedPosition:
+          type:
+          - integer
+          - 'null'
+        postId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        previewUsers:
+          items:
+            $ref: '#/components/schemas/InstagramProfileReference'
+          type:
+          - array
+          - 'null'
+        ranking:
+          additionalProperties: false
+          properties:
+            index:
+              type:
+              - integer
+              - 'null'
+            isRanked:
+              type:
+              - boolean
+              - 'null'
+            replyIndex:
+              type:
+              - integer
+              - 'null'
+          required:
+          - index
+          - replyIndex
+          - isRanked
+          type: object
+        replies:
+          items:
+            $ref: '#/components/schemas/InstagramCommentReference'
+          type:
+          - array
+          - 'null'
+        replyToId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        sharingEnabled:
+          type:
+          - boolean
+          - 'null'
+        status:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        translation:
+          additionalProperties: false
+          properties:
+            text:
+              minLength: 1
+              type:
+              - string
+              - 'null'
+          required:
+          - text
+          type: object
+      required:
+      - id
+      - text
+      - postId
+      - parentId
+      - replyToId
+      - createdAt
+      - author
+      - status
+      - isCovered
+      - isEdited
+      - sharingEnabled
+      - isByPostAuthor
+      - isPinned
+      - pinnedPosition
+      - isLikedByPostAuthor
+      - ai
+      - ranking
+      - keywords
+      - previewUsers
+      - metrics
+      - replies
+      - translation
+      - likedByCoauthors
+      - media
+      type: object
+    TwitterMediaRestrictions:
+      additionalProperties: false
+      properties:
+        isDmca:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - isDmca
+      type: object
+    TwitterWithheld:
+      additionalProperties: false
+      properties:
+        copyright:
+          type:
+          - boolean
+          - 'null'
+        description:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        scope:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - copyright
+      - description
+      - scope
+      type: object
+    InstagramProduct:
+      additionalProperties: false
+      properties:
+        checkout:
+          additionalProperties: false
+          properties:
+            style:
+              minLength: 1
+              type:
+              - string
+              - 'null'
+          required:
+          - style
+          type: object
+        compoundId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        description:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        hasVariants:
+          type:
+          - boolean
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        image:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        isAffiliate:
+          type:
+          - boolean
+          - 'null'
+        isInStock:
+          type:
+          - boolean
+          - 'null'
+        merchant:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramProfileReference'
+          - type: 'null'
+        name:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        pricing:
+          additionalProperties: false
+          properties:
+            current:
+              $ref: '#/components/schemas/InstagramPrice'
+            formatted:
+              minLength: 1
+              type:
+              - string
+              - 'null'
+            full:
+              $ref: '#/components/schemas/InstagramPrice'
+            isUkEuCompliant:
+              type:
+              - boolean
+              - 'null'
+          required:
+          - current
+          - full
+          - formatted
+          - isUkEuCompliant
+          type: object
+        retailerId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        reviewStatus:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        thumbnail:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - compoundId
+      - retailerId
+      - name
+      - description
+      - url
+      - hasVariants
+      - isInStock
+      - isAffiliate
+      - reviewStatus
+      - merchant
+      - image
+      - thumbnail
+      - pricing
+      - checkout
+      type: object
+    TwitterBroadcast:
+      additionalProperties: false
+      properties:
+        broadcaster:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterBroadcaster'
+          - type: 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isHighLatency:
+          type:
+          - boolean
+          - 'null'
+        media:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterBroadcastMedia'
+          - type: 'null'
+        orientationCode:
+          type:
+          - integer
+          - 'null'
+        replayEditedStartTime:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        scheduledStartAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        source:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        state:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        title:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      - url
+      - title
+      - source
+      - state
+      - isHighLatency
+      - width
+      - height
+      - orientationCode
+      - scheduledStartAt
+      - media
+      - broadcaster
+      - replayEditedStartTime
+      type: object
+    TwitterSubscriptions:
+      additionalProperties: false
+      properties:
+        isEligible:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - isEligible
+      type: object
+    TwitterMediaAvailability:
+      additionalProperties: false
+      properties:
+        status:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - status
+      type: object
+    TikTokVolumeInfo:
+      additionalProperties: false
+      properties:
+        loudness:
+          type:
+          - number
+          - 'null'
+        loudnessRange:
+          type:
+          - number
+          - 'null'
+        loudnessRangeEnd:
+          type:
+          - number
+          - 'null'
+        loudnessRangeStart:
+          type:
+          - number
+          - 'null'
+        maxVolume:
+          type:
+          - number
+          - 'null'
+        maximumMomentaryLoudness:
+          type:
+          - number
+          - 'null'
+        maximumShortTermLoudness:
+          type:
+          - number
+          - 'null'
+        meanVolume:
+          type:
+          - number
+          - 'null'
+        peak:
+          type:
+          - number
+          - 'null'
+        version:
+          type:
+          - number
+          - 'null'
+      required:
+      - loudness
+      - peak
+      - loudnessRange
+      - loudnessRangeStart
+      - loudnessRangeEnd
+      - maximumMomentaryLoudness
+      - maximumShortTermLoudness
+      - version
+      - maxVolume
+      - meanVolume
+      type: object
+    ErrorEnvelope:
+      properties:
+        error:
+          properties:
+            code:
+              type: string
+            details:
+              additionalProperties: true
+              type: object
+            message:
+              type: string
+            requestId:
+              type: string
+            retryable:
+              type: boolean
+          required:
+          - code
+          - message
+          - requestId
+          - retryable
+          type: object
+      required:
+      - error
+      type: object
+    InstagramPrice:
+      additionalProperties: false
+      properties:
+        amount:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        formatted:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        strippedFormatted:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - amount
+      - formatted
+      - strippedFormatted
+      type: object
+    InstagramCommentMetrics:
+      additionalProperties: false
+      properties:
+        likes:
+          type:
+          - integer
+          - 'null'
+        replies:
+          type:
+          - integer
+          - 'null'
+      required:
+      - likes
+      - replies
+      type: object
+    InstagramProfileFanClub:
+      additionalProperties: false
+      properties:
+        hasExclusiveFeedContent:
+          type:
+          - boolean
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        largestPublicBroadcastChannelId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        metrics:
+          additionalProperties: false
+          properties:
+            subscribers:
+              type:
+              - integer
+              - 'null'
+          required:
+          - subscribers
+          type: object
+        name:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - name
+      - largestPublicBroadcastChannelId
+      - hasExclusiveFeedContent
+      - metrics
+      type: object
+    TwitterCardButton:
+      additionalProperties: false
+      properties:
+        action:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        destinationId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        style:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - action
+      - style
+      - type
+      - destinationId
+      type: object
+    InstagramCommentSettings:
+      additionalProperties: false
+      properties:
+        enabled:
+          type:
+          - boolean
+          - 'null'
+        hasMore:
+          type:
+          - boolean
+          - 'null'
+        likesEnabled:
+          type:
+          - boolean
+          - 'null'
+        maxVisiblePreviewComments:
+          type:
+          - integer
+          - 'null'
+        preview:
+          items:
+            $ref: '#/components/schemas/InstagramCommentReference'
+          type:
+          - array
+          - 'null'
+        threadingEnabled:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - hasMore
+      - maxVisiblePreviewComments
+      - likesEnabled
+      - threadingEnabled
+      - enabled
+      - preview
+      type: object
+    TwitterPromotion:
+      additionalProperties: false
+      properties:
+        advertiser:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterProfileReference'
+          - type: 'null'
+      required:
+      - advertiser
+      type: object
+    TwitterVerification:
+      additionalProperties: false
+      properties:
+        isBlueVerified:
+          type:
+          - boolean
+          - 'null'
+        legacyVerified:
+          type:
+          - boolean
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - legacyVerified
+      - type
+      - isBlueVerified
+      type: object
+    TwitterVisibility:
+      additionalProperties: false
+      properties:
+        hasHiddenLikesOnProfile:
+          type:
+          - boolean
+          - 'null'
+        hasHiddenSubscriptionsOnProfile:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - hasHiddenLikesOnProfile
+      - hasHiddenSubscriptionsOnProfile
       type: object
     InstagramPostReference:
       additionalProperties: false
@@ -11711,748 +13075,39 @@ components:
       - attribution
       - template
       type: object
-    InstagramLocationAddress:
+    TwitterLabel:
       additionalProperties: false
       properties:
-        city:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        countryCode:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        postalCode:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        region:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        street:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - street
-      - city
-      - postalCode
-      - region
-      - countryCode
-      type: object
-    RedditPostMetrics:
-      additionalProperties: false
-      properties:
-        awards:
-          type:
-          - integer
-          - 'null'
-        comments:
-          type:
-          - integer
-          - 'null'
-        crossposts:
-          type:
-          - integer
-          - 'null'
-        gilded:
-          type:
-          - integer
-          - 'null'
-        score:
-          type:
-          - integer
-          - 'null'
-        upvoteRatio:
-          type:
-          - number
-          - 'null'
-        views:
-          type:
-          - integer
-          - 'null'
-      required:
-      - score
-      - upvoteRatio
-      - comments
-      - crossposts
-      - awards
-      - gilded
-      - views
-      type: object
-    TwitterArticle:
-      additionalProperties: false
-      properties:
-        cover:
+        description:
           anyOf:
-          - $ref: '#/components/schemas/TwitterMedia'
+          - $ref: '#/components/schemas/TwitterRichText'
           - type: 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        previewText:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - title
-      - previewText
-      - cover
-      type: object
-    TwitterNotePresentation:
-      additionalProperties: false
-      properties:
-        iconType:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        style:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - iconType
-      - style
-      type: object
-    TwitterPreviousMetrics:
-      additionalProperties: false
-      properties:
-        comments:
-          type:
-          - integer
-          - 'null'
-        likes:
-          type:
-          - integer
-          - 'null'
-        quotes:
-          type:
-          - integer
-          - 'null'
-      required:
-      - likes
-      - quotes
-      - comments
-      type: object
-    InstagramSubtitles:
-      additionalProperties: false
-      properties:
-        confidence:
-          type:
-          - number
-          - 'null'
-        enabled:
-          type:
-          - boolean
-          - 'null'
-        generated:
-          type:
-          - boolean
-          - 'null'
-        locale:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        status:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - enabled
-      - generated
-      - status
-      - locale
-      - confidence
-      - url
-      type: object
-    InstagramImage:
-      additionalProperties: false
-      properties:
-        height:
-          type:
-          - integer
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isDefault:
-          type:
-          - boolean
-          - 'null'
-        isSpatial:
-          type:
-          - boolean
-          - 'null'
-        thumbnail:
+        icon:
           anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
+          - $ref: '#/components/schemas/TwitterImage'
           - type: 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        variants:
-          items:
-            $ref: '#/components/schemas/InstagramImage'
-          type:
-          - array
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - thumbnail
-      - id
-      - type
-      - url
-      - width
-      - height
-      - isDefault
-      - isSpatial
-      - variants
-      type: object
-    TwitterAspectRatio:
-      additionalProperties: false
-      properties:
-        height:
-          type: integer
-        width:
-          type: integer
-      required:
-      - width
-      - height
-      type: object
-    InstagramMedia:
-      additionalProperties: false
-      properties:
-        altText:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        audio:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramAudioReference'
-          - type: 'null'
-        bitrate:
-          type:
-          - integer
-          - 'null'
-        commercialityStatus:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        createdAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        crops:
-          additionalProperties: false
-          properties:
-            feedPreview:
-              $ref: '#/components/schemas/InstagramCrop'
-            fourByThree:
-              $ref: '#/components/schemas/InstagramCrop'
-            square:
-              $ref: '#/components/schemas/InstagramCrop'
-          required:
-          - fourByThree
-          - square
-          - feedPreview
-          type: object
-        duration:
-          type:
-          - number
-          - 'null'
-        firstFrame:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        hasAudio:
-          type:
-          - boolean
-          - 'null'
-        height:
-          type:
-          - integer
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        originalHeight:
-          type:
-          - integer
-          - 'null'
-        originalWidth:
-          type:
-          - integer
-          - 'null'
-        parentId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        productTags:
-          items:
-            $ref: '#/components/schemas/InstagramProductTag'
-          type:
-          - array
-          - 'null'
-        scrubber:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramScrubber'
-          - type: 'null'
-        streaming:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramStreaming'
-          - type: 'null'
-        subtitles:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramSubtitles'
-          - type: 'null'
-        taggedUsers:
-          items:
-            $ref: '#/components/schemas/InstagramUserTag'
-          type:
-          - array
-          - 'null'
-        thumbnail:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        variants:
-          items:
-            $ref: '#/components/schemas/InstagramMediaVariant'
-          type:
-          - array
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - id
-      - type
-      - parentId
-      - createdAt
-      - url
-      - width
-      - height
-      - originalWidth
-      - originalHeight
-      - bitrate
-      - hasAudio
-      - altText
-      - commercialityStatus
-      - duration
-      - variants
-      - thumbnail
-      - firstFrame
-      - scrubber
-      - streaming
-      - subtitles
-      - audio
-      - taggedUsers
-      - productTags
-      - crops
-      type: object
-    TwitterBroadcastMedia:
-      additionalProperties: false
-      properties:
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        key:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - key
-      type: object
-    InstagramProfileBroadcastChannel:
-      additionalProperties: false
-      properties:
-        avatar:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        cover:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        creator:
-          additionalProperties: false
-          properties:
-            handle:
-              minLength: 1
-              type:
-              - string
-              - 'null'
-            id:
-              minLength: 1
-              type:
-              - string
-              - 'null'
-            isVerified:
-              type:
-              - boolean
-              - 'null'
-          required:
-          - id
-          - handle
-          - isVerified
-          type: object
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        metrics:
-          additionalProperties: false
-          properties:
-            members:
-              type:
-              - integer
-              - 'null'
-          required:
-          - members
-          type: object
-        title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - title
-      - url
-      - avatar
-      - cover
-      - creator
-      - metrics
-      type: object
-    InstagramProfileFanClub:
-      additionalProperties: false
-      properties:
-        hasExclusiveFeedContent:
-          type:
-          - boolean
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        largestPublicBroadcastChannelId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        metrics:
-          additionalProperties: false
-          properties:
-            subscribers:
-              type:
-              - integer
-              - 'null'
-          required:
-          - subscribers
-          type: object
-        name:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - name
-      - largestPublicBroadcastChannelId
-      - hasExclusiveFeedContent
-      - metrics
-      type: object
-    RedditCommunity:
-      additionalProperties: false
-      properties:
-        displayHandle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        handle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isQuarantined:
-          type:
-          - boolean
-          - 'null'
-        metrics:
-          $ref: '#/components/schemas/RedditSubredditMetrics'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - handle
-      - displayHandle
-      - type
-      - metrics
-      - isQuarantined
-      type: object
-    InstagramProductTag:
-      additionalProperties: false
-      properties:
-        position:
-          $ref: '#/components/schemas/InstagramPosition'
-        product:
-          $ref: '#/components/schemas/InstagramProduct'
-      required:
-      - product
-      - position
-      type: object
-    InstagramProfileMetrics:
-      additionalProperties: false
-      properties:
-        arEffects:
-          type:
-          - integer
-          - 'null'
-        followers:
-          type:
-          - integer
-          - 'null'
-        following:
-          type:
-          - integer
-          - 'null'
-        posts:
-          type:
-          - integer
-          - 'null'
-      required:
-      - followers
-      - following
-      - posts
-      - arEffects
-      type: object
-    TwitterEvent:
-      additionalProperties: false
-      properties:
-        category:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        subtitle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        timelineId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - title
-      - subtitle
-      - category
-      - timelineId
-      type: object
-    TwitterAppMetrics:
-      additionalProperties: false
-      properties:
-        rating:
-          type:
-          - number
-          - 'null'
-        ratings:
-          type:
-          - integer
-          - 'null'
-      required:
-      - rating
-      - ratings
-      type: object
-    RedditListingContext:
-      additionalProperties: false
-      properties:
-        originalPost:
-          anyOf:
-          - $ref: '#/components/schemas/RedditPostReference'
-          - type: 'null'
-        post:
-          anyOf:
-          - $ref: '#/components/schemas/RedditPostReference'
-          - type: 'null'
-      required:
-      - post
-      - originalPost
-      type: object
-    InstagramCoordinates:
-      additionalProperties: false
-      properties:
-        latitude:
-          type:
-          - number
-          - 'null'
-        longitude:
-          type:
-          - number
-          - 'null'
-      required:
-      - latitude
-      - longitude
-      type: object
-    InstagramProfileBroadcastChannels:
-      additionalProperties: false
-      properties:
-        hasPublicChannels:
-          type:
-          - boolean
-          - 'null'
-        isCreator:
-          type:
-          - boolean
-          - 'null'
-        pinned:
-          items:
-            $ref: '#/components/schemas/InstagramProfileBroadcastChannel'
-          type:
-          - array
-          - 'null'
-      required:
-      - isCreator
-      - hasPublicChannels
-      - pinned
-      type: object
-    InstagramCommentSettings:
-      additionalProperties: false
-      properties:
-        enabled:
-          type:
-          - boolean
-          - 'null'
-        hasMore:
-          type:
-          - boolean
-          - 'null'
-        likesEnabled:
-          type:
-          - boolean
-          - 'null'
-        maxVisiblePreviewComments:
-          type:
-          - integer
-          - 'null'
-        preview:
-          items:
-            $ref: '#/components/schemas/InstagramCommentReference'
-          type:
-          - array
-          - 'null'
-        threadingEnabled:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - hasMore
-      - maxVisiblePreviewComments
-      - likesEnabled
-      - threadingEnabled
-      - enabled
-      - preview
-      type: object
-    TwitterSuggestedQuery:
-      additionalProperties: false
-      properties:
         text:
           minLength: 1
           type:
           - string
           - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
       required:
+      - type
       - text
+      - icon
+      - url
+      - description
       type: object
     TwitterCard:
       additionalProperties: false
@@ -12579,216 +13234,133 @@ components:
       - media
       - apps
       type: object
-    InstagramProfileAddress:
+    TwitterProfileReference:
       additionalProperties: false
       properties:
-        city:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        cityId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        postalCode:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        street:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - street
-      - city
-      - cityId
-      - postalCode
-      type: object
-    TwitterCardMediaRef:
-      additionalProperties: false
-      properties:
-        destinationId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        key:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - key
-      - destinationId
-      type: object
-    ResponseCursors:
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-      required:
-      - next
-      type: object
-    InstagramProfileThreads:
-      additionalProperties: false
-      properties:
-        handle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isActive:
-          type:
-          - boolean
-          - 'null'
-        joinerLabel:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - isActive
-      - handle
-      - url
-      - joinerLabel
-      type: object
-    TwitterWithheld:
-      additionalProperties: false
-      properties:
-        copyright:
-          type:
-          - boolean
-          - 'null'
-        description:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        scope:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - copyright
-      - description
-      - scope
-      type: object
-    TwitterBroadcaster:
-      additionalProperties: false
-      properties:
-        displayName:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        handle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - handle
-      - displayName
-      type: object
-    TwitterRichText:
-      additionalProperties: false
-      properties:
-        entities:
-          items:
-            $ref: '#/components/schemas/TwitterEntity'
-          type:
-          - array
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - text
-      - entities
-      type: object
-    RedditEmbedSource:
-      additionalProperties: false
-      properties:
-        name:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - name
-      - url
-      type: object
-    TwitterProfessionalCategory:
-      additionalProperties: false
-      properties:
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        name:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - name
-      type: object
-    InstagramNote:
-      additionalProperties: false
-      properties:
-        author:
+        avatar:
           anyOf:
-          - $ref: '#/components/schemas/InstagramProfileReference'
+          - $ref: '#/components/schemas/TwitterImage'
           - type: 'null'
+        banner:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterImage'
+          - type: 'null'
+        bio:
+          minLength: 1
+          type:
+          - string
+          - 'null'
         createdAt:
           format: date-time
           minLength: 1
           type:
           - string
           - 'null'
+        displayName:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        entities:
+          $ref: '#/components/schemas/TwitterProfileEntities'
+        externalUrl:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        handle:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        hasCustomTimelines:
+          type:
+          - boolean
+          - 'null'
         id:
           minLength: 1
           type:
           - string
           - 'null'
-        text:
+        isLifelineInstitution:
+          type:
+          - boolean
+          - 'null'
+        isPrivate:
+          type:
+          - boolean
+          - 'null'
+        isSuspended:
+          type:
+          - boolean
+          - 'null'
+        isVerified:
+          type:
+          - boolean
+          - 'null'
+        labels:
+          items:
+            $ref: '#/components/schemas/TwitterLabel'
+          type:
+          - array
+          - 'null'
+        location:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterProfileLocation'
+          - type: 'null'
+        metrics:
+          $ref: '#/components/schemas/TwitterProfileMetrics'
+        pinnedPostIds:
+          items:
+            minLength: 1
+            type: string
+          type:
+          - array
+          - 'null'
+        professional:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterProfessional'
+          - type: 'null'
+        subscriptions:
+          $ref: '#/components/schemas/TwitterSubscriptions'
+        url:
+          format: uri
           minLength: 1
           type:
           - string
           - 'null'
+        verification:
+          $ref: '#/components/schemas/TwitterVerification'
+        visibility:
+          $ref: '#/components/schemas/TwitterVisibility'
+        withheld:
+          $ref: '#/components/schemas/TwitterWithheld'
       required:
       - id
-      - text
+      - handle
+      - displayName
+      - bio
+      - url
+      - externalUrl
       - createdAt
-      - author
+      - location
+      - avatar
+      - banner
+      - isPrivate
+      - isSuspended
+      - isVerified
+      - hasCustomTimelines
+      - isLifelineInstitution
+      - metrics
+      - verification
+      - pinnedPostIds
+      - entities
+      - withheld
+      - subscriptions
+      - visibility
+      - professional
+      - labels
       type: object
     RedditAuthor:
       additionalProperties: false
@@ -12823,31 +13395,124 @@ components:
       - isPremium
       - flair
       type: object
-    TwitterMediaAvailability:
+    TwitterEvent:
       additionalProperties: false
       properties:
-        status:
+        category:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        subtitle:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        timelineId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        title:
           minLength: 1
           type:
           - string
           - 'null'
       required:
-      - status
+      - id
+      - title
+      - subtitle
+      - category
+      - timelineId
       type: object
-    TwitterCardButton:
+    InstagramProfileContact:
       additionalProperties: false
       properties:
-        action:
+        contactPhone:
           minLength: 1
           type:
           - string
           - 'null'
-        destinationId:
+        email:
           minLength: 1
           type:
           - string
           - 'null'
-        style:
+        method:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        phone:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        phoneCountryCode:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - email
+      - phone
+      - phoneCountryCode
+      - contactPhone
+      - method
+      type: object
+    InstagramProfileLocation:
+      additionalProperties: false
+      properties:
+        address:
+          $ref: '#/components/schemas/InstagramProfileAddress'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - address
+      type: object
+    InstagramAudioPart:
+      additionalProperties: false
+      properties:
+        artist:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramProfileReference'
+          - type: 'null'
+        artistName:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        artwork:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        isExplicit:
+          type:
+          - boolean
+          - 'null'
+        musicId:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        parentStartTime:
+          type:
+          - number
+          - 'null'
+        startTime:
+          type:
+          - number
+          - 'null'
+        title:
           minLength: 1
           type:
           - string
@@ -12858,379 +13523,639 @@ components:
           - string
           - 'null'
       required:
-      - action
-      - style
       - type
-      - destinationId
+      - title
+      - artistName
+      - isExplicit
+      - musicId
+      - artist
+      - startTime
+      - parentStartTime
+      - artwork
       type: object
-    ResponseMeta:
+    InstagramTemplateSegment:
+      additionalProperties: false
       properties:
-        cashtags:
-          items: {}
+        assetEndTime:
           type:
-          - array
+          - number
           - 'null'
-        chart:
-          anyOf:
-          - $ref: '#/components/schemas/TikTokChartMetadata'
-          - type: 'null'
-        collection:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramStoryCollection'
-          - type: 'null'
-        community:
-          anyOf:
-          - $ref: '#/components/schemas/RedditCommunityHandle'
-          - type: 'null'
-        context:
-          anyOf:
-          - $ref: '#/components/schemas/RedditListingContext'
-          - type: 'null'
-        continuation:
-          anyOf:
-          - $ref: '#/components/schemas/TikTokPageContinuation'
-          - type: 'null'
-        count:
+        assetStartTime:
+          type:
+          - number
+          - 'null'
+        duration:
+          type:
+          - number
+          - 'null'
+      required:
+      - duration
+      - assetStartTime
+      - assetEndTime
+      type: object
+    TwitterProfileMetrics:
+      additionalProperties: false
+      properties:
+        affiliates:
           type:
           - integer
           - 'null'
-        cursors:
-          $ref: '#/components/schemas/ResponseCursors'
-        domain:
+        creatorSubscriptions:
+          type:
+          - integer
+          - 'null'
+        followers:
+          type:
+          - integer
+          - 'null'
+        following:
+          type:
+          - integer
+          - 'null'
+        likedPosts:
+          type:
+          - integer
+          - 'null'
+        mediaPosts:
+          type:
+          - integer
+          - 'null'
+        posts:
+          type:
+          - integer
+          - 'null'
+      required:
+      - followers
+      - following
+      - posts
+      - likedPosts
+      - mediaPosts
+      - creatorSubscriptions
+      - affiliates
+      type: object
+    InstagramStreamVariant:
+      additionalProperties: false
+      properties:
+        bitrate:
+          type:
+          - integer
+          - 'null'
+        codec:
           minLength: 1
           type:
           - string
           - 'null'
-        events:
-          items: {}
+        frameRate:
           type:
-          - array
+          - number
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        mimeType:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        qualityLabel:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        sampleRate:
+          type:
+          - integer
+          - 'null'
+        sizeBytes:
+          type:
+          - integer
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      - url
+      - codec
+      - mimeType
+      - qualityLabel
+      - width
+      - height
+      - bitrate
+      - sizeBytes
+      - sampleRate
+      - frameRate
+      type: object
+    RedditEmbedSource:
+      additionalProperties: false
+      properties:
+        name:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - name
+      - url
+      type: object
+    RedditCommunity:
+      additionalProperties: false
+      properties:
+        displayHandle:
+          minLength: 1
+          type:
+          - string
           - 'null'
         handle:
           minLength: 1
           type:
           - string
           - 'null'
-        hasFilteredComments:
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isQuarantined:
           type:
           - boolean
-          - 'null'
-        hasMore:
-          type:
-          - boolean
-          - 'null'
-        hasMoreAfter:
-          type:
-          - boolean
-          - 'null'
-        hasMoreBefore:
-          type:
-          - boolean
-          - 'null'
-        hashtags:
-          items: {}
-          type:
-          - array
-          - 'null'
-        isLimited:
-          type: boolean
-        likesEnabled:
-          type:
-          - boolean
-          - 'null'
-        limit:
-          type:
-          - integer
-          - 'null'
-        lists:
-          items: {}
-          type:
-          - array
           - 'null'
         metrics:
-          properties:
-            comments:
-              type:
-              - integer
-              - 'null'
-            followers:
-              type:
-              - integer
-              - 'null'
-            following:
-              type:
-              - integer
-              - 'null'
-            likes:
-              type:
-              - integer
-              - 'null'
-            replies:
-              type:
-              - integer
-              - 'null'
-            results:
-              type:
-              - integer
-              - 'null'
-            suggestions:
-              type:
-              - integer
-              - 'null'
-          type: object
-        nextCursorLabel:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        nextCursorType:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        parent:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramCommentReference'
-          - type: 'null'
-        previousCursor:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        promoted:
-          items:
-            $ref: '#/components/schemas/TwitterPostReference'
-          type:
-          - array
-          - 'null'
-        queries:
-          items:
-            $ref: '#/components/schemas/TwitterSuggestedQuery'
-          type:
-          - array
-          - 'null'
-        query:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        siteRules:
-          items:
-            minLength: 1
-            type: string
-          type:
-          - array
-          - 'null'
-        sort:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        threadingEnabled:
-          type:
-          - boolean
-          - 'null'
-        track:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramAudioReference'
-          - type: 'null'
-      required:
-      - cursors
-      type: object
-    InstagramScrubber:
-      additionalProperties: false
-      properties:
-        duration:
-          type:
-          - number
-          - 'null'
-        height:
-          type:
-          - integer
-          - 'null'
-        maxThumbnailsPerSprite:
-          type:
-          - integer
-          - 'null'
-        thumbnailDuration:
-          type:
-          - number
-          - 'null'
-        thumbnailHeight:
-          type:
-          - integer
-          - 'null'
-        thumbnailWidth:
-          type:
-          - integer
-          - 'null'
-        thumbnailsPerRow:
-          type:
-          - integer
-          - 'null'
-        thumbnailsPerSprite:
-          type:
-          - integer
-          - 'null'
-        urls:
-          items:
-            minLength: 1
-            type: string
-          type:
-          - array
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - urls
-      - width
-      - height
-      - thumbnailWidth
-      - thumbnailHeight
-      - thumbnailsPerRow
-      - thumbnailsPerSprite
-      - maxThumbnailsPerSprite
-      - thumbnailDuration
-      - duration
-      type: object
-    TwitterProfessional:
-      additionalProperties: false
-      properties:
-        categories:
-          items:
-            $ref: '#/components/schemas/TwitterProfessionalCategory'
-          type:
-          - array
-          - 'null'
+          $ref: '#/components/schemas/RedditSubredditMetrics'
         type:
           minLength: 1
           type:
           - string
           - 'null'
       required:
+      - id
+      - handle
+      - displayHandle
       - type
-      - categories
+      - metrics
+      - isQuarantined
       type: object
-    TwitterRectangle:
+    TwitterProfile:
       additionalProperties: false
       properties:
-        height:
-          type:
-          - integer
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-        x:
-          type:
-          - integer
-          - 'null'
-        y:
-          type:
-          - integer
-          - 'null'
-      required:
-      - x
-      - y
-      - width
-      - height
-      type: object
-    TwitterRestriction:
-      additionalProperties: false
-      properties:
-        action:
+        avatar:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterImage'
+          - type: 'null'
+        banner:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterImage'
+          - type: 'null'
+        bio:
           minLength: 1
           type:
           - string
           - 'null'
-        message:
+        createdAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        displayName:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        entities:
+          $ref: '#/components/schemas/TwitterProfileEntities'
+        externalUrl:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        handle:
+          minLength: 1
+          type: string
+        hasCustomTimelines:
+          type:
+          - boolean
+          - 'null'
+        id:
+          minLength: 1
+          type: string
+        isLifelineInstitution:
+          type:
+          - boolean
+          - 'null'
+        isPrivate:
+          type:
+          - boolean
+          - 'null'
+        isSuspended:
+          type:
+          - boolean
+          - 'null'
+        isVerified:
+          type:
+          - boolean
+          - 'null'
+        labels:
+          items:
+            $ref: '#/components/schemas/TwitterLabel'
+          type:
+          - array
+          - 'null'
+        location:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterProfileLocation'
+          - type: 'null'
+        metrics:
+          $ref: '#/components/schemas/TwitterProfileMetrics'
+        pinnedPostIds:
+          items:
+            minLength: 1
+            type: string
+          type:
+          - array
+          - 'null'
+        professional:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterProfessional'
+          - type: 'null'
+        subscriptions:
+          $ref: '#/components/schemas/TwitterSubscriptions'
+        url:
+          format: uri
+          minLength: 1
+          type: string
+        verification:
+          $ref: '#/components/schemas/TwitterVerification'
+        visibility:
+          $ref: '#/components/schemas/TwitterVisibility'
+        withheld:
+          $ref: '#/components/schemas/TwitterWithheld'
+      required:
+      - id
+      - handle
+      - displayName
+      - bio
+      - url
+      - externalUrl
+      - createdAt
+      - location
+      - avatar
+      - banner
+      - isPrivate
+      - isSuspended
+      - isVerified
+      - hasCustomTimelines
+      - isLifelineInstitution
+      - metrics
+      - verification
+      - pinnedPostIds
+      - entities
+      - withheld
+      - subscriptions
+      - visibility
+      - professional
+      - labels
+      type: object
+    InstagramBioLink:
+      additionalProperties: false
+      properties:
+        icon:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        image:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        isPinned:
+          type:
+          - boolean
+          - 'null'
+        isVerified:
+          type:
+          - boolean
+          - 'null'
+        title:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
           minLength: 1
           type:
           - string
           - 'null'
       required:
-      - action
-      - message
+      - id
+      - title
+      - url
+      - type
+      - isPinned
+      - isVerified
+      - icon
+      - image
       type: object
-    InstagramPostMetrics:
+    TwitterImageAltText:
+      additionalProperties: false
+      properties:
+        role:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - role
+      - text
+      type: object
+    TikTokChartMetadata:
+      additionalProperties: false
+      properties:
+        cover:
+          anyOf:
+          - $ref: '#/components/schemas/TikTokAsset'
+          - type: 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        updatedAt:
+          format: date-time
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - updatedAt
+      - cover
+      type: object
+    TwitterPreviousMetrics:
       additionalProperties: false
       properties:
         comments:
           type:
           - integer
           - 'null'
-        facebook:
-          additionalProperties: false
-          properties:
-            comments:
-              type:
-              - integer
-              - 'null'
-            likes:
-              type:
-              - integer
-              - 'null'
-            plays:
-              type:
-              - integer
-              - 'null'
-          required:
-          - likes
-          - plays
-          - comments
-          type: object
-        instagram:
-          additionalProperties: false
-          properties:
-            plays:
-              type:
-              - integer
-              - 'null'
-          required:
-          - plays
-          type: object
         likes:
           type:
           - integer
           - 'null'
-        plays:
-          type:
-          - integer
-          - 'null'
-        premiumReactions:
-          type:
-          - integer
-          - 'null'
-        reposts:
-          type:
-          - integer
-          - 'null'
-        reshares:
-          type:
-          - integer
-          - 'null'
-        saves:
-          type:
-          - integer
-          - 'null'
-        views:
+        quotes:
           type:
           - integer
           - 'null'
       required:
       - likes
+      - quotes
       - comments
-      - saves
-      - reshares
-      - reposts
-      - premiumReactions
-      - plays
-      - views
-      - instagram
-      - facebook
+      type: object
+    TwitterMedia:
+      additionalProperties: false
+      properties:
+        altText:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        aspectRatio:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterAspectRatio'
+          - type: 'null'
+        availability:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterMediaAvailability'
+          - type: 'null'
+        duration:
+          type:
+          - number
+          - 'null'
+        features:
+          items:
+            $ref: '#/components/schemas/TwitterMediaFeature'
+          type:
+          - array
+          - 'null'
+        focusRegions:
+          items:
+            $ref: '#/components/schemas/TwitterRectangle'
+          type:
+          - array
+          - 'null'
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isAnimated:
+          type:
+          - boolean
+          - 'null'
+        isMonetizable:
+          type:
+          - boolean
+          - 'null'
+        key:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        palette:
+          items:
+            $ref: '#/components/schemas/TwitterColor'
+          type:
+          - array
+          - 'null'
+        restrictions:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterMediaRestrictions'
+          - type: 'null'
+        sizes:
+          items:
+            $ref: '#/components/schemas/TwitterMediaSize'
+          type:
+          - array
+          - 'null'
+        source:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterMediaSource'
+          - type: 'null'
+        thumbnail:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterImage'
+          - type: 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        variants:
+          items:
+            $ref: '#/components/schemas/TwitterMediaVariant'
+          type:
+          - array
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      - type
+      - key
+      - altText
+      - isAnimated
+      - source
+      - width
+      - height
+      - focusRegions
+      - features
+      - sizes
+      - duration
+      - aspectRatio
+      - variants
+      - url
+      - thumbnail
+      - availability
+      - restrictions
+      - isMonetizable
+      - palette
+      type: object
+    TwitterPreview:
+      additionalProperties: false
+      properties:
+        displayTextRange:
+          anyOf:
+          - $ref: '#/components/schemas/TwitterRange'
+          - type: 'null'
+        entities:
+          items:
+            $ref: '#/components/schemas/TwitterEntity'
+          type:
+          - array
+          - 'null'
+        text:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+      required:
+      - text
+      - entities
+      - displayTextRange
+      type: object
+    TwitterAspectRatio:
+      additionalProperties: false
+      properties:
+        height:
+          type: integer
+        width:
+          type: integer
+      required:
+      - width
+      - height
+      type: object
+    InstagramImage:
+      additionalProperties: false
+      properties:
+        height:
+          type:
+          - integer
+          - 'null'
+        id:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        isDefault:
+          type:
+          - boolean
+          - 'null'
+        isSpatial:
+          type:
+          - boolean
+          - 'null'
+        thumbnail:
+          anyOf:
+          - $ref: '#/components/schemas/InstagramImage'
+          - type: 'null'
+        type:
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        url:
+          format: uri
+          minLength: 1
+          type:
+          - string
+          - 'null'
+        variants:
+          items:
+            $ref: '#/components/schemas/InstagramImage'
+          type:
+          - array
+          - 'null'
+        width:
+          type:
+          - integer
+          - 'null'
+      required:
+      - thumbnail
+      - id
+      - type
+      - url
+      - width
+      - height
+      - isDefault
+      - isSpatial
+      - variants
       type: object
     InstagramAudioReference:
       additionalProperties: false
@@ -13427,371 +14352,40 @@ components:
       - spotify
       - parts
       type: object
-    TwitterMediaSize:
+    InstagramProfileContent:
       additionalProperties: false
       properties:
-        height:
-          type:
-          - integer
-          - 'null'
-        name:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        resizeMode:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - name
-      - width
-      - height
-      - resizeMode
-      type: object
-    TwitterPollChoice:
-      additionalProperties: false
-      properties:
-        images:
-          items:
-            $ref: '#/components/schemas/TwitterImage'
-          type:
-          - array
-          - 'null'
-        label:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        metrics:
-          additionalProperties: false
-          properties:
-            votes:
-              type: integer
-          required:
-          - votes
-          type:
-          - object
-          - 'null'
-        position:
-          type: integer
-      required:
-      - position
-      - label
-      - metrics
-      - images
-      type: object
-    TwitterTimelinePlacement:
-      additionalProperties: false
-      properties:
-        conversationSection:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        displayType:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        moduleDisplayType:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        position:
-          type:
-          - integer
-          - 'null'
-      required:
-      - position
-      - conversationSection
-      - moduleDisplayType
-      - displayType
-      type: object
-    TwitterLabel:
-      additionalProperties: false
-      properties:
-        description:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterRichText'
-          - type: 'null'
-        icon:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterImage'
-          - type: 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - type
-      - text
-      - icon
-      - url
-      - description
-      type: object
-    InstagramProfileContact:
-      additionalProperties: false
-      properties:
-        contactPhone:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        email:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        method:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        phone:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        phoneCountryCode:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - email
-      - phone
-      - phoneCountryCode
-      - contactPhone
-      - method
-      type: object
-    InstagramPosition:
-      additionalProperties: false
-      properties:
-        x:
-          type:
-          - number
-          - 'null'
-        y:
-          type:
-          - number
-          - 'null'
-      required:
-      - x
-      - y
-      type: object
-    RedditFlair:
-      additionalProperties: false
-      properties:
-        backgroundColor:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        cssClass:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        hasPatreonFlair:
+        hasGuides:
           type:
           - boolean
           - 'null'
-        templateId:
-          minLength: 1
+        hasHighlights:
           type:
-          - string
+          - boolean
           - 'null'
-        text:
-          minLength: 1
+        hasLongformMedia:
           type:
-          - string
+          - boolean
           - 'null'
-        textColor:
-          minLength: 1
+        hasMusic:
           type:
-          - string
+          - boolean
           - 'null'
-        type:
-          minLength: 1
+        hasVideos:
           type:
-          - string
+          - boolean
           - 'null'
-      required:
-      - text
-      - type
-      - templateId
-      - cssClass
-      - backgroundColor
-      - textColor
-      - hasPatreonFlair
-      type: object
-    TikTokChartMetadata:
-      additionalProperties: false
-      properties:
-        cover:
-          anyOf:
-          - $ref: '#/components/schemas/TikTokAsset'
-          - type: 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        updatedAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - updatedAt
-      - cover
-      type: object
-    InstagramProfileFundraisers:
-      additionalProperties: false
-      properties:
-        items:
-          items: {}
-          type:
-          - array
-          - 'null'
-        metrics:
-          additionalProperties: false
-          properties:
-            active:
-              type:
-              - integer
-              - 'null'
-          required:
-          - active
-          type: object
-      required:
-      - metrics
-      - items
-      type: object
-    InstagramUserTag:
-      additionalProperties: false
-      properties:
-        position:
-          $ref: '#/components/schemas/InstagramPosition'
-        user:
-          $ref: '#/components/schemas/InstagramProfileReference'
-      required:
-      - user
-      - position
-      type: object
-    TwitterSubscriptions:
-      additionalProperties: false
-      properties:
-        isEligible:
+        hasVisibleNotes:
           type:
           - boolean
           - 'null'
       required:
-      - isEligible
-      type: object
-    InstagramDASH:
-      additionalProperties: false
-      properties:
-        manifest:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        qualityCount:
-          type:
-          - integer
-          - 'null'
-        variants:
-          items:
-            $ref: '#/components/schemas/InstagramStreamVariant'
-          type:
-          - array
-          - 'null'
-      required:
-      - manifest
-      - variants
-      - qualityCount
-      type: object
-    TwitterPromotion:
-      additionalProperties: false
-      properties:
-        advertiser:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterProfileReference'
-          - type: 'null'
-      required:
-      - advertiser
-      type: object
-    InstagramBioLink:
-      additionalProperties: false
-      properties:
-        icon:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        image:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramImage'
-          - type: 'null'
-        isPinned:
-          type:
-          - boolean
-          - 'null'
-        isVerified:
-          type:
-          - boolean
-          - 'null'
-        title:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - title
-      - url
-      - type
-      - isPinned
-      - isVerified
-      - icon
-      - image
+      - hasHighlights
+      - hasLongformMedia
+      - hasVideos
+      - hasMusic
+      - hasGuides
+      - hasVisibleNotes
       type: object
     TwitterPoll:
       additionalProperties: false
@@ -13838,610 +14432,16 @@ components:
       - countsAreFinal
       - duration
       type: object
-    TwitterEntity:
+    RedditCommunityHandle:
       additionalProperties: false
       properties:
-        displayName:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        displayUrl:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
         handle:
           minLength: 1
           type:
           - string
           - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        mediaId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        range:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterRange'
-          - type: 'null'
-        shortUrl:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
       required:
-      - type
-      - range
-      - shortUrl
-      - url
-      - displayUrl
-      - text
       - handle
-      - id
-      - displayName
-      - mediaId
-      type: object
-    TwitterPostMetrics:
-      additionalProperties: false
-      properties:
-        comments:
-          type:
-          - integer
-          - 'null'
-        likes:
-          type:
-          - integer
-          - 'null'
-        quotes:
-          type:
-          - integer
-          - 'null'
-        reposts:
-          type:
-          - integer
-          - 'null'
-        saves:
-          type:
-          - integer
-          - 'null'
-        views:
-          type:
-          - integer
-          - 'null'
-        viewsState:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - likes
-      - comments
-      - reposts
-      - quotes
-      - saves
-      - views
-      - viewsState
-      type: object
-    InstagramCommentMetrics:
-      additionalProperties: false
-      properties:
-        likes:
-          type:
-          - integer
-          - 'null'
-        replies:
-          type:
-          - integer
-          - 'null'
-      required:
-      - likes
-      - replies
-      type: object
-    TwitterProfileReference:
-      additionalProperties: false
-      properties:
-        avatar:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterImage'
-          - type: 'null'
-        banner:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterImage'
-          - type: 'null'
-        bio:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        createdAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        displayName:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        entities:
-          $ref: '#/components/schemas/TwitterProfileEntities'
-        externalUrl:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        handle:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        hasCustomTimelines:
-          type:
-          - boolean
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isLifelineInstitution:
-          type:
-          - boolean
-          - 'null'
-        isPrivate:
-          type:
-          - boolean
-          - 'null'
-        isSuspended:
-          type:
-          - boolean
-          - 'null'
-        isVerified:
-          type:
-          - boolean
-          - 'null'
-        labels:
-          items:
-            $ref: '#/components/schemas/TwitterLabel'
-          type:
-          - array
-          - 'null'
-        location:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterProfileLocation'
-          - type: 'null'
-        metrics:
-          $ref: '#/components/schemas/TwitterProfileMetrics'
-        pinnedPostIds:
-          items:
-            minLength: 1
-            type: string
-          type:
-          - array
-          - 'null'
-        professional:
-          anyOf:
-          - $ref: '#/components/schemas/TwitterProfessional'
-          - type: 'null'
-        subscriptions:
-          $ref: '#/components/schemas/TwitterSubscriptions'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        verification:
-          $ref: '#/components/schemas/TwitterVerification'
-        visibility:
-          $ref: '#/components/schemas/TwitterVisibility'
-        withheld:
-          $ref: '#/components/schemas/TwitterWithheld'
-      required:
-      - id
-      - handle
-      - displayName
-      - bio
-      - url
-      - externalUrl
-      - createdAt
-      - location
-      - avatar
-      - banner
-      - isPrivate
-      - isSuspended
-      - isVerified
-      - hasCustomTimelines
-      - isLifelineInstitution
-      - metrics
-      - verification
-      - pinnedPostIds
-      - entities
-      - withheld
-      - subscriptions
-      - visibility
-      - professional
-      - labels
-      type: object
-    InstagramCommentReference:
-      additionalProperties: false
-      properties:
-        ai:
-          additionalProperties: false
-          properties:
-            type:
-              minLength: 1
-              type:
-              - string
-              - 'null'
-          required:
-          - type
-          type: object
-        author:
-          anyOf:
-          - $ref: '#/components/schemas/InstagramProfileReference'
-          - type: 'null'
-        createdAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isByPostAuthor:
-          type:
-          - boolean
-          - 'null'
-        isCovered:
-          type:
-          - boolean
-          - 'null'
-        isEdited:
-          type:
-          - boolean
-          - 'null'
-        isLikedByPostAuthor:
-          type:
-          - boolean
-          - 'null'
-        isPinned:
-          type:
-          - boolean
-          - 'null'
-        keywords:
-          items: {}
-          type:
-          - array
-          - 'null'
-        likedByCoauthors:
-          items:
-            $ref: '#/components/schemas/InstagramProfileReference'
-          type:
-          - array
-          - 'null'
-        media:
-          items:
-            $ref: '#/components/schemas/InstagramImage'
-          type:
-          - array
-          - 'null'
-        metrics:
-          $ref: '#/components/schemas/InstagramCommentMetrics'
-        parentId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        pinnedPosition:
-          type:
-          - integer
-          - 'null'
-        postId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        previewUsers:
-          items:
-            $ref: '#/components/schemas/InstagramProfileReference'
-          type:
-          - array
-          - 'null'
-        ranking:
-          additionalProperties: false
-          properties:
-            index:
-              type:
-              - integer
-              - 'null'
-            isRanked:
-              type:
-              - boolean
-              - 'null'
-            replyIndex:
-              type:
-              - integer
-              - 'null'
-          required:
-          - index
-          - replyIndex
-          - isRanked
-          type: object
-        replies:
-          items:
-            $ref: '#/components/schemas/InstagramCommentReference'
-          type:
-          - array
-          - 'null'
-        replyToId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        sharingEnabled:
-          type:
-          - boolean
-          - 'null'
-        status:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        text:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        translation:
-          additionalProperties: false
-          properties:
-            text:
-              minLength: 1
-              type:
-              - string
-              - 'null'
-          required:
-          - text
-          type: object
-      required:
-      - id
-      - text
-      - postId
-      - parentId
-      - replyToId
-      - createdAt
-      - author
-      - status
-      - isCovered
-      - isEdited
-      - sharingEnabled
-      - isByPostAuthor
-      - isPinned
-      - pinnedPosition
-      - isLikedByPostAuthor
-      - ai
-      - ranking
-      - keywords
-      - previewUsers
-      - metrics
-      - replies
-      - translation
-      - likedByCoauthors
-      - media
-      type: object
-    RedditMedia:
-      additionalProperties: false
-      properties:
-        bitrateKbps:
-          type:
-          - integer
-          - 'null'
-        caption:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        duration:
-          type:
-          - number
-          - 'null'
-        hasAudio:
-          type:
-          - boolean
-          - 'null'
-        height:
-          type:
-          - integer
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isAnimated:
-          type:
-          - boolean
-          - 'null'
-        mimeType:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        scrubber:
-          anyOf:
-          - $ref: '#/components/schemas/RedditMediaVariant'
-          - type: 'null'
-        transcodingStatus:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        variants:
-          items:
-            $ref: '#/components/schemas/RedditMediaVariant'
-          type:
-          - array
-          - 'null'
-        width:
-          type:
-          - integer
-          - 'null'
-      required:
-      - type
-      - id
-      - width
-      - height
-      - mimeType
-      - caption
-      - url
-      - variants
-      - bitrateKbps
-      - hasAudio
-      - duration
-      - isAnimated
-      - transcodingStatus
-      - scrubber
-      type: object
-    InstagramStoryCollection:
-      additionalProperties: false
-      properties:
-        audience:
-          additionalProperties: false
-          properties:
-            hasCloseFriendsStories:
-              type:
-              - boolean
-              - 'null'
-            hasSubscriberStories:
-              type:
-              - boolean
-              - 'null'
-          required:
-          - hasCloseFriendsStories
-          - hasSubscriberStories
-          type: object
-        expiresAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        isArchived:
-          type:
-          - boolean
-          - 'null'
-        lastStoryAt:
-          format: date-time
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        metrics:
-          additionalProperties: false
-          properties:
-            stories:
-              type:
-              - integer
-              - 'null'
-          required:
-          - stories
-          type: object
-      required:
-      - id
-      - lastStoryAt
-      - expiresAt
-      - isArchived
-      - metrics
-      - audience
-      type: object
-    TwitterCardDestination:
-      additionalProperties: false
-      properties:
-        appGroupId:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        displayUrl:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        id:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        mediaKey:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        type:
-          minLength: 1
-          type:
-          - string
-          - 'null'
-        url:
-          format: uri
-          minLength: 1
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - type
-      - mediaKey
-      - appGroupId
-      - url
-      - displayUrl
       type: object
   securitySchemes:
     OpenhandleKey:
