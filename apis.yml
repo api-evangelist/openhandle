@@ -196,6 +196,8 @@ apis:
   humanURL: https://openhandle.dev/docs
   baseURL: https://api.openhandle.dev
   tags:
+  - TikTok
+  tags_raw:
   - Tiktok
   properties:
   - type: OpenAPI
@@ -226,6 +228,8 @@ apis:
   humanURL: https://openhandle.dev/docs
   baseURL: https://api.openhandle.dev
   tags:
+  - twitter
+  tags_raw:
   - Twitter
   properties:
   - type: OpenAPI
