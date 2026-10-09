@@ -46,3 +46,29 @@ plans:
 note: 'One price per answered request, same for every endpoint and platform. Billable: a successful answer,
   a private profile, a confirmed not-found, and 24h/7d cache hits. Free: 30-day cache hits, provider errors,
   our errors, invalid input, rate limited, over balance/key cap. Volume tier priced by negotiation (hello@openhandle.dev).'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Pay as you go
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Volume
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []

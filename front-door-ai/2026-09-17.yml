@@ -1,0 +1,32 @@
+# Front Door AI Index — openhandle — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: openhandle
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: openhandle.dev
+  final_host: openhandle.dev
+  ownership: own
+  owner: openhandle
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 7
+  band: 4
+  band_label: moderate
+  host_score: 7
+  density: 9.62
+  words: 728
+  tiers:
+    agentic: 6
+    core: 1
+    model: 0
+  ambiguous: 11
+  top_terms:
+    agent: 11
+    MCP: 4
+    AI agent: 1
+    AI: 1
+    prompts: 1
