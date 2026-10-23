@@ -18429,3 +18429,9 @@ x-openhandle-test-data:
   contentHash: sha256:b5b99db8b0b9435d04d230483c54f5accfaa44dfa2cd12962a02e03739edfab0
   datasetVersion: 2026-09-07.2
 x-openhandle-versioning-policy: https://openhandle.dev/docs/versioning
+x-provenance:
+  method: harvested
+  publisher: Openhandle
+  source: https://api.openhandle.dev/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
