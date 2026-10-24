@@ -24,6 +24,12 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/openhandle-integration-edges.yml:
+    method: searched
+    evidence: declared in the artifact
   json-ld/openhandle-context.jsonld:
     method: unknown
     evidence: no authorship recorded
@@ -45,7 +51,7 @@ artifacts:
   json-schema/openhandle-tik-tok-profile-schema.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-21T233935.yml:
@@ -66,6 +72,21 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/openhandle-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -80,9 +101,28 @@ artifacts:
     evidence: declared in the artifact
   openapi/_original/openhandle-openapi.json:
     method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/openhandle-openapi.yml:
+    evidence: the same operations as https://api.openhandle.dev/openapi.json (sha256 e16b94adbe4e, fetched
+      2026-10-04)
+  openapi/_original/openhandle-openapi.yml:
+    method: harvested
+    evidence: the same operations as https://api.openhandle.dev/openapi.json (sha256 e16b94adbe4e, fetched
+      2026-10-04)
+  openapi/openhandle-instagram-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/openhandle-reddit-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/openhandle-test-data-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/openhandle-tiktok-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/openhandle-twitter-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/openhandle-utilities-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   overlays/openhandle-openapi-overlay.yaml:
