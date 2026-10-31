@@ -1,4 +1,4 @@
-# openhandle
+# Openhandle
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -63,3 +63,158 @@
 >
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
+
+Openhandle is a public social data API for Instagram, TikTok, X (Twitter), and Reddit. Public profiles, posts, comments, followers, and search come back in one normalized schema, with a capture time and a source on every answer and nulls where a platform hides a value. Pricing is per answered request with cheaper cached tiers (free at 30 days), caps per account and per key, and a full Test environment on synthetic data at $0.000. The API is read-only over OpenAPI 3.1, three first-party SDKs (TypeScript, Python, Go), and a remote OAuth-protected MCP server. Operated as a Netherlands sole proprietorship (KvK 89247647).
+
+**Areas:** Social Data · Instagram · TikTok · twitter · Reddit · Public Data · social-media-api · MCP · creator-analytics · Social Listening
+
+## Openhandle on APIs.io
+
+Everything profiled for Openhandle is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/openhandle/](https://apis.io/providers/openhandle/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Openhandle Instagram API](https://apis.io/apis/openhandle/openhandle-instagram-api/) — The Instagram API from Openhandle — 43 operation(s) for instagram.
+- [Openhandle Reddit API](https://apis.io/apis/openhandle/openhandle-reddit-api/) — The Reddit API from Openhandle — 20 operation(s) for reddit.
+- [Openhandle Test Data API](https://apis.io/apis/openhandle/openhandle-test-data-api/) — The Test Data API from Openhandle — 2 operation(s) for test data.
+- [Openhandle Tiktok API](https://apis.io/apis/openhandle/openhandle-tiktok-api/) — The Tiktok API from Openhandle — 28 operation(s) for tiktok.
+- [Openhandle Twitter API](https://apis.io/apis/openhandle/openhandle-twitter-api/) — The Twitter API from Openhandle — 15 operation(s) for twitter.
+- [Openhandle Utilities API](https://apis.io/apis/openhandle/openhandle-utilities-api/) — The Utilities API from Openhandle — 1 operation(s) for utilities.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Openhandle](https://apis.io/servers/openhandle/dev-openhandle-social-data/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Openhandle Agentic Access](https://apis.io/agentic-access/openhandle/openhandle-agentic-access/)
+
+#### JSON Schema (6)
+
+The data models the API reads and writes.
+
+- [InstagramPost](https://apis.io/schemas/openhandle/openhandle-instagram-post/)
+- [InstagramProfile](https://apis.io/schemas/openhandle/openhandle-instagram-profile/)
+- [InstagramStory](https://apis.io/schemas/openhandle/openhandle-instagram-story/)
+- [TikTokMusic](https://apis.io/schemas/openhandle/openhandle-tik-tok-music/)
+- [TikTokPost](https://apis.io/schemas/openhandle/openhandle-tik-tok-post/)
+- [TikTokProfile](https://apis.io/schemas/openhandle/openhandle-tik-tok-profile/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Openhandle Context](https://apis.io/jsonld/openhandle/openhandle-context/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Openhandle Openapi Overlay](https://apis.io/overlays/openhandle/openhandle-openapi-overlay/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Openhandle API Rules](https://apis.io/rules/openhandle/openhandle-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Openhandle Authentication](https://apis.io/security/openhandle/openhandle-authentication/)
+- [Openhandle Domain Security](https://apis.io/security/openhandle/openhandle-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Openhandle Scopes](https://apis.io/scopes/openhandle/openhandle-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Openhandle Plans Pricing](https://apis.io/plans/openhandle/openhandle-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Openhandle Rate Limits](https://apis.io/rate-limits/openhandle/openhandle-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://openhandle.dev)
+- [Documentation](https://openhandle.dev/docs)
+- [Pricing](https://openhandle.dev/pricing)
+- [Sign up](https://app.openhandle.dev)
+- [Support](https://openhandle.dev/contact)
+- [Terms of service](https://openhandle.dev/legal/terms-of-service)
+- [Privacy policy](https://openhandle.dev/legal/privacy-policy)
+- [GitHub](https://github.com/openhandlehq)
+
+## API Evangelist rating
+
+**Kin Score 61.7** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 66.0 |
+| Contract governance | 35.6 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 61.3 |
+| Access clarity | 76.3 |
+
+**Agent readiness 54.6** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 34.3** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/openhandle/](https://apis.io/providers/openhandle/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Openhandle: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/openhandle/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
